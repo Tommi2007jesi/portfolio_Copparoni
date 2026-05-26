@@ -4,6 +4,7 @@ import { defaultPortfolioData } from "./data";
 import Sidebar from "./components/Sidebar";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
+import CivicaSection from "./components/CivicaSection";
 import { 
   Terminal, 
   Check, 
@@ -460,38 +461,7 @@ export default function App() {
 
             {/* C. EDUCAZIONE CIVICA VIEW */}
             {activeSection === "civica" && (
-              <div className="space-y-8 animate-fade-in">
-                {/* Educational Banner */}
-                <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
-                  <div className="flex items-center gap-2 text-[#E0D8D0]">
-                    <ShieldCheck className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Educazione Civica & Agenda 2030</span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
-                    Cittadinanza Attiva e Digitale
-                  </h2>
-                  <p className="text-[#BDB5AD] leading-relaxed text-xs md:text-sm font-light">
-                    Sviluppo morale, costituzionale dell'individuo e sensibilizzazione ambientale. La tecnologia deve affiancare una rigorosa condotta etica tesa alla sostenibilità e al rispetto comunitario.
-                  </p>
-                </div>
-
-                {/* Projects associated with Civica */}
-                <div className="space-y-4">
-                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans px-1">
-                    Elaborati Educazione Civica
-                  </h3>
-                  {civicaProjects.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {civicaProjects.map(proj => renderEduProjectCard(proj))}
-                    </div>
-                  ) : (
-                    <div className="text-center p-8 bg-[#121212] border border-[#E0D8D0]/10 rounded-xl text-xs text-[#E0D8D0]/40 font-light italic">
-                      Nessun archivio scolastico registrato in questa materia.
-                    </div>
-                  )}
-                </div>
-              </div>
+              <CivicaSection />
             )}
 
             {/* D. AREA UMANISTICA VIEW */}
