@@ -14,7 +14,7 @@ export const defaultPortfolioData: PortfolioData = {
   skills: [
     {
       category: "Hard Skills",
-      items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Python", "Gemini API", "PostgreSQL", "Git"]
+      items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Python", "PostgreSQL", "Git"]
     },
     {
       category: "Soft Skills",
@@ -42,8 +42,8 @@ export const defaultPortfolioData: PortfolioData = {
       id: "p-ai",
       title: "Intelligenza Artificiale",
       desc: "Integrazione di modelli generativi di linguaggio naturale (LLM), elaborazione semantica e automazione intelligente dei contenuti.",
-      longDesc: "Sviluppo avanzato ed integrazione di soluzioni basate su agenti decisionali autonomi e pipeline di Retrieval-Augmented Generation (RAG). Sfruttamento dell'SDK Google GenAI server-side e uso di database vettoriali per ottimizzare le risposte contestuali. Tecniche di Prompt Engineering, function calling ed elaborazione strutturata dei dati.",
-      tech: ["Gemini API", "Python", "RAG", "Prompt Engineering", "Vector DB", "Node.js"],
+      longDesc: "Sviluppo avanzato ed integrazione di soluzioni basate su agenti decisionali autonomi e pipeline di Retrieval-Augmented Generation (RAG). Utilizzo di modelli LLM open-source e database vettoriali per ottimizzare le risposte contestuali. Tecniche di Prompt Engineering, function calling ed elaborazione strutturata dei dati.",
+      tech: ["Python", "RAG", "Prompt Engineering", "Vector DB", "Node.js", "LLM"],
       category: "Area Professionale"
     },
     {
