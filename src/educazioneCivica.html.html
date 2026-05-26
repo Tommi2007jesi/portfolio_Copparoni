@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>UDA – Libertà di espressione e sicurezza</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #0b1120;
+            color: #e2e8f0;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .subject-btn {
+            transition: 0.25s;
+        }
+
+        .subject-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            color: #0f172a !important;
+        }
+
+        .subject-btn.active {
+            background: linear-gradient(135deg, #22c55e, #0ea5e9);
+            color: #0f172a !important;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 90px;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 6px 0;
+            color: #38bdf8;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: #22c55e;
+            padding-left: 6px;
+        }
+
+        .accordion-button {
+            background: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            color: #0f172a;
+        }
+
+        .topic-img {
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 350px !important;
+            height: 250px !important;
+            object-fit: cover !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark navbar-expand-lg mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold">
+            <i class="bi bi-shield-lock-fill text-info me-1"></i>
+            Copparoni Tommaso – Classe 5BM 
+        </a>
+
+        <div class="ms-auto">
+            <button class="btn btn-outline-info subject-btn active" data-target="storia">Storia</button>
+            <button class="btn btn-outline-info subject-btn" data-target="italiano">Italiano</button>
+            <button class="btn btn-outline-info subject-btn" data-target="gpoi">GPOI</button>
+            <button class="btn btn-outline-info subject-btn" data-target="sistemi">Sistemi e Reti</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- SIDEBAR -->
+        <div class="col-md-3">
+            <div class="sidebar" id="sidebar-menu">
+                <!-- Riempito dinamicamente via JS -->
+            </div>
+        </div>
+
+        <!-- CONTENUTO -->
+        <div class="col-md-9">
+
+            <!-- ===========================
+                 PAGINA STORIA
+            ============================ -->
+            <section id="storia" class="subject-page">
+
+                <h2 class="mb-3"><i class="bi bi-book-half text-info me-2"></i>Storia</h2>
+
+                <div class="accordion" id="acc-storia">
+
+                    <!-- 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#s1">
+                                Propaganda e controllo dell'informazione nel Novecento
+                            </button>
+                        </h2>
+                        <div id="s1" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Nel Novecento i regimi totalitari usarono la propaganda come strumento
+                                    per orientare l’opinione pubblica. Radio, giornali e cinegiornali erano
+                                    controllati dallo Stato. L’obiettivo era creare consenso e impedire
+                                    visioni alternative.
+                                </p>
+                                <p>
+                                    Curiosità: molti slogan politici dell’epoca erano studiati da psicologi
+                                    e grafici per essere ricordati facilmente, proprio come oggi fanno i brand
+                                    sui social.
+                                </p>
+                                <img src="https://www2.comune.milano.it/documents/462956031/475100368/kuliscioff_1200x1200.jpg/e31d1c98-b449-7497-410c-576a983cd42a?t=1740476341462"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#s2">
+                                Censura e libertà di stampa
+                            </button>
+                        </h2>
+                        <div id="s2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    La censura impediva la pubblicazione di contenuti scomodi per il regime.
+                                    La libertà di stampa, invece, è un pilastro delle democrazie moderne:
+                                    senza informazione libera non esiste opinione pubblica consapevole.
+                                </p>
+                                <p>
+                                    Oggi la censura può assumere forme digitali: oscuramento di siti,
+                                    limitazioni sui social, pressioni economiche sui media.
+                                </p>
+                                <img src="https://www.veglienews.com/wp-content/uploads/2022/07/stampa_1924_0.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#s3">
+                                Dai dati cartacei al cloud
+                            </button>
+                        </h2>
+                        <div id="s3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Per secoli le informazioni sono state conservate su carta. Con l’avvento
+                                    dell’informatica si è passati ai database digitali, fino al cloud, dove
+                                    i dati sono distribuiti globalmente.
+                                </p>
+                                <p>
+                                    Curiosità: uno smartphone moderno ha più potenza di calcolo dei computer
+                                    usati per le missioni Apollo.
+                                </p>
+                                <img src="https://www.softstore.it/wp-content/uploads/2015/02/Faldoni-su-PC1.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===========================
+                 PAGINA ITALIANO
+            ============================ -->
+            <section id="italiano" class="subject-page d-none">
+
+                <h2 class="mb-3"><i class="bi bi-chat-left-text text-info me-2"></i>Italiano</h2>
+
+                <div class="accordion" id="acc-ita">
+
+                    <!-- 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i1">
+                                Lessico e registri della comunicazione in rete
+                            </button>
+                        </h2>
+                        <div id="i1" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Online convivono italiano, inglese, emoji, abbreviazioni e meme.
+                                    Saper scegliere il registro giusto è fondamentale: un messaggio
+                                    informale non va bene in un contesto professionale.
+                                </p>
+                                <p>
+                                    Curiosità: molte parole nate online entrano nei dizionari ufficiali.
+                                </p>
+                                <img src="https://www.maestraelena.com/wp-content/uploads/2021/10/8e0c8b17-3ddc-42b6-a3c8-cbaa988769b3.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i2">
+                                Analisi di testi giornalistici sulla sicurezza
+                            </button>
+                        </h2>
+                        <div id="i2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    I testi giornalistici sulla sicurezza spesso usano titoli allarmistici
+                                    per attirare l’attenzione. Analizzarli significa verificare fonti,
+                                    dati e distinzione tra fatti e opinioni.
+                                </p>
+                                <img src="https://dnewpydm90vfx.cloudfront.net/wp-content/uploads/2018/06/Matrice-analisi-rischi_shutterstock_532416841-489x360.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#i3">
+                                Scrittura argomentativa e netiquette
+                            </button>
+                        </h2>
+                        <div id="i3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    La scrittura argomentativa online richiede chiarezza e rispetto.
+                                    La netiquette stabilisce regole per evitare hate speech e conflitti.
+                                </p>
+                                <img src="https://www.massimocappanera.it/wp-content/uploads/2017/08/netiquette-cappanera.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===========================
+                 PAGINA GPOI
+            ============================ -->
+            <section id="gpoi" class="subject-page d-none">
+
+                <h2 class="mb-3"><i class="bi bi-building-gear text-info me-2"></i>GPOI</h2>
+
+                <div class="accordion" id="acc-gpoi">
+
+                    <!-- 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#g1">
+                                Sicurezza e privacy come requisiti organizzativi
+                            </button>
+                        </h2>
+                        <div id="g1" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Ogni organizzazione deve proteggere dati, sistemi e persone.
+                                    La sicurezza non è solo tecnologia: è formazione, policy e
+                                    responsabilità condivisa.
+                                </p>
+                                <img src="https://protezionedatipersonali.it/images/secure-document.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#g2">
+                                Gestione del rischio e data breach
+                            </button>
+                        </h2>
+                        <div id="g2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Un data breach può causare danni economici, legali e reputazionali.
+                                    La gestione del rischio serve a prevenire incidenti e ridurre impatti.
+                                </p>
+                                <img src="https://www.coretech.it/_public/img/kb/GDRP_Finanza_9.png"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#g3">
+                                GDPR e protezione dei dati
+                            </button>
+                        </h2>
+                        <div id="g3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Il GDPR stabilisce come devono essere trattati i dati personali.
+                                    Introduce diritti come accesso, rettifica e in alcuni casi oblio.
+                                </p>
+                                <img src="https://www.bluefoxstudio.it/media/k2/items/cache/1698b847c2e4fe98c05adcdc9d420590_XL.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===========================
+                 PAGINA SISTEMI E RETI
+            ============================ -->
+            <section id="sistemi" class="subject-page d-none">
+
+                <h2 class="mb-3"><i class="bi bi-diagram-3 text-info me-2"></i>Sistemi e Reti</h2>
+
+                <div class="accordion" id="acc-sistemi">
+
+                    <!-- 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sr1">
+                                Triade CIA
+                            </button>
+                        </h2>
+                        <div id="sr1" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    La triade CIA: Confidentiality, Integrity, Availability.
+                                    Ogni sistema sicuro deve garantire questi tre principi.
+                                </p>
+                                <img src="https://negg.blog/wp-content/uploads/2024/09/Triade-cia.png"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sr2">
+                                Autenticazione, crittografia, firewall
+                            </button>
+                        </h2>
+                        <div id="sr2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Autenticazione = verificare identità.  
+                                    Crittografia = proteggere dati.  
+                                    Firewall = filtrare traffico.  
+                                    Proxy = intermediari sicuri.
+                                </p>
+                                <img src="https://learn.microsoft.com/it-it/security-updates/images/Cc700828.SGFG15601(it-it,TechNet.10).gif"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sr3">
+                                Phishing, malware e contromisure
+                            </button>
+                        </h2>
+                        <div id="sr3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    Il phishing inganna l’utente per rubare dati.  
+                                    I malware possono cifrare, rubare o distruggere file.  
+                                    Le contromisure includono MFA, antivirus, backup e attenzione ai link.
+                                </p>
+                                <img src="https://cdn-caklk.nitrocdn.com/sJCpruYkVvovUsWvtAEzkQwTuXjDDQLL/assets/images/optimized/rev-49004e6/powerdmarc.com/wp-content/uploads/2022/07/Ransomware-Vs-Malware-Vs-Phishing.jpg"
+                                     class="img-fluid topic-img mt-2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const buttons = document.querySelectorAll('.subject-btn');
+    const pages = document.querySelectorAll('.subject-page');
+    const sidebar = document.getElementById('sidebar-menu');
+
+    const indexMap = {
+        storia: [
+            "Propaganda e controllo",
+            "Censura e libertà di stampa",
+            "Dal cartaceo al cloud"
+        ],
+        italiano: [
+            "Lessico e registri",
+            "Testi giornalistici",
+            "Scrittura e netiquette"
+        ],
+        gpoi: [
+            "Sicurezza organizzativa",
+            "Data breach",
+            "GDPR"
+        ],
+        sistemi: [
+            "Triade CIA",
+            "Autenticazione e firewall",
+            "Phishing e malware"
+        ]
+    };
+
+    function updateSidebar(subject) {
+        sidebar.innerHTML = "<h5 class='text-info mb-3'>Indice</h5>";
+        indexMap[subject].forEach((item, i) => {
+            sidebar.innerHTML += `<a href="#${subject}">${i+1}. ${item}</a>`;
+        });
+    }
+
+    // Sidebar iniziale
+    updateSidebar("storia");
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target;
+
+            // aggiorna pulsanti
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // mostra solo la pagina selezionata
+            pages.forEach(page => {
+                if (page.id === target) {
+                    page.classList.remove('d-none');
+                } else {
+                    page.classList.add('d-none');
+                }
+            });
+
+            // aggiorna sidebar
+            updateSidebar(target);
+
+            // scroll morbido
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

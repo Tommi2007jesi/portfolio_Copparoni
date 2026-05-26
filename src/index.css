@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+}
+
+/* Base styling in Sophisticated Dark Theme */
+body {
+  font-family: var(--font-sans);
+  background-color: #050505;
+  color: #E0D8D0;
+  overflow-x: hidden;
+}
+
+/* Subtle glowing light-leak grid backgrounds */
+.bg-grid-minimal {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(224, 216, 208, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(224, 216, 208, 0.012) 1px, transparent 1px);
+}
+
+/* Scrollbar behaviors for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 5, 5, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(224, 216, 208, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 216, 208, 0.28);
+}
+
+/* Markdown parsing in dark proposal boxes */
+.proposal-markdown p {
+  margin-bottom: 0.95rem;
+  line-height: 1.7;
+  color: #BDB5AD;
+}
+
+.proposal-markdown h1,
+.proposal-markdown h2,
+.proposal-markdown h3 {
+  font-weight: 400;
+  color: #E0D8D0;
+  margin-top: 1.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.proposal-markdown h1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.85rem;
+  letter-spacing: -0.015em;
+}
+
+.proposal-markdown h2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  border-bottom: 1px solid rgba(224, 216, 208, 0.12);
+  padding-bottom: 0.35rem;
+}
+
+.proposal-markdown h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.proposal-markdown ul,
+.proposal-markdown ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  list-style-type: disc;
+  color: #BDB5AD;
+}
+
+.proposal-markdown li {
+  margin-bottom: 0.45rem;
+}
+
+.proposal-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.825rem;
+}
+
+.proposal-markdown th {
+  background-color: rgba(224, 216, 208, 0.04);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #E0D8D0;
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1.5px solid rgba(224, 216, 208, 0.15);
+}
+
+.proposal-markdown td {
+  padding: 0.65rem 0.85rem;
+  color: #BDB5AD;
+  border-bottom: 1px solid rgba(224, 216, 208, 0.05);
+}
+
+.proposal-markdown blockquote {
+  border-left: 2px solid #E0D8D0;
+  padding-left: 1.15rem;
+  color: #A39B92;
+  font-style: italic;
+  margin: 1.25rem 0;
+}
