@@ -2,23 +2,42 @@ import { PortfolioData } from "./types";
 
 export const defaultPortfolioData: PortfolioData = {
   name: "Tommaso Copparoni",
-  role: "Full-Stack Developer & AI Specialist",
-  tagline: "Progetto e sviluppo applicazioni web ultra-performanti con integrazioni di Intelligenza Artificiale avanzata.",
-  bio: "Sono un ingegnere del software con oltre 5 anni di esperienza nella creazione di interfacce dinamiche e architetture scalabili. Combino solide basi di programmazione full-stack (React, Node.js, Python, PostgreSQL) con la creazione di funzionalità guidate dall'AI generativa per offrire esperienze utente d'avanguardia.",
+  role: "Studente Informatica - IIS Marconi Pieralisi",
+  tagline: "Studente di Informatica | Appassionato di Tecnologia e Basket",
+  bio: "Sono uno studente del quinto anno dell'indirizzo informatica. I primi due anni ho frequentato il Liceo da Vinci indirizzo sportivo, per poi trasferirmi qui al Marconi Pieralisi. Vivo a Jesi e sono da poco maggiorenne. Nel tempo libero gioco a basket qui a Jesi, faccio anche l'arbitro e mi piace uscire con i miei amici.",
   location: "Jesi, Italia",
   email: "st11349@iismarconipieralisi.it",
   github: "https://github.com/example-username",
   linkedin: "https://linkedin.com/in/example-username",
-  availability: "Immediata per contratti Freelance & Full-time",
-  rates: "€50 - €70 / ora",
+  availability: "Disponibile per stage e progetti scolastici",
+  rates: "Studente",
   skills: [
     {
-      category: "Hard Skills",
-      items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Python", "PostgreSQL", "Git"]
+      category: "Competenze Tecniche",
+      items: ["Creazione DB", "Problem Solving", "Team Working", "Gestione del Tempo", "Progettazione Reti LAN", "Linguaggi Client-Server"]
+    }
+  ],
+  activities: [
+    {
+      id: "act1",
+      title: "Giocatore",
+      organization: "Basket Jesi Academy",
+      location: "Jesi",
+      icon: "🏀"
     },
     {
-      category: "Soft Skills",
-      items: ["Problem Solving", "Team Working", "Comunicazione Efficace", "Adattabilità", "Gestione del Tempo", "Pensiero Critico", "Apprendimento Continuo"]
+      id: "act2",
+      title: "Animatore",
+      organization: "Centro Estivo San Francesco",
+      location: "Jesi",
+      icon: "🎯"
+    },
+    {
+      id: "act3",
+      title: "Arbitro di Basket",
+      organization: "CIA Marche",
+      location: "Marche",
+      icon: "🏆"
     }
   ],
   projects: [

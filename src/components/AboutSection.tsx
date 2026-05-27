@@ -1,5 +1,5 @@
 import { PortfolioData } from "../types";
-import { Sparkles, Calendar } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface AboutSectionProps {
   data: PortfolioData;
@@ -28,31 +28,69 @@ export default function AboutSection({ data }: AboutSectionProps) {
         </p>
       </div>
 
-      {/* 2. CHIP SKILLS SECTION */}
-      <div className="space-y-4">
-        <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-display flex items-center gap-2 px-1">
-          <span>Le Mie Competenze hard & soft</span>
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {data.skills.map((cat, idx) => (
-            <div key={idx} className="bg-[#121212] border border-[#E0D8D0]/10 rounded-xl p-5 hover:border-[#E0D8D0]/20 transition-all duration-300">
-              <h4 className="text-[10px] font-semibold text-[#E0D8D0]/50 uppercase tracking-[0.15em] mb-3 leading-none border-b border-[#E0D8D0]/10 pb-2">
-                {cat.category}
-              </h4>
-              <div className="flex flex-wrap gap-1.5">
-                {cat.items.map((item, idy) => (
-                  <span
-                    key={idy}
-                    className="text-xs font-light text-[#E0D8D0]/80 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 hover:text-[#E0D8D0] px-2.5 py-1 rounded-md transition-colors border border-[#E0D8D0]/10"
+      {/* 2. TWO-COLUMN LAYOUT: SKILLS TABLE (LEFT) + ACTIVITIES (RIGHT) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        {/* LEFT: SKILLS TABLE */}
+        <div className="space-y-4">
+          <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-display px-1">
+            Le Mie Competenze
+          </h3>
+          
+          <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-xl overflow-hidden hover:border-[#E0D8D0]/20 transition-all duration-300">
+            <table className="w-full text-xs">
+              <tbody>
+                {data.skills && data.skills[0] && data.skills[0].items.map((item, idx) => (
+                  <tr 
+                    key={idx}
+                    className={`border-b border-[#E0D8D0]/5 last:border-b-0 ${
+                      idx % 2 === 0 ? "bg-[#050505]/40" : "bg-transparent"
+                    }`}
                   >
-                    {item}
-                  </span>
+                    <td className="px-4 py-3 text-[#E0D8D0] font-medium">
+                      {idx + 1}.
+                    </td>
+                    <td className="px-4 py-3 text-[#BDB5AD] font-light">
+                      {item}
+                    </td>
+                  </tr>
                 ))}
-              </div>
-            </div>
-          ))}
+              </tbody>
+            </table>
+          </div>
         </div>
+
+        {/* RIGHT: ACTIVITIES */}
+        <div className="space-y-4">
+          <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-display px-1">
+            Attività Extra-Curriculari
+          </h3>
+
+          <div className="space-y-3">
+            {data.activities && data.activities.map((activity) => (
+              <div 
+                key={activity.id}
+                className="bg-[#121212] border border-[#E0D8D0]/10 rounded-xl p-4 hover:border-[#E0D8D0]/20 transition-all duration-300 flex items-start gap-3"
+              >
+                <div className="text-2xl shrink-0">
+                  {activity.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-semibold text-[#E0D8D0] truncate">
+                    {activity.title}
+                  </h4>
+                  <p className="text-xs text-[#BDB5AD] font-light truncate">
+                    {activity.organization}
+                  </p>
+                  <p className="text-[9px] text-[#E0D8D0]/50 font-mono uppercase tracking-wide">
+                    {activity.location}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
 
     </section>

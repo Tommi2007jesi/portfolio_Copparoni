@@ -22,6 +22,14 @@ export interface Experience {
   desc: string;
 }
 
+export interface Activity {
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  icon: string;
+}
+
 export interface PortfolioData {
   name: string;
   role: string;
@@ -34,6 +42,7 @@ export interface PortfolioData {
   skills: SkillCategory[];
   projects: Project[];
   experiences: Experience[];
+  activities?: Activity[];
   rates?: string;
   availability?: string;
 }
