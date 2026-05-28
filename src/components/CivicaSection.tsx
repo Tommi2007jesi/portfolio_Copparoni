@@ -112,7 +112,7 @@ const CIVICA_DATA: CivicaSubject[] = [
         id: "sr3",
         title: "Phishing, malware e contromisure",
         content: "Il fattore umano è spesso l'anello debole della catena. Il phishing utilizza l'inganno (mail false, siti clone) per spingere l'utente a rivelare dati sensibili. I malware (virus, worm, trojan, ransomware) sono software malevoli progettati per danneggiare, spiare o ricattare l'utente cifrando i suoi file e chiedendo un riscatto.\n\nStrategie di Difesa: La prima difesa è l'educazione: non cliccare su link sospetti e verificare sempre il mittente. Tecnicamente, è indispensabile avere sistemi operativi aggiornati, antivirus attivi e, soprattutto, una strategia di backup offline (non collegato alla rete) per poter ripristinare i dati in caso di attacco ransomware.\n\nCuriosità: Il primo virus informatico della storia, 'Creeper' (1971), non faceva danni: si limitava a visualizzare il messaggio 'I'm the creeper, catch me if you can!' sui terminali collegati ad ARPANET. Oggi, i malware sono un business miliardario gestito da vere e proprie organizzazioni criminali.",
-        image: "https://cdn-caklk.nitrocdn.com/sJCpruYkVvovUsWvtAEzkQwTuXjDDQLL/assets/images/optimized/rev-49004e6/powerdmarc.com/wp-content/uploads/2022/07/Ransomware-Vs-Malware-Vs-Phishing.jpg"
+        image: "/img/malware.png"
       }
     ]
   }

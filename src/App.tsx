@@ -1,455 +1,287 @@
-import { useState, useEffect, FormEvent } from "react";
-import { PortfolioData, Project } from "./types";
-import { defaultPortfolioData } from "./data";
+import React, { useState } from "react";
+import { Menu, X, ExternalLink, Code, Terminal, Send, Mail, Copy, Check, Github, Linkedin, Instagram, Languages, Briefcase, BrainCircuit } from "lucide-react";
 import Sidebar from "./components/Sidebar";
 import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
 import CivicaSection from "./components/CivicaSection";
-import { 
-  Terminal, 
-  Check, 
-  GraduationCap, 
-  Languages, 
-  ShieldCheck, 
-  BookOpen, 
-  Send, 
-  FolderOpen, 
-  ExternalLink,
-  Code,
-  History,
-  Globe,
-  Mail,
-  Instagram,
-  Github,
-  Linkedin,
-  Copy,
-  Sparkles,
-  ArrowUpRight,
-  MessageSquare,
-  Clock,
-  MapPin,
-  RefreshCw,
-  Cpu,
-  Database,
-  Network,
-  Briefcase,
-  BrainCircuit
-} from "lucide-react";
+import ProjectsSection from "./components/ProjectsSection";
+import { defaultPortfolioData } from "./data";
 
-const CONTACT_TEMPLATES = [
-  {
-    id: "progetto",
-    label: "Sviluppo Progetti & Tech 💻",
-    description: "Perfetto per proporre collaborazioni software, tesine integrate o esami pratici.",
-    subject: "Richiesta collaborazione su sviluppo Progetto Informatico",
-    body: "Gentile studente,\n\nho visto il tuo portfolio e i tuoi progetti nell'area professionale. Sarei particolarmente interessato a collaborare a un progetto integrato riguardante lo sviluppo web, le telecomunicazioni o l'uso applicato di modelli AI.\n\nResto in attesa di un tuo cordiale riscontro per valutare tempistiche e dettagli costruttivi.\n\nCordialmente,"
-  },
-  {
-    id: "pcto",
-    label: "Opportunità PCTO / Stage 🏢",
-    description: "Ottimale per aziende, selezionatori o docenti interessati ad inviti aziendali.",
-    subject: "Proposta colloquio conoscitivo per Alternanza Scuola-Lavoro PCTO / Stage",
-    body: "Gentile studente,\n\nabbiamo visionato il tuo percorso formativo multidisciplinare e le competenze caricate sul tuo portfolio. Saremmo interessati a concordare un colloquio conoscitivo in vista di opportunità di stage aziendali, progetti PCTO o tirocini formativi coordinati con l'istituto.\n\nCordiali saluti,"
-  },
-  {
-    id: "didattico",
-    label: "Confronto Didattico / Esame 📚",
-    description: "Dedicato a colleghi studenti o professori per percorsi interdisciplinari d'esame.",
-    subject: "Collaborazione scolastica e coordinamento tesine d'esame",
-    body: "Ciao!\n\nHo esplorato la tua sezione di Area Umanistica (storia/letteratura/inglese). Mi piacerebbe confrontare i programmi od organizzare un approfondimento condiviso per mappare al meglio i collegamenti d'esame interdisciplinari con l'informatica.\n\nUn caloroso saluto,"
-  }
-];
-
-const HUMANITIES_SECTIONS = {
-  italiano: {
-    title: "Letteratura e Interpretazione Critica (Italiano)",
-    icon: "BookOpen",
-    desc: "Un'analisi enciclopedica dei giganti del Novecento. Esploriamo la frammentazione dell'io in Pirandello, la rivoluzione della parola pura in Ungaretti e l'estetismo superomistico di D'Annunzio.",
-    items: [
-      {
-        name: "Gabriele D'Annunzio",
-        period: "1863 – 1938",
-        work: "L'Esteta e il Vate",
-        desc: "Gabriele D'Annunzio rappresenta la figura più eccentrica e influente del Decadentismo italiano. La sua filosofia di vita, il 'Vivere Inimitabile', lo portò a trasformare ogni sua azione in un evento mediatico. La sua poetica si fonda sull'estetismo (l'arte sopra ogni cosa) e sul Panismo, una concezione quasi mistica in cui l'uomo si fonde con gli elementi naturali, perdendo la propria individualità per diventare parte del cosmo.\n\nCuriosità Storica: D'Annunzio fu un genio della comunicazione e del branding ante litteram. Inventò nomi diventati iconici come 'La Rinascente' e 'tramezzino'.",
-        quote: "« Taci. Su le soglie del bosco non odo parole che dici umane; ma odo parole più nuove che parlano gocciole e foglie lontane. »",
-        source: "La pioggia nel pineto",
-        image: "/img/dannunzio.jpg"
-      },
-      {
-        name: "Giuseppe Ungaretti",
-        period: "1888 – 1970",
-        work: "L'Allegria dei Naufragi",
-        desc: "Giuseppe Ungaretti rivoluziona la poesia italiana del Novecento attraverso l'esperienza traumatica della Prima Guerra Mondiale. Soldato nelle trincee del Carso, Ungaretti scopre la fragilità estrema dell'uomo e la necessità di una parola 'nuda', essenziale, capace di illuminare l'oscurità del dolore.\n\nCuriosità: Molte delle sue liriche più famose furono scritte su pezzi di carta di fortuna: margini di vecchi giornali, cartoline militari, pacchetti di sigarette.",
-        quote: "« Si sta come d'autunno sugli alberi le foglie. »",
-        source: "Soldati",
-        image: "/img/ungaretti.jpg"
-      },
-      {
-        name: "Luigi Pirandello",
-        period: "1867 – 1936",
-        work: "La Crisi dell'Io",
-        desc: "Premio Nobel nel 1934, Pirandello è il narratore della scomposizione dell'uomo moderno. La sua intuizione centrale è che l'individuo non sia 'uno', ma una moltitudine di frammenti in perenne mutamento. Ogni persona indossa delle 'maschere' imposte dalla società, finendo per diventare 'nessuno' o 'centomila'.\n\nCuriosità: Il pensiero pirandelliano è incredibilmente profetico rispetto all'era dei Social Network, dove la nostra identità digitale è una costruzione continua di maschere.",
-        quote: "« Imparerai a tue spese che nel lungo tragitto della vita incontrerai tante maschere e pochi volti. »",
-        source: "Uno, nessuno e centomila",
-        image: "/img/pirandello.jpg"
-      }
-    ]
-  },
-  storia: {
-    title: "Eredità Storica e Sistemi Democratici (Storia)",
-    icon: "History",
-    desc: "Un'analisi profonda dei conflitti e delle trasformazioni politiche che hanno ridefinito il mondo contemporaneo.",
-    items: [
-      {
-        name: "La Grande Guerra (1914-1918)",
-        period: "L'Inizio del Secolo Breve",
-        work: "La Guerra Totale",
-        desc: "La Prima Guerra Mondiale fu la prima guerra totale, dove l'intera società fu mobilitata. Si passò dalla guerra di movimento alla logorante guerra di trincea. Fu anche il primo grande laboratorio tecnologico: apparvero i gas tossici, i carri armati e gli aerei.\n\nCuriosità: La Grande Guerra accelerò in modo incredibile lo sviluppo della Radio e della crittografia, ponendo le basi per la moderna guerra elettronica.",
-        quote: "« La guerra è una follia da cui l'umanità deve guarire. »",
-        source: "Analisi storica",
-        image: "/img/primaguerra.png"
-      },
-      {
-        name: "Totalitarismi e Shoah",
-        period: "1922 – 1945",
-        work: "L'Età dei Dittatori",
-        desc: "Il dopoguerra vide l'ascesa di regimi che cercarono il controllo totale. Il culmine fu la Seconda Guerra Mondiale, segnata dall'orrore della Shoah e dall'uso della bomba atomica.\n\nCuriosità: La necessità di decifrare i codici nazisti portò Alan Turing a costruire 'Enigma', l'antenato del computer moderno.",
-        quote: "« Coloro che non ricordano il passato sono condannati a ripeterlo. »",
-        source: "George Santayana",
-        image: "/img/secguerra.png"
-      },
-      {
-        name: "La Costituzione Italiana",
-        period: "1946 – 1948",
-        work: "La Nascita della Democrazia",
-        desc: "Il 2 giugno 1946 gli italiani scelsero la Repubblica. L'Assemblea Costituente redasse la Carta Costituzionale, fondata sul lavoro e sulla libertà individuale.\n\nCuriosità: L'Articolo 11 ripudia la guerra, ponendo l'Italia come nazione votata alla pace.",
-        quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. »",
-        source: "Articolo 1, Costituzione",
-        image: "/img/costituzione.png"
-      }
-    ]
-  },
-  inglese: {
-    title: "Language, Society and Science (Inglese)",
-    icon: "Globe",
-    desc: "English as a vehicle for social critique and technological progress.",
-    items: [
-      {
-        name: "George Orwell",
-        period: "1903 – 1950",
-        work: "Dystopia and Truth",
-        desc: "In '1984', Orwell introduced 'Big Brother', a symbol of surveillance. His work critique totalitarianism and the manipulation of language ('Newspeak').\n\nModern Relevance: We live in an age of 'Big Data' and 'Fake News', making Orwell's vision more relevant than ever.",
-        quote: "« Big Brother is Watching You. »",
-        source: "Nineteen Eighty-Four",
-        image: "/img/george.png"
-      },
-      {
-        name: "The Industrial Revolution",
-        period: "18th – 19th Century",
-        work: "Hard Times",
-        desc: "The transition from rural life to factories. Dickens portrayed the grim reality of factory life and attacked Utilitarianism.\n\nTechnological Link: The spirit of innovation that created the steam engine also led to the birth of computing with Babbage and Lovelace.",
-        quote: "« Now, what I want is, Facts. »",
-        source: "Charles Dickens, Hard Times",
-        image: "/img/revolution.png"
-      },
-      {
-        name: "Technical English & ICT",
-        period: "Modern Era",
-        work: "The Global Code",
-        desc: "English is the 'lingua franca' of ICT. Every major programming language and international protocol is based on English.\n\nFact: Web terminology like 'browser', 'cloud', and 'kernel' are English terms used globally without translation.",
-        quote: "« The single biggest problem in communication is the illusion that it has taken place. »",
-        source: "George Bernard Shaw",
-        image: "/img/ict.png"
-      }
-    ]
-  }
-};
-
-const PROFESSIONAL_SECTIONS = {
-  informatica: {
-    title: "Informatica",
-    icon: "Code",
-    desc: "Progettazione e sviluppo software ad oggetti, modellazione di basi di dati relazionali/NoSQL e creazione di interfacce web dinamiche e robuste.",
-    items: [
-      {
-        name: "Sviluppo Web con PHP",
-        topic: "Server-Side Programming",
-        desc: "PHP è il motore di oltre il 75% dei siti web mondiali. Lo studio si concentra sulla gestione delle sessioni, l'interazione con i database e la creazione di pagine dinamiche. È un linguaggio fondamentale per capire come funziona il web 'sotto il cofano', permettendo di gestire la logica di business e la sicurezza delle applicazioni.\n\nCuriosità: Nonostante l'ascesa di nuovi linguaggi, PHP continua a dominare grazie a piattaforme come WordPress e framework moderni come Laravel.",
-        image: "/img/php.png"
-      },
-      {
-        name: "Progettazione e Sviluppo DB",
-        topic: "Data Architecture",
-        desc: "I database sono il cuore di ogni sistema informativo. Lo studio copre la modellazione E-R (Entità-Relazione), la normalizzazione dei dati per evitare ridondanze e l'uso del linguaggio SQL per interrogazioni complesse. Progettare un DB efficiente significa garantire l'integrità e la velocità di accesso alle informazioni.\n\nCuriosità: Sapevi che un database non ottimizzato può rallentare un'applicazione di oltre il 90%? La corretta indicizzazione è un'arte.",
-        image: "/img/database.png"
-      },
-      {
-        name: "Frontend: HTML5 & JavaScript",
-        topic: "User Interface & Logic",
-        desc: "HTML5 fornisce la struttura, mentre JavaScript porta l'interattività. Lo studio di JS moderno (ES6+) permette di manipolare il DOM, gestire chiamate asincrone (API) e creare interfacce utente reattive e coinvolgenti. È il linguaggio che ha trasformato il web da documenti statici ad applicazioni software complete.\n\nCuriosità: JavaScript è stato creato in soli 10 giorni nel 1995, ma oggi è il linguaggio più usato al mondo.",
-        image: "/img/javascript.png"
-      }
-    ]
-  },
-  gpoi: {
-    title: "GPOI",
-    icon: "Briefcase",
-    desc: "Gestione progetti professionali, pianificazione dei requisiti, analisi costi-benefici e applicazione delle metodologie di sviluppo Agile.",
-    items: [
-      {
-        name: "La Busta Paga",
-        topic: "HR & Finance",
-        desc: "Comprendere la busta paga significa saper leggere le voci che compongono la retribuzione: dal lordo al netto, passando per contributi previdenziali (INPS) e ritenute fiscali (IRPEF). È un documento fondamentale che regola il rapporto tra lavoratore e azienda, garantendo trasparenza e diritti.\n\nCuriosità: Il sistema contributivo italiano si basa sulla solidarietà generazionale: i lavoratori di oggi pagano le pensioni di chi è già a riposo.",
-        image: "/img/busta.png"
-      },
-      {
-        name: "Costi e Ricavi",
-        topic: "Business Economics",
-        desc: "L'analisi economica di un'impresa si basa sull'equilibrio tra costi (fissi e variabili) e ricavi. Lo studio del Break-Even Point permette di capire quando un progetto inizia a generare profitto. Per un informatico, saper stimare i costi di sviluppo e infrastruttura è cruciale per il successo di un prodotto.\n\nCuriosità: Nel software, il costo marginale (produrre una copia in più) è quasi zero, rendendo le aziende tech estremamente scalabili.",
-        image: "/img/costiricavi.jpg"
-      },
-      {
-        name: "Tipologie di Aziende",
-        topic: "Corporate Structures",
-        desc: "Dalle ditte individuali alle S.p.A., ogni forma giuridica ha responsabilità e vantaggi diversi. Lo studio delle organizzazioni aziendali analizza come le gerarchie e i flussi di lavoro si adattano al mercato, con un focus particolare sulle startup innovative e sulle aziende agili del settore tecnologico.\n\nCuriosità: Molte delle aziende tech più grandi del mondo (Apple, Google, Amazon) sono nate come piccolissime realtà in un garage.",
-        image: "/img/azienda.jpg"
-      }
-    ]
-  },
-  tpsit: {
-    title: "Tipsit",
-    icon: "Terminal",
-    desc: "Sviluppo di applicazioni concorrenti e distribuite, programmazione client/server multithread e interazioni di rete a basso livello.",
-    items: [
-      {
-        name: "Concorrenza e Processi",
-        topic: "Operating Systems",
-        desc: "La gestione della concorrenza permette a un computer di eseguire più compiti 'simultaneamente'. Lo studio dei processi, dei thread e delle sezioni critiche è fondamentale per evitare conflitti (deadlock) e ottimizzare le prestazioni delle CPU multi-core moderne.\n\nCuriosità: Senza la gestione della concorrenza, il tuo computer si bloccherebbe ogni volta che provi ad aprire una seconda scheda nel browser.",
-        image: "/img/concorrenza.png"
-      },
-      {
-        name: "Sistemi Operativi",
-        topic: "System Architecture",
-        desc: "Il Sistema Operativo è l'intermediario tra hardware e utente. Lo studio approfondisce la gestione della memoria, lo scheduling della CPU e il file system. Capire come Linux o Windows gestiscono le risorse è essenziale per scrivere software efficiente e sicuro.\n\nCuriosità: Il kernel Linux, che fa girare quasi tutto il web e Android, è nato come un progetto hobbistico di uno studente universitario.",
-        image: "/img/os.png"
-      },
-      {
-        name: "Sviluppo con Android Studio",
-        topic: "Mobile Development",
-        desc: "Android Studio è l'IDE standard per creare app per il sistema operativo mobile più diffuso al mondo. Lo studio copre il ciclo di vita delle Activity, la gestione dei layout XML e l'integrazione con i sensori dello smartphone, permettendo di trasformare un'idea in un'applicazione portatile.\n\nCuriosità: Esistono oltre 3 miliardi di dispositivi Android attivi nel mondo, rendendo lo sviluppo mobile una delle carriere più richieste.",
-        image: "/img/android.png"
-      }
-    ]
-  },
-  sistemi: {
-    title: "Sistemi e reti",
-    icon: "Network",
-    desc: "Architetture dei sistemi operativi di rete, indirizzamento IP, sicurezza informatica e gestione remota di router e switch.",
-    items: [
-      {
-        name: "Crittografia e Sicurezza",
-        topic: "Data Protection",
-        desc: "La crittografia protegge l'informazione rendendola incomprensibile a chi non possiede la chiave. Dalla crittografia simmetrica (AES) a quella asimmetrica (RSA/ECC), questi algoritmi sono la base di ogni transazione sicura su internet, dalle banche ai messaggi WhatsApp.\n\nCuriosità: La crittografia asimmetrica permette a due persone che non si sono mai viste di scambiarsi messaggi segreti in modo totalmente sicuro.",
-        image: "/img/crittografia.png"
-      },
-      {
-        name: "Modello ISO/OSI",
-        topic: "Network Protocols",
-        desc: "Il modello ISO/OSI è lo standard che descrive come i dati viaggiano in rete attraverso 7 livelli. Dal livello Fisico (cavi e segnali) fino al livello Applicazione (HTTP, FTP), questa astrazione permette a dispositivi di produttori diversi di comunicare tra loro senza problemi.\n\nCuriosità: Anche se oggi usiamo il modello TCP/IP, il modello ISO/OSI rimane il riferimento teorico fondamentale per ogni esperto di reti.",
-        image: "/img/isoosi.png"
-      },
-      {
-        name: "Cisco Packet Tracer",
-        topic: "Network Simulation",
-        desc: "Packet Tracer è uno strumento di simulazione potente che permette di progettare e testare reti complesse senza bisogno di hardware fisico. Si possono configurare router, switch e server, simulando attacchi o ottimizzando il traffico di un'intera città o azienda.\n\nCuriosità: Molte certificazioni professionali Cisco vengono preparate interamente su simulatori come questo prima di toccare un vero router.",
-        image: "/img/cisco.png"
-      }
-    ]
-  },
-  ia: {
-    title: "Intelligenza Artificiale",
-    icon: "BrainCircuit",
-    desc: "Integrazione di modelli generativi di linguaggio naturale (LLM), elaborazione semantica e automazione intelligente dei contenuti.",
-    items: [
-      {
-        name: "Reti Neurali e CNN",
-        topic: "Deep Learning",
-        desc: "Le Reti Neurali si ispirano al funzionamento del cervello umano. Le CNN (Convolutional Neural Networks) sono specializzate nell'elaborazione di immagini e video, permettendo ai computer di 'vedere' e riconoscere oggetti, volti e segnali stradali con una precisione superiore a quella umana.\n\nCuriosità: Le CNN sono la tecnologia che permette alle auto a guida autonoma di distinguere un pedone da un palo della luce.",
-        image: "/img/neurali.png"
-      },
-      {
-        name: "Algoritmo di Backpropagation",
-        topic: "Machine Learning Math",
-        desc: "La Backpropagation è il 'motore' dell'apprendimento delle reti neurali. È un processo matematico che permette alla rete di correggere i propri errori, ricalcolando i pesi delle connessioni tra i neuroni per migliorare le prestazioni a ogni ciclo di addestramento.\n\nCuriosità: Senza questo algoritmo, scoperto negli anni '80 ma diventato potente solo oggi grazie alle moderne GPU, l'AI moderna non esisterebbe.",
-        image: "/img/Lalgoritmo-di-backpropagation-in-una-rete-neurale.png"
-      },
-      {
-        name: "AI Generativa e Futuro",
-        topic: "Technological Evolution",
-        desc: "L'AI generativa rappresenta l'ultima frontiera, capace di creare testi, immagini e codice partendo da semplici indicazioni. Lo studio si concentra sull'etica dell'AI, sulla gestione dei dataset e sulle potenzialità di queste tecnologie per potenziare la creatività umana.\n\nCuriosità: I modelli linguistici moderni sono stati addestrati su quasi tutta la conoscenza umana scritta disponibile su internet.",
-        image: "/img/AI-generativa.png"
-      }
-    ]
-  }
-};
+const portfolio = defaultPortfolioData;
 
 export default function App() {
-  const [portfolio, setPortfolio] = useState<PortfolioData>(defaultPortfolioData);
-  const [activeSection, setActiveSection] = useState<"home" | "fsl" | "civica" | "umanistica" | "professionale" | "contatti">("home");
-
-  // Expanded project IDs for educational sections
+  const [activeSection, setActiveSection] = useState<"home" | "fsl" | "civica" | "umanistica" | "professionale">("home");
+  const [activeHumSubSection, setActiveHumSubSection] = useState<string>("italiano");
+  const [activeProfSubSection, setActiveProfSubSection] = useState<string>("informatica");
   const [expandedEduProjs, setExpandedEduProjs] = useState<Record<string, boolean>>({});
-
-  // Active Area Umanistica Sub-Section State
-  const [activeHumSubSection, setActiveHumSubSection] = useState<"italiano" | "storia" | "inglese">("italiano");
-  
-  // Active Area Professionale Sub-Section State
-  const [activeProfSubSection, setActiveProfSubSection] = useState<"informatica" | "gpoi" | "tpsit" | "sistemi" | "ia">("informatica");
-
-  // Contact Panel & Templates State
-  const [activeTemplate, setActiveTemplate] = useState("progetto");
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedTemplate, setCopiedTemplate] = useState(false);
-
-  // Contact Form State
   const [contactName, setContactName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [contactLoading, setContactLoading] = useState(false);
-  const [contactSuccess, setContactSuccess] = useState(false);
 
-  // Load custom portfolio data from localStorage if exists
-  useEffect(() => {
-    const saved = localStorage.getItem("dev_portfolio_builder_v1");
-    if (saved) {
-      try {
-        setPortfolio(JSON.parse(saved));
-      } catch (err) {
-        console.error("Errore nel caricamento del portfolio memorizzato:", err);
-      }
+  const fslProjects = portfolio.projects.filter(p => p.category === "fsl");
+
+  const PROFESSIONAL_SECTIONS = {
+    informatica: {
+      title: "Informatica",
+      icon: "Code",
+      desc: "Progettazione e sviluppo software ad oggetti, modellazione di basi di dati relazionali/NoSQL e creazione di interfacce web dinamiche e robuste.",
+      items: [
+        {
+          name: "Programmazione ad Oggetti",
+          topic: "Software Engineering",
+          desc: "La programmazione orientata agli oggetti (OOP) è il paradigma dominante nello sviluppo moderno. Attraverso concetti come classi, ereditarietà, polimorfismo e incapsulamento, si creano sistemi scalabili e manutenibili. Java e C# sono i linguaggi più diffusi in ambito enterprise.",
+          image: "/img/php.png"
+        },
+        {
+          name: "Basi di Dati",
+          topic: "Data Management",
+          desc: "La progettazione di database è un'arte che combina teoria relazionale e pratica. RDBMS come PostgreSQL garantiscono ACID compliance, mentre NoSQL come MongoDB offrono flessibilità per dati non strutturati. La normalizzazione e l'ottimizzazione delle query sono cruciali.",
+          image: "/img/database.png"
+        },
+        {
+          name: "Interfacce Web Dinamiche",
+          topic: "Frontend Development",
+          desc: "HTML5, CSS3 e JavaScript moderno permettono di creare esperienze utente ricche e responsive. Framework come React e Vue.js semplificano la gestione dello stato e il rendering efficiente. L'accessibilità e la performance sono priorità fondamentali.",
+          image: "/img/htmljs.png"
+        }
+      ]
+    },
+    sistemi: {
+      title: "Sistemi e reti",
+      icon: "Network",
+      desc: "Architetture dei sistemi operativi di rete, indirizzamento IP, sicurezza informatica e gestione remota di router e switch.",
+      items: [
+        {
+          name: "Crittografia e Sicurezza",
+          topic: "Data Protection",
+          desc: "La crittografia protegge l'informazione rendendola incomprensibile a chi non possiede la chiave. Dalla crittografia simmetrica (AES) a quella asimmetrica (RSA/ECC), questi algoritmi sono la base di ogni transazione sicura su internet, dalle banche ai messaggi WhatsApp.",
+          image: "/img/crittografia.png"
+        },
+        {
+          name: "Modello ISO/OSI",
+          topic: "Network Protocols",
+          desc: "Il modello ISO/OSI è lo standard che descrive come i dati viaggiano in rete attraverso 7 livelli. Dal livello Fisico (cavi e segnali) fino al livello Applicazione (HTTP, FTP), questa astrazione permette a dispositivi di produttori diversi di comunicare tra loro senza problemi.",
+          image: "/img/isoosi.png"
+        },
+        {
+          name: "Cisco Packet Tracer",
+          topic: "Network Simulation",
+          desc: "Packet Tracer è uno strumento di simulazione potente che permette di progettare e testare reti complesse senza bisogno di hardware fisico. Si possono configurare router, switch e server, simulando attacchi o ottimizzando il traffico di un'intera città o azienda.",
+          image: "/img/cisco.png"
+        }
+      ]
+    },
+    ia: {
+      title: "Intelligenza Artificiale",
+      icon: "BrainCircuit",
+      desc: "Integrazione di modelli generativi di linguaggio naturale (LLM), elaborazione semantica e automazione intelligente dei contenuti.",
+      items: [
+        {
+          name: "Reti Neurali e CNN",
+          topic: "Deep Learning",
+          desc: "Le Reti Neurali si ispirano al funzionamento del cervello umano. Le CNN (Convolutional Neural Networks) sono specializzate nell'elaborazione di immagini e video, permettendo ai computer di 'vedere' e riconoscere oggetti, volti e segnali stradali con una precisione superiore a quella umana.",
+          image: "/img/neurali.png"
+        },
+        {
+          name: "Algoritmo di Backpropagation",
+          topic: "Machine Learning Math",
+          desc: "La Backpropagation è il 'motore' dell'apprendimento delle reti neurali. È un processo matematico che permette alla rete di correggere i propri errori, ricalcolando i pesi delle connessioni tra i neuroni per migliorare le prestazioni a ogni ciclo di addestramento.",
+          image: "/img/Lalgoritmo-di-backpropagation-in-una-rete-neurale.png"
+        },
+        {
+          name: "AI Generativa e Futuro",
+          topic: "Technological Evolution",
+          desc: "L'AI generativa rappresenta l'ultima frontiera, capace di creare testi, immagini e codice partendo da semplici indicazioni. Lo studio si concentra sull'etica dell'AI, sulla gestione dei dataset e sulle potenzialità di queste tecnologie per potenziare la creatività umana.",
+          image: "/img/AI-generativa.png"
+        }
+      ]
+    },
+    tpsit: {
+      title: "Tipsit",
+      icon: "Terminal",
+      desc: "Sviluppo di applicazioni concorrenti e distribuite, programmazione client/server multithread e interazioni di rete a basso livello.",
+      items: [
+        {
+          name: "Concorrenza e Processi",
+          topic: "Operating Systems",
+          desc: "La gestione della concorrenza permette a un computer di eseguire più compiti 'simultaneamente'. Lo studio dei processi, dei thread e delle sezioni critiche è fondamentale per evitare conflitti (deadlock) e ottimizzare le prestazioni delle CPU multi-core moderne.",
+          image: "/img/concorrenza.png"
+        },
+        {
+          name: "Sistemi Operativi",
+          topic: "System Architecture",
+          desc: "Il Sistema Operativo è l'intermediario tra hardware e utente. Lo studio approfondisce la gestione della memoria, lo scheduling della CPU e il file system. Capire come Linux o Windows gestiscono le risorse è essenziale per scrivere software efficiente e sicuro.",
+          image: "/img/os.png"
+        },
+        {
+          name: "Sviluppo con Android Studio",
+          topic: "Mobile Development",
+          desc: "Android Studio è l'IDE standard per creare app per il sistema operativo mobile più diffuso al mondo. Lo studio copre il ciclo di vita delle Activity, la gestione dei layout XML e l'integrazione con i sensori dello smartphone.",
+          image: "/img/android.png"
+        }
+      ]
+    },
+    gpoi: {
+      title: "GPOI",
+      icon: "Briefcase",
+      desc: "Gestione progetti professionali, pianificazione dei requisiti, analisi costi-benefici e applicazione delle metodologie di sviluppo Agile.",
+      items: [
+        {
+          name: "La Busta Paga",
+          topic: "HR & Finance",
+          desc: "Comprendere la busta paga significa saper leggere le voci che compongono la retribuzione: dal lordo al netto, passando per contributi previdenziali (INPS) e ritenute fiscali (IRPEF). È un documento fondamentale che regola il rapporto tra lavoratore e azienda.",
+          image: "/img/busta.png"
+        },
+        {
+          name: "Costi e Ricavi",
+          topic: "Business Economics",
+          desc: "L'analisi economica di un'impresa si basa sull'equilibrio tra costi (fissi e variabili) e ricavi. Lo studio del Break-Even Point permette di capire quando un progetto inizia a generare profitto. Per un informatico, saper stimare i costi di sviluppo e infrastruttura è cruciale.",
+          image: "/img/costiricavi.jpg"
+        },
+        {
+          name: "Tipologie di Aziende",
+          topic: "Corporate Structures",
+          desc: "Dalle ditte individuali alle S.p.A., ogni forma giuridica ha responsabilità e vantaggi diversi. Lo studio delle organizzazioni aziendali analizza come le gerarchie e i flussi di lavoro si adattano al mercato, con un focus particolare sulle startup innovative.",
+          image: "/img/azienda.jpg"
+        }
+      ]
     }
-  }, []);
-
-  const handleContactSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!contactName || !contactEmail || !contactMessage) return;
-
-    setContactLoading(true);
-    setTimeout(() => {
-      setContactLoading(false);
-      setContactSuccess(true);
-    }, 1500);
   };
 
-  const resetContactForm = () => {
-    setContactName("");
-    setContactEmail("");
-    setContactSubject("");
-    setContactMessage("");
-    setContactSuccess(false);
+  const HUMANITIES_SECTIONS: Record<string, any> = {
+    italiano: {
+      items: [
+        {
+          name: "Luigi Pirandello",
+          period: "1867 - 1936",
+          work: "Uno, nessuno e centomila",
+          desc: "Luigi Pirandello è il maestro della crisi dell'identità moderna. La sua opera 'Uno, nessuno e centomila' rappresenta il capolavoro della riflessione sulla molteplicità dell'io. Pirandello ci mostra come ogni persona è contemporaneamente una per se stessa e mille per gli altri, a seconda di come viene percepita. Questo tema è straordinariamente attuale nell'era dei social media, dove ciascuno di noi costruisce molteplici identità digitali.",
+          quote: "Uno, nessuno e centomila",
+          source: "Luigi Pirandello",
+          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          name: "Gabriele D'Annunzio",
+          period: "1863 - 1938",
+          work: "La pioggia nel pineto",
+          desc: "Gabriele D'Annunzio è il poeta dell'estetismo e del panismo, cioè della fusione dell'uomo con la natura. 'La pioggia nel pineto' è una celebrazione sensoriale della natura, dove il poeta e la donna si dissolvono nel ritmo della pioggia e nel sussurro dei pini. D'Annunzio ha rivoluzionato la letteratura italiana con il suo stile ricercato e la sua visione di una bellezza assoluta come fine supremo dell'arte.",
+          quote: "La pioggia nel pineto",
+          source: "Gabriele D'Annunzio",
+          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          name: "Giuseppe Ungaretti",
+          period: "1888 - 1970",
+          work: "Soldati",
+          desc: "Giuseppe Ungaretti è il poeta della trincea, della brevità e dell'essenzialità. La sua poesia 'Soldati' è una delle più toccanti della letteratura italiana: in poche parole, cattura l'angoscia e la fragilità della vita umana durante la Grande Guerra. Ungaretti ha rivoluzionato la poesia italiana con l'Ermetismo, uno stile che privilegia la profondità emotiva e la ricerca del significato nascosto.",
+          quote: "Soldati",
+          source: "Giuseppe Ungaretti",
+          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    storia: {
+      items: [
+        {
+          name: "La Grande Guerra (1914-1918)",
+          period: "1914 - 1918",
+          work: "L'Inizio del Secolo Breve",
+          desc: "La Prima Guerra Mondiale ha segnato il passaggio dal XIX al XX secolo. Questa guerra ha introdotto tecnologie devastanti: carri armati, gas tossici, aerei da combattimento. La trincea è diventata il simbolo della guerra moderna: migliaia di soldati si affrontavano in condizioni disumane, con perdite enormi per guadagni territoriali minimi. La Grande Guerra ha ucciso milioni di persone e ha seminato il terreno per i conflitti futuri.",
+          quote: "L'Inizio del Secolo Breve",
+          source: "Storico",
+          image: "/img/primaguerra.png"
+        },
+        {
+          name: "Totalitarismi e Shoah",
+          period: "1922 - 1945",
+          work: "Il Buio del Novecento",
+          desc: "Tra le due guerre mondiali, l'Europa è stata dominata da regimi totalitari: il fascismo italiano, il nazismo tedesco e lo stalinismo sovietico. Questi regimi hanno utilizzato la propaganda, la violenza di stato e il controllo totale della società per mantenere il potere. L'Olocausto rimane uno dei crimini più atroci della storia umana, con sei milioni di ebrei uccisi nei campi di concentramento.",
+          quote: "Il Buio del Novecento",
+          source: "Storico",
+          image: "/img/secguerra.png"
+        },
+        {
+          name: "La Costituzione Italiana",
+          period: "1946 - 1948",
+          work: "La Rinascita Democratica",
+          desc: "Dopo la caduta del fascismo, l'Italia ha scritto una nuova Costituzione (entrata in vigore il 1° gennaio 1948) che rappresenta uno dei documenti più progressisti del dopoguerra. La Costituzione italiana garantisce i diritti fondamentali, la separazione dei poteri e il suffragio universale. L'articolo 11 ripudia la guerra come strumento di offesa alla libertà dei popoli, riflettendo il desiderio di pace dopo il conflitto.",
+          quote: "La Rinascita Democratica",
+          source: "Storico",
+          image: "/img/costituzione.png"
+        }
+      ]
+    },
+    inglese: {
+      items: [
+        {
+          name: "George Orwell",
+          period: "1903 - 1950",
+          work: "1984 e la Sorveglianza",
+          desc: "George Orwell è il profeta della sorveglianza di massa. Nel suo romanzo distopico '1984', descrive un regime totalitario dove il Grande Fratello osserva ogni cittadino 24 ore al giorno. Orwell ha anticipato di decenni l'era della sorveglianza digitale: oggi, i nostri dati personali sono raccolti da aziende tecnologiche e governi, proprio come nel romanzo. La sua visione rimane straordinariamente attuale.",
+          quote: "1984 e la Sorveglianza",
+          source: "George Orwell",
+          image: "/img/george.png"
+        },
+        {
+          name: "The Industrial Revolution",
+          period: "18th - 19th Century",
+          work: "Charles Dickens e il Cambiamento",
+          desc: "La Rivoluzione Industriale ha trasformato il mondo. Charles Dickens ha documentato le conseguenze umane di questa trasformazione: lo sfruttamento dei bambini nelle fabbriche, la povertà urbana, l'inquinamento. Nel frattempo, Charles Babbage stava inventando i primi computer meccanici, gettando le basi per l'era digitale. La Rivoluzione Industriale è il ponte tra il mondo agricolo e quello digitale.",
+          quote: "Charles Dickens e il Cambiamento",
+          source: "Storico",
+          image: "/img/revolution.png"
+        },
+        {
+          name: "Technical English & ICT",
+          period: "Modern Era",
+          work: "La Lingua della Tecnologia",
+          desc: "L'inglese è diventato la lingua franca della tecnologia e della scienza. Dalla programmazione (Python, JavaScript) alla documentazione tecnica, l'inglese domina il settore ICT. Imparare l'inglese tecnico non è solo una competenza linguistica, ma una necessità professionale. La capacità di leggere documentazione tecnica, scrivere codice commentato in inglese e comunicare con sviluppatori internazionali è fondamentale per una carriera nel settore IT.",
+          quote: "La Lingua della Tecnologia",
+          source: "Tecnico",
+          image: "/img/ict.png"
+        }
+      ]
+    }
   };
 
-  // Generic dynamic filter for sections based on project categories and keywords
-  const filterProjects = (categoryType: "fsl" | "civica" | "umanistica" | "professionale") => {
-    return portfolio.projects.filter((p) => {
-      const cat = p.category ? p.category.toLowerCase() : "";
-      if (categoryType === "fsl") {
-        return cat === "fsl" || cat.includes("lingua") || cat.includes("frances") || cat.includes("linguist");
-      }
-      if (categoryType === "civica") {
-        return cat === "educazione civica" || cat.includes("civic") || cat.includes("costituzione") || cat.includes("agenda");
-      }
-      if (categoryType === "umanistica") {
-        return cat === "area umanistica" || cat.includes("umanistic") || cat.includes("filosofia") || cat.includes("letteratur") || cat.includes("storia");
-      }
-      if (categoryType === "professionale") {
-        return cat === "area professionale" || cat.includes("professione") || cat.includes("saas") || cat.includes("fintech") || cat.includes("e-commerce") || cat.includes("developer") || cat.includes("tech") || cat.includes("ai");
-      }
-      return false;
-    });
-  };
-
-  const fslProjects = filterProjects("fsl");
-  const civicaProjects = filterProjects("civica");
-  const umanisticaProjects = filterProjects("umanistica");
-
-  // Custom visual project card for educational sections
-  const renderEduProjectCard = (proj: Project) => {
-    const isExpanded = !!expandedEduProjs[proj.id];
+  const renderEduProjectCard = (proj: any) => {
+    const isExpanded = expandedEduProjs[proj.id];
     return (
-      <div 
-        key={proj.id} 
-        className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 flex flex-col justify-between hover:border-[#E0D8D0]/25 transition-all duration-300 relative group"
-      >
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-[9px] font-bold tracking-[0.1em] text-[#050505] bg-[#E0D8D0] px-2.5 py-1 rounded-md uppercase">
-              {proj.category}
-            </span>
-            <FolderOpen className="w-4 h-4 text-[#E0D8D0]/30 group-hover:text-[#E0D8D0] transition-colors" />
-          </div>
-
-          <h4 className="text-base font-medium text-[#E0D8D0] tracking-tight font-sans group-hover:text-white transition-colors">
-            {proj.title}
-          </h4>
-
-          <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
-            {proj.desc}
-          </p>
-
-          {proj.longDesc && (
-            <div className="pt-1.5">
-              <button
-                onClick={() => setExpandedEduProjs(prev => ({ ...prev, [proj.id]: !isExpanded }))}
-                className="text-[11px] font-medium text-[#E0D8D0]/80 hover:text-[#E0D8D0] hover:underline focus:outline-hidden"
-              >
-                {isExpanded ? "Mostra meno" : "Leggi approfondimento critico"}
-              </button>
-              {isExpanded && (
-                <p className="text-xs text-[#BDB5AD] mt-2 bg-[#050505] p-3 rounded-lg border border-dashed border-[#E0D8D0]/10 leading-relaxed font-sans animate-slide-in font-light">
-                  {proj.longDesc}
-                </p>
-              )}
-            </div>
-          )}
-
-          <div className="flex flex-wrap gap-1.5 pt-2">
-            {proj.tech.map((tc, keyidx) => (
-              <span
-                key={keyidx}
-                className="text-[9px] font-light text-[#E0D8D0]/75 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 px-2 py-0.5 rounded-md font-mono"
-              >
-                {tc}
-              </span>
-            ))}
-          </div>
+      <div key={proj.id} className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-4 md:p-6 space-y-3 hover:border-[#E0D8D0]/25 transition-all">
+        <div className="flex items-start justify-between gap-3">
+          <h4 className="text-sm md:text-base font-bold text-[#E0D8D0] flex-1">{proj.title}</h4>
+          <span className="text-[9px] px-2 py-1 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-full text-[#E0D8D0]/70 font-mono whitespace-nowrap">{proj.category}</span>
         </div>
+        <p className="text-xs md:text-sm text-[#BDB5AD] font-light">{proj.desc}</p>
 
-        {(proj.link || proj.repo) && (
-          <div className="flex items-center gap-4 pt-4 mt-4 border-t border-[#E0D8D0]/10 text-xs font-semibold">
-            {proj.link && (
-              <a 
-                href={proj.link} 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-[#BDB5AD] hover:text-[#E0D8D0] flex items-center gap-1 transition-colors"
-              >
-                <ExternalLink className="w-3.5 h-3.5" /> Visita Elaborato
-              </a>
-            )}
-            {proj.repo && (
-              <a 
-                href={proj.repo} 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-[#E0D8D0]/50 hover:text-[#E0D8D0] flex items-center gap-1 transition-colors"
-              >
-                <Code className="w-3.5 h-3.5" /> Allegato / Codice
-              </a>
+        {proj.longDesc && (
+          <div className="pt-1.5">
+            <button
+              onClick={() => setExpandedEduProjs(prev => ({ ...prev, [proj.id]: !isExpanded }))}
+              className="text-[11px] font-medium text-[#E0D8D0]/80 hover:text-[#E0D8D0] hover:underline focus:outline-hidden"
+            >
+              {isExpanded ? "Mostra meno" : "Leggi approfondimento critico"}
+            </button>
+            {isExpanded && (
+              <p className="text-xs text-[#BDB5AD] mt-2 bg-[#050505] p-3 rounded-lg border border-dashed border-[#E0D8D0]/10 leading-relaxed font-sans animate-slide-in font-light">
+                {proj.longDesc}
+              </p>
             )}
           </div>
         )}
+
+        <div className="flex flex-wrap gap-1.5 pt-2">
+          {proj.tech.map((tc: string, keyidx: number) => (
+            <span
+              key={keyidx}
+              className="text-[9px] font-light text-[#E0D8D0]/75 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 px-2 py-0.5 rounded-md font-mono"
+            >
+              {tc}
+            </span>
+          ))}
+        </div>
       </div>
     );
   };
@@ -507,94 +339,117 @@ export default function App() {
 
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           
-          {activeSection === "home" && <Sidebar data={portfolio} />}
+          {/* Left Sidebar */}
+          <Sidebar data={portfolio} />
 
-          <div className="flex-1 w-full min-h-[500px]">
-            
-            {activeSection === "home" && (
-              <div className="animate-fade-in space-y-6">
-                <AboutSection data={portfolio} />
-              </div>
-            )}
+          {/* Main Content Area */}
+          <div className="flex-1 min-w-0">
 
+            {/* HOME SECTION */}
+            {activeSection === "home" && <AboutSection />}
+
+            {/* FSL SECTION */}
             {activeSection === "fsl" && (
               <div className="space-y-8 animate-fade-in">
+                {/* Intestazione */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
                   <div className="flex items-center gap-2 text-[#E0D8D0]">
-                    <Languages className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Formazione Storico-Linguistica (FSL)</span>
+                    <Briefcase className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Esperienza Lavorativa</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
-                    Langue Française & Parcours Culturel
+                    Prisma Jesi - Negozio di Manutenzione e Commercio Elettronico
                   </h2>
-                  <p className="text-[#BDB5AD] leading-relaxed text-xs md:text-sm font-light">
-                    Competenze e elaborati prodotti nell'ambito linguistico e letterario francofono.
+                </div>
+
+                {/* Introduzione */}
+                <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4">
+                  <h3 className="text-sm font-semibold tracking-[0.1em] text-[#E0D8D0] uppercase">La Mia Esperienza</h3>
+                  <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
+                    Ho avuto l'opportunità di lavorare presso Prisma, un negozio specializzato nella manutenzione di computer e nella vendita di oggetti elettronici. Durante questo periodo, ho sviluppato competenze pratiche fondamentali nel settore IT, imparando a smontare e riparare componenti hardware, diagnosticare problemi tecnici e fornire un servizio clienti professionale e attento.
+                  </p>
+                  <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
+                    L'esperienza mi ha permesso di comprendere il ciclo completo di un'attività commerciale: dalla gestione dell'inventario, alla consulenza tecnica ai clienti, fino alla risoluzione pratica di problemi hardware. Ogni giorno ho potuto applicare le conoscenze teoriche acquisite a scuola in un contesto reale, scoprendo quanto sia importante la combinazione tra competenza tecnica e capacità comunicativa.
                   </p>
                 </div>
 
-                <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-4">
-                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans">
-                    Livelli di Competenza (QCER)
-                  </h3>
-                  <div className="space-y-4 pt-1">
-                    {[
-                      { lang: "Italiano (Madrelingua)", level: "C2", pct: 100 },
-                      { lang: "Francese (FSL / DELF)", level: "B2", pct: 85 },
-                      { lang: "Inglese (Comprensione)", level: "B2", pct: 75 }
-                    ].map((item, idx) => (
-                      <div key={idx} className="space-y-1.5">
-                        <div className="flex items-center justify-between text-xs font-light">
-                          <span className="font-medium text-[#E0D8D0]">{item.lang}</span>
-                          <span className="text-[10px] font-mono tracking-wide text-[#E0D8D0]/60">{item.level}</span>
-                        </div>
-                        <div className="h-1.5 w-full bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-[#E0D8D0]/40 to-[#E0D8D0] rounded-full transition-all duration-1000"
-                            style={{ width: `${item.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
+                {/* Layout: Mappa a sinistra + Commento a destra */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Mappa */}
+                  <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden">
+                    <div className="h-80 bg-[#050505] relative flex items-center justify-center">
+                      <img 
+                        src="/img/prisma-map.png" 
+                        alt="Prisma Jesi Location" 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=800";
+                        }}
+                      />
+                    </div>
+                    <div className="p-4 space-y-2">
+                      <h4 className="text-sm font-semibold text-[#E0D8D0]">Prisma Jesi</h4>
+                      <p className="text-xs text-[#BDB5AD]">Negozio di manutenzione computer e vendita articoli elettronici</p>
+                      <p className="text-xs text-[#E0D8D0]/60 font-mono">📍 Jesi, Italia</p>
+                    </div>
+                  </div>
+
+                  {/* Commento personale */}
+                  <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-sm font-semibold text-[#E0D8D0] mb-3">Il Mio Commento</h4>
+                      <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light italic">
+                        "Lavorare da Prisma è stata un'esperienza formativa che mi ha insegnato il valore della pazienza e della precisione. Ho imparato che la tecnologia non è solo teoria, ma è qualcosa che tocchiamo, ripariamo e miglioriamo ogni giorno. I clienti mi hanno insegnato quanto sia importante ascoltare, capire i loro problemi e trovare soluzioni concrete. È stato gratificante vedere il volto di una persona quando le ho risolto un problema che la stava bloccando da giorni."
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans px-1">
-                    Elaborati e Risorse in Francese
-                  </h3>
-                  {fslProjects.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {fslProjects.map(proj => renderEduProjectCard(proj))}
-                    </div>
-                  ) : (
-                    <div className="text-center p-8 bg-[#121212] border border-[#E0D8D0]/10 rounded-xl text-xs text-[#E0D8D0]/40 font-light italic">
-                      Nessun progetto registrato.
-                    </div>
-                  )}
+                {/* Box Pro/Contro */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Aspetti Positivi */}
+                  <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-4">
+                    <h4 className="text-sm font-semibold text-[#E0D8D0] uppercase tracking-[0.1em]">✓ Aspetti Positivi</h4>
+                    <ul className="space-y-2 text-xs text-[#BDB5AD]">
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Ho sviluppato competenze pratiche di troubleshooting hardware</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Ho imparato a comunicare con clienti non tecnici in modo chiaro</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Ho compreso il ciclo completo di un'attività commerciale</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Ho acquisito responsabilità e autonomia nel lavoro</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Ho visto come la teoria scolastica si applica nella pratica</span></li>
+                    </ul>
+                  </div>
+
+                  {/* Aspetti da Migliorare */}
+                  <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-4">
+                    <h4 className="text-sm font-semibold text-[#E0D8D0] uppercase tracking-[0.1em]">⚠ Aspetti da Migliorare</h4>
+                    <ul className="space-y-2 text-xs text-[#BDB5AD]">
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Inizialmente ero lento nei diagnosi, ma ho imparato a velocizzarmi</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Dovevo migliorare la gestione dello stress durante i picchi di lavoro</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Avrei voluto approfondire di più la parte software e reti</span></li>
+                      <li className="flex gap-2"><span className="text-[#E0D8D0] font-bold">•</span> <span>Potevo essere più proattivo nel proporre soluzioni innovative</span></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             )}
 
-            {activeSection === "civica" && (
-              <CivicaSection />
-            )}
-
+            {/* AREA UMANISTICA */}
             {activeSection === "umanistica" && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
                   <div className="flex items-center gap-2 text-[#E0D8D0]">
-                    <BookOpen className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Area Umanistica (Lettere & Filosofia)</span>
+                    <Languages className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Area Umanistica</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
-                    Lettere, Filosofia ed Espressione del Lavoro
+                    Italiano, Storia e Inglese
                   </h2>
                 </div>
 
                 <div className="flex border-b border-[#E0D8D0]/10 pb-[10px] gap-2 overflow-x-auto no-scrollbar">
-                  {(["italiano", "storia", "inglese"] as const).map((subKey) => {
+                  {(Object.keys(HUMANITIES_SECTIONS) as Array<keyof typeof HUMANITIES_SECTIONS>).map((subKey) => {
                     const isActive = activeHumSubSection === subKey;
                     return (
                       <button
@@ -606,7 +461,7 @@ export default function App() {
                             : "text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5"
                         }`}
                       >
-                        {subKey}
+                        {subKey.charAt(0).toUpperCase() + subKey.slice(1)}
                       </button>
                     );
                   })}
@@ -648,6 +503,11 @@ export default function App() {
                   ))}
                 </div>
               </div>
+            )}
+
+            {/* EDUCAZIONE CIVICA */}
+            {activeSection === "civica" && (
+              <CivicaSection />
             )}
 
             {/* AREA PROFESSIONALE RE-DESIGNED */}
@@ -713,12 +573,8 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-
-
               </div>
             )}
-
-
           </div>
         </div>
       </main>
