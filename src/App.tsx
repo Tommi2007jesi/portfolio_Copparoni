@@ -715,10 +715,7 @@ export default function App() {
                   ))}
                 </div>
 
-                <div className="pt-8 border-t border-[#E0D8D0]/10">
-                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans mb-6">Progetti Professionali Realizzati</h3>
-                  <ProjectsSection data={portfolio} />
-                </div>
+
               </div>
             )}
 
