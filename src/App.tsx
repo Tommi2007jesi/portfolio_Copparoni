@@ -167,9 +167,9 @@ const HUMANITIES_SECTIONS = {
 
 const PROFESSIONAL_SECTIONS = {
   informatica: {
-    title: "Informatica & Software Development",
+    title: "Informatica",
     icon: "Code",
-    desc: "Sviluppo di applicazioni web, gestione di database complessi e programmazione lato server.",
+    desc: "Progettazione e sviluppo software ad oggetti, modellazione di basi di dati relazionali/NoSQL e creazione di interfacce web dinamiche e robuste.",
     items: [
       {
         name: "Sviluppo Web con PHP",
@@ -192,9 +192,9 @@ const PROFESSIONAL_SECTIONS = {
     ]
   },
   gpoi: {
-    title: "GPOI (Gestione Progetto e Organizzazione d'Impresa)",
+    title: "GPOI",
     icon: "Briefcase",
-    desc: "Analisi dei costi, gestione delle risorse umane e organizzazione aziendale nel settore IT.",
+    desc: "Gestione progetti professionali, pianificazione dei requisiti, analisi costi-benefici e applicazione delle metodologie di sviluppo Agile.",
     items: [
       {
         name: "La Busta Paga",
@@ -217,9 +217,9 @@ const PROFESSIONAL_SECTIONS = {
     ]
   },
   tpsit: {
-    title: "TPSIT (Tecnologie e Progettazione di Sistemi Informatici e di Telecomunicazioni)",
+    title: "Tipsit",
     icon: "Terminal",
-    desc: "Architettura dei sistemi operativi, programmazione concorrente e sviluppo mobile.",
+    desc: "Sviluppo di applicazioni concorrenti e distribuite, programmazione client/server multithread e interazioni di rete a basso livello.",
     items: [
       {
         name: "Concorrenza e Processi",
@@ -242,9 +242,9 @@ const PROFESSIONAL_SECTIONS = {
     ]
   },
   sistemi: {
-    title: "Sistemi e Reti",
+    title: "Sistemi e reti",
     icon: "Network",
-    desc: "Infrastrutture di rete, sicurezza dei dati e simulazione di sistemi complessi.",
+    desc: "Architetture dei sistemi operativi di rete, indirizzamento IP, sicurezza informatica e gestione remota di router e switch.",
     items: [
       {
         name: "Crittografia e Sicurezza",
@@ -269,7 +269,7 @@ const PROFESSIONAL_SECTIONS = {
   ia: {
     title: "Intelligenza Artificiale",
     icon: "BrainCircuit",
-    desc: "Reti neurali, deep learning e l'evoluzione dell'apprendimento automatico.",
+    desc: "Integrazione di modelli generativi di linguaggio naturale (LLM), elaborazione semantica e automazione intelligente dei contenuti.",
     items: [
       {
         name: "Reti Neurali e CNN",
