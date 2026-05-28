@@ -27,7 +27,8 @@ import {
   ArrowUpRight,
   MessageSquare,
   Clock,
-  MapPin
+  MapPin,
+  RefreshCw
 } from "lucide-react";
 
 const CONTACT_TEMPLATES = [
@@ -58,102 +59,102 @@ const HUMANITIES_SECTIONS = {
   italiano: {
     title: "Letteratura e Interpretazione Critica (Italiano)",
     icon: "BookOpen",
-    desc: "Analisi approfondita dei maestri del Novecento italiano. Dalla rivoluzione poetica dell'ermetismo alla scomposizione dell'identità pirandelliana, fino all'estetismo decadente.",
+    desc: "Un'analisi enciclopedica dei giganti del Novecento. Esploriamo la frammentazione dell'io in Pirandello, la rivoluzione della parola pura in Ungaretti e l'estetismo superomistico di D'Annunzio, analizzando come queste correnti abbiano influenzato la modernità.",
     items: [
       {
         name: "Gabriele D'Annunzio",
         period: "1863 – 1938",
-        work: "Il Piacere & Alcyone",
-        desc: "L'esteta per eccellenza, colui che voleva fare della propria vita un'opera d'arte. La sua poetica è intrisa di panismo, ovvero la fusione totale dell'uomo con la natura, espressa attraverso un linguaggio prezioso e sensoriale.\n\nCuriosità: Fu un pioniere del marketing moderno, inventando nomi per brand famosi come 'La Rinascente' e 'Saiwa'.",
+        work: "L'Esteta e il Vate",
+        desc: "Gabriele D'Annunzio rappresenta la figura più eccentrica e influente del Decadentismo italiano. La sua filosofia di vita, il 'Vivere Inimitabile', lo portò a trasformare ogni sua azione in un evento mediatico. La sua poetica si fonda sull'estetismo (l'arte sopra ogni cosa) e sul Panismo, una concezione quasi mistica in cui l'uomo si fonde con gli elementi naturali, perdendo la propria individualità per diventare parte del cosmo. Nel romanzo 'Il Piacere', attraverso il protagonista Andrea Sperelli, D'Annunzio esplora la decadenza morale e la ricerca ossessiva del bello in una Roma barocca e sensuale.\n\nCuriosità Storica: D'Annunzio fu un genio della comunicazione e del branding ante litteram. Oltre alle sue imprese militari, come il Volo su Vienna, collaborò attivamente con il mondo dell'industria. Inventò nomi diventati iconici come 'La Rinascente' per i grandi magazzini di Milano, il nome del liquore 'Aurum' e persino il termine 'tramezzino', sostituendo l'inglese 'sandwich' in un'ottica di purismo linguistico.",
         quote: "« Taci. Su le soglie del bosco non odo parole che dici umane; ma odo parole più nuove che parlano gocciole e foglie lontane. »",
         source: "La pioggia nel pineto",
-        image: "https://biografieonline.it/img/bio/g/Gabriele_D_Annunzio.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Gabriele_D%27Annunzio_1922.jpg/800px-Gabriele_D%27Annunzio_1922.jpg"
       },
       {
         name: "Giuseppe Ungaretti",
         period: "1888 – 1970",
-        work: "L'Allegria & Sentimento del Tempo",
-        desc: "Il padre dell'Ermetismo. La sua poesia nasce dal dolore della trincea durante la Grande Guerra. Distrugge la metrica tradizionale per isolare la parola 'pura', capace di illuminare l'abisso dell'esistenza umana.\n\nCuriosità: Le sue poesie più famose furono scritte su pezzi di carta di fortuna, cartoline e margini di giornali mentre si trovava al fronte.",
+        work: "L'Allegria dei Naufragi",
+        desc: "Giuseppe Ungaretti rivoluziona la poesia italiana del Novecento attraverso l'esperienza traumatica della Prima Guerra Mondiale. Soldato nelle trincee del Carso, Ungaretti scopre la fragilità estrema dell'uomo e la necessità di una parola 'nuda', essenziale, capace di illuminare l'oscurità del dolore. La sua raccolta 'L'Allegria' rompe con la metrica tradizionale: i versi si frantumano, sparisce la punteggiatura, e la parola singola, isolata nel bianco della pagina, acquista un valore quasi sacro, un'illuminazione improvvisa (folgorazione). La sua è una 'poesia pura' che cerca di recuperare l'innocenza perduta dell'uomo di fronte all'abisso della morte.\n\nCuriosità e Genesi: Molte delle sue liriche più famose furono scritte su pezzi di carta di fortuna: margini di vecchi giornali, cartoline militari, pacchetti di sigarette. Questi 'reperti' venivano poi conservati nello zaino e rielaborati anni dopo, a testimonianza di come l'arte possa fiorire anche nel fango e nella disperazione più assoluta della guerra.",
         quote: "« Si sta come d'autunno sugli alberi le foglie. »",
-        source: "Soldati",
-        image: "https://biografieonline.it/img/bio/g/Giuseppe_Ungaretti.jpg"
+        source: "Soldati (Bosco di Courton, luglio 1918)",
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Giuseppe_Ungaretti_1952.jpg"
       },
       {
         name: "Luigi Pirandello",
         period: "1867 – 1936",
-        work: "Il fu Mattia Pascal & Uno, nessuno e centomila",
-        desc: "Il genio che ha svelato la crisi dell'io moderno. Attraverso il concetto di 'maschera', Pirandello analizza come l'individuo sia frammentato e prigioniero delle convenzioni sociali, incapace di trovare una verità univoca.\n\nCuriosità: Il suo concetto di 'umorismo' (il sentimento del contrario) è oggi più attuale che mai per analizzare le identità digitali sui social network.",
+        work: "La Crisi dell'Io",
+        desc: "Premio Nobel nel 1934, Pirandello è il narratore della scomposizione dell'uomo moderno. La sua intuizione centrale è che l'individuo non sia 'uno', ma una moltitudine di frammenti in perenne mutamento. Ogni persona indossa delle 'maschere' imposte dalla società, dalla famiglia e da se stessa, finendo per diventare 'nessuno' o 'centomila' a seconda dello sguardo altrui. Questa visione porta alla 'trappola' delle convenzioni sociali, da cui si può uscire solo attraverso la follia o l'umorismo. L'umorismo, per Pirandello, non è semplice comicità, ma il 'sentimento del contrario': la capacità di vedere oltre l'apparenza ridicola per scorgere la sofferenza sottostante.\n\nCuriosità e Attualità: Il pensiero pirandelliano è incredibilmente profetico rispetto all'era dei Social Network. Oggi, la nostra identità digitale è una costruzione continua di maschere e profili, dove la ricerca di approvazione esterna (i like) frammenta ulteriormente la nostra percezione di noi stessi, rendendo il tema dell'incomunicabilità più attuale che mai.",
         quote: "« Imparerai a tue spese che nel lungo tragitto della vita incontrerai tante maschere e pochi volti. »",
         source: "Uno, nessuno e centomila",
-        image: "https://biografieonline.it/img/bio/l/Luigi_Pirandello.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Luigi_Pirandello.jpg/800px-Luigi_Pirandello.jpg"
       }
     ]
   },
   storia: {
     title: "Eredità Storica e Sistemi Democratici (Storia)",
     icon: "History",
-    desc: "Un viaggio critico attraverso le fratture del XX secolo, analizzando come le guerre e le rivoluzioni abbiano plasmato la nostra attuale società tecnologica e democratica.",
+    desc: "Un'analisi profonda dei conflitti e delle trasformazioni politiche che hanno ridefinito il mondo contemporaneo. Dalle trincee della Grande Guerra alla nascita della Repubblica Italiana, esaminiamo le radici della nostra libertà.",
     items: [
       {
-        name: "La Grande Guerra",
-        period: "1914 – 1918",
-        work: "Il Tramonto del Vecchio Mondo",
-        desc: "Non solo un conflitto, ma il primo scontro industriale di massa. Segna la fine degli imperi millenari e l'introduzione di tecnologie belliche devastanti: gas, carri armati e aerei.\n\nCuriosità: La guerra accelerò enormemente lo sviluppo delle telecomunicazioni radio, ponendo le basi per la futura rete globale.",
-        quote: "« La guerra è una lezione della storia che i popoli dimenticano troppo in fretta. »",
-        source: "Riflessione storica",
-        image: "https://www.storicang.it/medio/2020/06/18/soldati-italiani-in-trincea-durante-la-prima-guerra-mondiale_74075f78_1280x853.jpg"
+        name: "La Grande Guerra (1914-1918)",
+        period: "L'Inizio del Secolo Breve",
+        work: "La Guerra Totale",
+        desc: "La Prima Guerra Mondiale non fu solo un conflitto militare, ma una 'catastrofe originaria' che distrusse l'ordine europeo ottocentesco. Fu la prima guerra totale, dove l'intera società (donne nelle fabbriche, economia di guerra) fu mobilitata. Si passò dalla guerra di movimento alla logorante guerra di trincea, dove milioni di uomini vissero nel fango per anni. Fu anche il primo grande laboratorio tecnologico: apparvero i gas tossici, i carri armati, gli aerei da combattimento e i sottomarini. La fine della guerra portò al crollo di quattro grandi imperi (Tedesco, Austro-Ungarico, Ottomano e Russo) e seminò i germi dei futuri totalitarismi.\n\nCuriosità Tecnologica: La Grande Guerra accelerò in modo incredibile lo sviluppo della Radio e della crittografia. I primi sistemi di intercettazione e i codici segreti (come il celebre Telegramma Zimmermann) cambiarono per sempre il modo di intendere l'intelligence e la comunicazione a distanza, ponendo le basi per la moderna guerra elettronica.",
+        quote: "« La guerra è una follia da cui l'umanità deve guarire, o ne rimarrà annientata. »",
+        source: "Analisi storica contemporanea",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Cheshire_Regiment_trench_Somme_1916.jpg/1024px-Cheshire_Regiment_trench_Somme_1916.jpg"
       },
       {
-        name: "Totalitarismi e Shoah",
+        name: "Totalitarismi e Seconda Guerra Mondiale",
         period: "1922 – 1945",
-        work: "L'eclissi della ragione",
-        desc: "L'ascesa dei regimi fascista e nazista ha mostrato come la propaganda e la tecnologia possano essere usate per il controllo totale e lo sterminio sistematico. La Shoah rimane la ferita più profonda del secolo.\n\nCuriosità: I regimi usarono i primi computer rudimentali per catalogare le popolazioni, dimostrando il lato oscuro della gestione dei dati.",
+        work: "L'Età dei Dittatori",
+        desc: "Il dopoguerra vide l'ascesa di regimi che cercarono il controllo totale sulla vita dei cittadini. Il Fascismo in Italia, il Nazismo in Germania e lo Stalinismo in URSS usarono la propaganda, il terrore e la tecnologia per sopprimere ogni libertà. Il culmine di questa deriva fu la Seconda Guerra Mondiale, il conflitto più sanguinoso della storia umana, segnato dall'orrore della Shoah (lo sterminio sistematico di 6 milioni di ebrei) e dall'uso della bomba atomica su Hiroshima e Nagasaki. Questa guerra non fu solo per il territorio, ma per la sopravvivenza stessa della civiltà democratica contro la barbarie totalitaria.\n\nCuriosità e Scienza: Durante il conflitto, la necessità di decifrare i codici segreti nazisti portò Alan Turing a costruire 'Enigma', considerato il primo antenato del computer moderno. Paradossalmente, il periodo più buio dell'umanità ha dato i natali alla tecnologia che oggi usiamo per comunicare e lavorare.",
         quote: "« Coloro che non ricordano il passato sono condannati a ripeterlo. »",
-        source: "George Santayana",
-        image: "https://www.focus.it/site_stored/imgs/0001/045/auschwitz.jpg"
+        source: "George Santayana, La vita della ragione",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Auschwitz_I_entrance.jpg/1024px-Auschwitz_I_entrance.jpg"
       },
       {
-        name: "La Costituzione Italiana",
+        name: "La Nascita della Repubblica Italiana",
         period: "1946 – 1948",
-        work: "La Nascita della Democrazia",
-        desc: "Dalle macerie della guerra nasce la Repubblica. La nostra Costituzione è il risultato di un compromesso altissimo tra forze diverse, unite dal rifiuto del fascismo e dalla tutela della dignità umana.\n\nCuriosità: Fu scritta da 75 'Padri e Madri Costituenti' in un clima di straordinaria collaborazione intellettuale.",
-        quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. »",
-        source: "Articolo 1 della Costituzione",
-        image: "https://www.senato.it/application/xmanager/projects/leg18/file/Costituzione_copertina.jpg"
+        work: "La Costituzione",
+        desc: "Dopo la caduta del fascismo e la fine della guerra, l'Italia dovette ricostruirsi dalle fondamenta. Il 2 giugno 1946, attraverso un referendum a suffragio universale (per la prima volta votarono anche le donne), gli italiani scelsero la Repubblica. L'Assemblea Costituente lavorò per due anni per redigere la Carta Costituzionale, che entrò in vigore il 1° gennaio 1948. La nostra Costituzione è definita 'rigida' e si fonda sul lavoro, sulla libertà individuale e sulla giustizia sociale. È il frutto di un 'compromesso nobile' tra le diverse anime politiche (cattolica, socialista, liberale) unite dal valore supremo dell'antifascismo.\n\nCuriosità Istituzionale: L'Articolo 11 della Costituzione ('L'Italia ripudia la guerra come strumento di offesa alla libertà degli altri popoli') è uno dei più avanzati al mondo e riflette il trauma collettivo vissuto dal paese, ponendo l'Italia come nazione votata alla pace e alla cooperazione internazionale.",
+        quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. La sovranità appartiene al popolo. »",
+        source: "Articolo 1, Costituzione della Repubblica Italiana",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Costituzione_della_Repubblica_Italiana.jpg/800px-Costituzione_della_Repubblica_Italiana.jpg"
       }
     ]
   },
   inglese: {
     title: "Language, Society and Science (Inglese)",
     icon: "Globe",
-    desc: "Exploring the intersection of English literature, technological evolution, and the global language of the digital era.",
+    desc: "A comprehensive exploration of English as a vehicle for social critique and technological progress. From Orwell's dystopian warnings to the industrial revolution and the global language of ICT.",
     items: [
       {
         name: "George Orwell",
         period: "1903 – 1950",
-        work: "Nineteen Eighty-Four",
-        desc: "The ultimate warning against totalitarianism and mass surveillance. Orwell predicted concepts like 'Big Brother' and 'Newspeak' that resonate today in the era of data privacy and social media algorithms.\n\nFact: The term 'Orwellian' is now used globally to describe policies that threaten personal freedom and privacy.",
+        work: "Dystopia and Truth",
+        desc: "George Orwell is perhaps the most significant political writer of the 20th century. In his masterpiece '1984', he introduced the world to 'Big Brother', a symbol of omnipresent government surveillance. His work is a profound critique of totalitarianism and the manipulation of language ('Newspeak') to control thought. Orwell understood that if the government can control what you say and how you say it, they can control what you think. His vision of a world where 'War is Peace' and 'Freedom is Slavery' serves as a timeless warning about the fragility of objective truth and the dangers of absolute power.\n\nModern Relevance: Today, Orwell's concepts are more relevant than ever. We live in an age of 'Big Data', where our every move is tracked by algorithms, and 'Fake News' challenges our perception of reality. The term 'Orwellian' is frequently used to describe modern surveillance states and the erosion of privacy in the digital age.",
         quote: "« Big Brother is Watching You. »",
         source: "Nineteen Eighty-Four",
-        image: "https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5NjkwNjY1/george_orwell_getty_images_3298830.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/800px-George_Orwell_press_photo.jpg"
       },
       {
         name: "The Industrial Revolution",
         period: "18th – 19th Century",
         work: "Hard Times by Charles Dickens",
-        desc: "The transition from rural life to the factory system. Dickens criticized the dehumanizing effects of utilitarianism, where people were treated as mere 'hands' or statistics.\n\nFact: The first programmable computer concept by Charles Babbage was born during this era of mechanical innovation.",
-        quote: "« Facts alone are wanted in life. Plant nothing else, and root out everything else. »",
-        source: "Hard Times",
-        image: "https://www.storicang.it/medio/2020/07/07/una-fabbrica-tessile-durante-la-rivoluzione-industriale_2731518b_1280x853.jpg"
+        desc: "The Industrial Revolution transformed Britain from an agricultural society into the world's first industrial superpower. While it brought unprecedented economic growth and technological innovation, it also caused immense social suffering. Charles Dickens, in his novel 'Hard Times', vividly portrayed the grim reality of factory life in fictional Coketown. He attacked the philosophy of Utilitarianism, which valued people only for their productivity and treated children like machines. The revolution led to the rise of the working class, urbanization, and the environmental challenges we still face today.\n\nTechnological Link: The same spirit of innovation that created the steam engine also led to the birth of computing. Ada Lovelace and Charles Babbage developed the first concepts for a programmable computer during this era, proving that the roots of our digital world are deeply embedded in the industrial age.",
+        quote: "« Now, what I want is, Facts. Teach these boys and girls nothing but Facts. Facts alone are wanted in life. »",
+        source: "Charles Dickens, Hard Times",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Powerloom_weaving_in_a_cotton_mill.jpg/1024px-Powerloom_weaving_in_a_cotton_mill.jpg"
       },
       {
         name: "Technical English & ICT",
-        period: "Modern Era",
-        work: "The Global Tech Language",
-        desc: "English is the undisputed language of computing. From coding syntax to network protocols (TCP/IP), mastering technical English is essential for any IT professional in the global market.\n\nFact: Over 90% of the world's most popular programming languages use English-based keywords and documentation.",
+        period: "The Digital Era",
+        work: "The Global Code",
+        desc: "In the 21st century, English has become the 'lingua franca' of the globalized world, especially in the fields of Information and Communication Technology (ICT). Every major programming language, from Python to JavaScript, is based on English syntax. Technical documentation, research papers, and international protocols (like TCP/IP) are written in English to ensure global interoperability. For a developer or a network engineer, proficiency in English is not just a soft skill; it is a fundamental technical requirement to access the latest innovations and collaborate with teams across the globe.\n\nCultural Fact: The Internet was born in English-speaking laboratories (ARPANET), which is why the majority of web terminology—words like 'browser', 'database', 'cloud', and 'kernel'—are English terms used without translation in almost every language on Earth.",
         quote: "« The single biggest problem in communication is the illusion that it has taken place. »",
-        source: "George Bernard Shaw",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
+        source: "George Bernard Shaw on Global Communication",
+        image: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=800"
       }
     ]
   }
@@ -518,53 +519,54 @@ export default function App() {
                 </div>
 
                 {/* Study Items Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 gap-8">
                   {HUMANITIES_SECTIONS[activeHumSubSection].items.map((author: any, index: number) => (
                     <div 
                       key={index} 
-                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 flex flex-col md:flex-row gap-6 hover:border-[#E0D8D0]/25 transition-all group duration-300"
+                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-[#E0D8D0]/25 transition-all group duration-300"
                     >
-                      {/* Image side */}
-                      <div className="w-full md:w-48 h-48 shrink-0 rounded-xl overflow-hidden border border-[#E0D8D0]/10">
+                      {/* Image side - Larger and more prominent */}
+                      <div className="w-full md:w-1/3 lg:w-1/4 h-64 md:h-auto shrink-0 overflow-hidden bg-[#050505]">
                         <img 
                           src={author.image} 
                           alt={author.name} 
-                          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                           onError={(e) => {
-                            e.currentTarget.style.display = "none";
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1457369804590-52c65a7f027f?auto=format&fit=crop&q=80&w=800";
                           }}
                         />
                       </div>
 
                       {/* Content side */}
-                      <div className="flex-1 flex flex-col justify-between gap-4">
-                        <div className="space-y-3">
-                          <div className="flex items-start justify-between gap-2 border-b border-[#E0D8D0]/5 pb-3">
+                      <div className="flex-1 p-6 md:p-8 flex flex-col justify-between gap-6">
+                        <div className="space-y-4">
+                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E0D8D0]/5 pb-4">
                             <div>
-                              <span className="text-[9px] font-mono tracking-widest text-[#E0D8D0]/40 block mb-0.5">
+                              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E0D8D0]/40 block mb-1 uppercase">
                                 {author.period}
                               </span>
-                              <h4 className="text-lg font-bold text-[#E0D8D0] group-hover:text-white transition-colors">
+                              <h4 className="text-xl md:text-2xl font-bold text-[#E0D8D0] group-hover:text-white transition-colors">
                                 {author.name}
                               </h4>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <span className="text-[9px] tracking-[0.05em] uppercase px-2 py-0.5 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded text-[#E0D8D0]/80 font-mono">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-full text-[#E0D8D0]/80 font-mono">
                                 {author.work}
                               </span>
                             </div>
                           </div>
                           
-                          <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">
+                          <div className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">
                             {author.desc}
-                          </p>
+                          </div>
                         </div>
 
-                        <div className="pt-3 border-t border-[#E0D8D0]/5 space-y-1">
-                          <p className="text-[11px] md:text-xs text-[#E0D8D0]/90 italic font-serif leading-relaxed">
+                        <div className="pt-4 border-t border-[#E0D8D0]/5 space-y-2">
+                          <p className="text-xs md:text-sm text-[#E0D8D0]/90 italic font-serif leading-relaxed relative pl-4">
+                            <span className="absolute left-0 top-0 text-2xl text-[#E0D8D0]/20 font-serif leading-none">“</span>
                             {author.quote}
                           </p>
-                          <span className="text-[8px] font-mono tracking-wider text-[#E0D8D0]/30 block text-right">
+                          <span className="text-[9px] font-mono tracking-wider text-[#E0D8D0]/30 block text-right">
                             — {author.source}
                           </span>
                         </div>
@@ -574,7 +576,7 @@ export default function App() {
                 </div>
 
                 {/* Filtered humanities projects */}
-                <div className="space-y-4">
+                <div className="space-y-4 pt-8">
                   <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans px-1">
                     Scolastica & Ricerche Letterarie
                   </h3>
