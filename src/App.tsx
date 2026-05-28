@@ -73,7 +73,7 @@ const HUMANITIES_SECTIONS = {
         desc: "Gabriele D'Annunzio rappresenta la figura più eccentrica e influente del Decadentismo italiano. La sua filosofia di vita, il 'Vivere Inimitabile', lo portò a trasformare ogni sua azione in un evento mediatico. La sua poetica si fonda sull'estetismo (l'arte sopra ogni cosa) e sul Panismo, una concezione quasi mistica in cui l'uomo si fonde con gli elementi naturali, perdendo la propria individualità per diventare parte del cosmo.\n\nCuriosità Storica: D'Annunzio fu un genio della comunicazione e del branding ante litteram. Inventò nomi diventati iconici come 'La Rinascente' e 'tramezzino'.",
         quote: "« Taci. Su le soglie del bosco non odo parole che dici umane; ma odo parole più nuove che parlano gocciole e foglie lontane. »",
         source: "La pioggia nel pineto",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Gabriele_D%27Annunzio_1922.jpg/800px-Gabriele_D%27Annunzio_1922.jpg"
+        image: "/img/dannunzio.jpg"
       },
       {
         name: "Giuseppe Ungaretti",
@@ -82,7 +82,7 @@ const HUMANITIES_SECTIONS = {
         desc: "Giuseppe Ungaretti rivoluziona la poesia italiana del Novecento attraverso l'esperienza traumatica della Prima Guerra Mondiale. Soldato nelle trincee del Carso, Ungaretti scopre la fragilità estrema dell'uomo e la necessità di una parola 'nuda', essenziale, capace di illuminare l'oscurità del dolore.\n\nCuriosità: Molte delle sue liriche più famose furono scritte su pezzi di carta di fortuna: margini di vecchi giornali, cartoline militari, pacchetti di sigarette.",
         quote: "« Si sta come d'autunno sugli alberi le foglie. »",
         source: "Soldati",
-        image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Giuseppe_Ungaretti_1952.jpg"
+        image: "/img/ungaretti.jpg"
       },
       {
         name: "Luigi Pirandello",
@@ -91,7 +91,7 @@ const HUMANITIES_SECTIONS = {
         desc: "Premio Nobel nel 1934, Pirandello è il narratore della scomposizione dell'uomo moderno. La sua intuizione centrale è che l'individuo non sia 'uno', ma una moltitudine di frammenti in perenne mutamento. Ogni persona indossa delle 'maschere' imposte dalla società, finendo per diventare 'nessuno' o 'centomila'.\n\nCuriosità: Il pensiero pirandelliano è incredibilmente profetico rispetto all'era dei Social Network, dove la nostra identità digitale è una costruzione continua di maschere.",
         quote: "« Imparerai a tue spese che nel lungo tragitto della vita incontrerai tante maschere e pochi volti. »",
         source: "Uno, nessuno e centomila",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Luigi_Pirandello.jpg/800px-Luigi_Pirandello.jpg"
+        image: "/img/pirandello.jpg"
       }
     ]
   },
@@ -175,19 +175,19 @@ const PROFESSIONAL_SECTIONS = {
         name: "Sviluppo Web con PHP",
         topic: "Server-Side Programming",
         desc: "PHP è il motore di oltre il 75% dei siti web mondiali. Lo studio si concentra sulla gestione delle sessioni, l'interazione con i database e la creazione di pagine dinamiche. È un linguaggio fondamentale per capire come funziona il web 'sotto il cofano', permettendo di gestire la logica di business e la sicurezza delle applicazioni.\n\nCuriosità: Nonostante l'ascesa di nuovi linguaggi, PHP continua a dominare grazie a piattaforme come WordPress e framework moderni come Laravel.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/800px-PHP-logo.svg.png"
+        image: "/img/php.png"
       },
       {
         name: "Progettazione e Sviluppo DB",
         topic: "Data Architecture",
         desc: "I database sono il cuore di ogni sistema informativo. Lo studio copre la modellazione E-R (Entità-Relazione), la normalizzazione dei dati per evitare ridondanze e l'uso del linguaggio SQL per interrogazioni complesse. Progettare un DB efficiente significa garantire l'integrità e la velocità di accesso alle informazioni.\n\nCuriosità: Sapevi che un database non ottimizzato può rallentare un'applicazione di oltre il 90%? La corretta indicizzazione è un'arte.",
-        image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800"
+        image: "/img/database.png"
       },
       {
         name: "Frontend: HTML5 & JavaScript",
         topic: "User Interface & Logic",
         desc: "HTML5 fornisce la struttura, mentre JavaScript porta l'interattività. Lo studio di JS moderno (ES6+) permette di manipolare il DOM, gestire chiamate asincrone (API) e creare interfacce utente reattive e coinvolgenti. È il linguaggio che ha trasformato il web da documenti statici ad applicazioni software complete.\n\nCuriosità: JavaScript è stato creato in soli 10 giorni nel 1995, ma oggi è il linguaggio più usato al mondo.",
-        image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800"
+        image: "/img/javascript.png"
       }
     ]
   },
@@ -200,19 +200,19 @@ const PROFESSIONAL_SECTIONS = {
         name: "La Busta Paga",
         topic: "HR & Finance",
         desc: "Comprendere la busta paga significa saper leggere le voci che compongono la retribuzione: dal lordo al netto, passando per contributi previdenziali (INPS) e ritenute fiscali (IRPEF). È un documento fondamentale che regola il rapporto tra lavoratore e azienda, garantendo trasparenza e diritti.\n\nCuriosità: Il sistema contributivo italiano si basa sulla solidarietà generazionale: i lavoratori di oggi pagano le pensioni di chi è già a riposo.",
-        image: "https://www.informazionefiscale.it/IMG/rtf/come-leggere-la-busta-paga.jpg"
+        image: "/img/bustapaga.png"
       },
       {
         name: "Costi e Ricavi",
         topic: "Business Economics",
         desc: "L'analisi economica di un'impresa si basa sull'equilibrio tra costi (fissi e variabili) e ricavi. Lo studio del Break-Even Point permette di capire quando un progetto inizia a generare profitto. Per un informatico, saper stimare i costi di sviluppo e infrastruttura è cruciale per il successo di un prodotto.\n\nCuriosità: Nel software, il costo marginale (produrre una copia in più) è quasi zero, rendendo le aziende tech estremamente scalabili.",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800"
+        image: "/img/costiricavi.jpg"
       },
       {
         name: "Tipologie di Aziende",
         topic: "Corporate Structures",
         desc: "Dalle ditte individuali alle S.p.A., ogni forma giuridica ha responsabilità e vantaggi diversi. Lo studio delle organizzazioni aziendali analizza come le gerarchie e i flussi di lavoro si adattano al mercato, con un focus particolare sulle startup innovative e sulle aziende agili del settore tecnologico.\n\nCuriosità: Molte delle aziende tech più grandi del mondo (Apple, Google, Amazon) sono nate come piccolissime realtà in un garage.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+        image: "/img/azienda.jpg"
       }
     ]
   },

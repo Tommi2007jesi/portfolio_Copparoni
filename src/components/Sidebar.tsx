@@ -15,7 +15,7 @@ export default function Sidebar({ data }: SidebarProps) {
           <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-[#E0D8D0]/50 via-[#E0D8D0]/10 to-[#E0D8D0]/45 p-[2px] shadow-lg transition-transform duration-500 group-hover:scale-105 overflow-hidden">
             <div className="w-full h-full bg-[#121212] rounded-[13px] flex items-center justify-center overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=300" 
+                src="/img/profile.png" 
                 alt="Tommaso Copparoni Portrait"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover grayscale brightness-95 contrast-105" 
