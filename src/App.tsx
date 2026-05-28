@@ -107,7 +107,7 @@ const HUMANITIES_SECTIONS = {
         desc: "La Prima Guerra Mondiale fu la prima guerra totale, dove l'intera società fu mobilitata. Si passò dalla guerra di movimento alla logorante guerra di trincea. Fu anche il primo grande laboratorio tecnologico: apparvero i gas tossici, i carri armati e gli aerei.\n\nCuriosità: La Grande Guerra accelerò in modo incredibile lo sviluppo della Radio e della crittografia, ponendo le basi per la moderna guerra elettronica.",
         quote: "« La guerra è una follia da cui l'umanità deve guarire. »",
         source: "Analisi storica",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Cheshire_Regiment_trench_Somme_1916.jpg/1024px-Cheshire_Regiment_trench_Somme_1916.jpg"
+        image: "/img/primaguerra.png"
       },
       {
         name: "Totalitarismi e Shoah",
@@ -116,7 +116,7 @@ const HUMANITIES_SECTIONS = {
         desc: "Il dopoguerra vide l'ascesa di regimi che cercarono il controllo totale. Il culmine fu la Seconda Guerra Mondiale, segnata dall'orrore della Shoah e dall'uso della bomba atomica.\n\nCuriosità: La necessità di decifrare i codici nazisti portò Alan Turing a costruire 'Enigma', l'antenato del computer moderno.",
         quote: "« Coloro che non ricordano il passato sono condannati a ripeterlo. »",
         source: "George Santayana",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Auschwitz_I_entrance.jpg/1024px-Auschwitz_I_entrance.jpg"
+        image: "/img/secguerra.png"
       },
       {
         name: "La Costituzione Italiana",
@@ -125,7 +125,7 @@ const HUMANITIES_SECTIONS = {
         desc: "Il 2 giugno 1946 gli italiani scelsero la Repubblica. L'Assemblea Costituente redasse la Carta Costituzionale, fondata sul lavoro e sulla libertà individuale.\n\nCuriosità: L'Articolo 11 ripudia la guerra, ponendo l'Italia come nazione votata alla pace.",
         quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. »",
         source: "Articolo 1, Costituzione",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Costituzione_della_Repubblica_Italiana.jpg/800px-Costituzione_della_Repubblica_Italiana.jpg"
+        image: "/img/costituzione.png"
       }
     ]
   },
@@ -141,7 +141,7 @@ const HUMANITIES_SECTIONS = {
         desc: "In '1984', Orwell introduced 'Big Brother', a symbol of surveillance. His work critique totalitarianism and the manipulation of language ('Newspeak').\n\nModern Relevance: We live in an age of 'Big Data' and 'Fake News', making Orwell's vision more relevant than ever.",
         quote: "« Big Brother is Watching You. »",
         source: "Nineteen Eighty-Four",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/800px-George_Orwell_press_photo.jpg"
+        image: "/img/george.png"
       },
       {
         name: "The Industrial Revolution",
@@ -150,7 +150,7 @@ const HUMANITIES_SECTIONS = {
         desc: "The transition from rural life to factories. Dickens portrayed the grim reality of factory life and attacked Utilitarianism.\n\nTechnological Link: The spirit of innovation that created the steam engine also led to the birth of computing with Babbage and Lovelace.",
         quote: "« Now, what I want is, Facts. »",
         source: "Charles Dickens, Hard Times",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Powerloom_weaving_in_a_cotton_mill.jpg/1024px-Powerloom_weaving_in_a_cotton_mill.jpg"
+        image: "/img/revolution.png"
       },
       {
         name: "Technical English & ICT",
@@ -159,7 +159,7 @@ const HUMANITIES_SECTIONS = {
         desc: "English is the 'lingua franca' of ICT. Every major programming language and international protocol is based on English.\n\nFact: Web terminology like 'browser', 'cloud', and 'kernel' are English terms used globally without translation.",
         quote: "« The single biggest problem in communication is the illusion that it has taken place. »",
         source: "George Bernard Shaw",
-        image: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=800"
+        image: "/img/ict.png"
       }
     ]
   }
