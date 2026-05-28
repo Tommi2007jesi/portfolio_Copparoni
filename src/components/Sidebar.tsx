@@ -12,7 +12,7 @@ export default function Sidebar({ data }: SidebarProps) {
         
         {/* Profile Avatar Frame */}
         <div className="relative group flex flex-col items-center">
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-[#E0D8D0]/50 via-[#E0D8D0]/10 to-[#E0D8D0]/45 p-[2px] shadow-lg transition-transform duration-500 group-hover:scale-105 overflow-hidden">
+          <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl bg-gradient-to-tr from-[#E0D8D0]/50 via-[#E0D8D0]/10 to-[#E0D8D0]/45 p-[2px] shadow-lg transition-transform duration-500 group-hover:scale-105 overflow-hidden">
             <div className="w-full h-full bg-[#121212] rounded-[13px] flex items-center justify-center overflow-hidden">
               <img 
                 src="/img/miafoto.png" 

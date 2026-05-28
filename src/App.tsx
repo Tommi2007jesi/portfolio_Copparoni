@@ -281,13 +281,13 @@ const PROFESSIONAL_SECTIONS = {
         name: "Algoritmo di Backpropagation",
         topic: "Machine Learning Math",
         desc: "La Backpropagation è il 'motore' dell'apprendimento delle reti neurali. È un processo matematico che permette alla rete di correggere i propri errori, ricalcolando i pesi delle connessioni tra i neuroni per migliorare le prestazioni a ogni ciclo di addestramento.\n\nCuriosità: Senza questo algoritmo, scoperto negli anni '80 ma diventato potente solo oggi grazie alle moderne GPU, l'AI moderna non esisterebbe.",
-        image: "/img/ai.jpg"
+        image: "/img/Lalgoritmo-di-backpropagation-in-una-rete-neurale.png"
       },
       {
         name: "AI Generativa e Futuro",
         topic: "Technological Evolution",
         desc: "L'AI generativa rappresenta l'ultima frontiera, capace di creare testi, immagini e codice partendo da semplici indicazioni. Lo studio si concentra sull'etica dell'AI, sulla gestione dei dataset e sulle potenzialità di queste tecnologie per potenziare la creatività umana.\n\nCuriosità: I modelli linguistici moderni sono stati addestrati su quasi tutta la conoscenza umana scritta disponibile su internet.",
-        image: "/img/ai.jpg"
+        image: "/img/AI-generativa.png"
       }
     ]
   }
