@@ -225,19 +225,19 @@ const PROFESSIONAL_SECTIONS = {
         name: "Concorrenza e Processi",
         topic: "Operating Systems",
         desc: "La gestione della concorrenza permette a un computer di eseguire più compiti 'simultaneamente'. Lo studio dei processi, dei thread e delle sezioni critiche è fondamentale per evitare conflitti (deadlock) e ottimizzare le prestazioni delle CPU multi-core moderne.\n\nCuriosità: Senza la gestione della concorrenza, il tuo computer si bloccherebbe ogni volta che provi ad aprire una seconda scheda nel browser.",
-        image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=800"
+        image: "/img/concorrenza.png"
       },
       {
         name: "Sistemi Operativi",
         topic: "System Architecture",
         desc: "Il Sistema Operativo è l'intermediario tra hardware e utente. Lo studio approfondisce la gestione della memoria, lo scheduling della CPU e il file system. Capire come Linux o Windows gestiscono le risorse è essenziale per scrivere software efficiente e sicuro.\n\nCuriosità: Il kernel Linux, che fa girare quasi tutto il web e Android, è nato come un progetto hobbistico di uno studente universitario.",
-        image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800"
+        image: "/img/os.png"
       },
       {
         name: "Sviluppo con Android Studio",
         topic: "Mobile Development",
         desc: "Android Studio è l'IDE standard per creare app per il sistema operativo mobile più diffuso al mondo. Lo studio copre il ciclo di vita delle Activity, la gestione dei layout XML e l'integrazione con i sensori dello smartphone, permettendo di trasformare un'idea in un'applicazione portatile.\n\nCuriosità: Esistono oltre 3 miliardi di dispositivi Android attivi nel mondo, rendendo lo sviluppo mobile una delle carriere più richieste.",
-        image: "https://developer.android.com/static/studio/images/hero_image_studio.png"
+        image: "/img/android.png"
       }
     ]
   },
@@ -250,19 +250,19 @@ const PROFESSIONAL_SECTIONS = {
         name: "Crittografia e Sicurezza",
         topic: "Data Protection",
         desc: "La crittografia protegge l'informazione rendendola incomprensibile a chi non possiede la chiave. Dalla crittografia simmetrica (AES) a quella asimmetrica (RSA/ECC), questi algoritmi sono la base di ogni transazione sicura su internet, dalle banche ai messaggi WhatsApp.\n\nCuriosità: La crittografia asimmetrica permette a due persone che non si sono mai viste di scambiarsi messaggi segreti in modo totalmente sicuro.",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800"
+        image: "/img/crittografia.png"
       },
       {
         name: "Modello ISO/OSI",
         topic: "Network Protocols",
         desc: "Il modello ISO/OSI è lo standard che descrive come i dati viaggiano in rete attraverso 7 livelli. Dal livello Fisico (cavi e segnali) fino al livello Applicazione (HTTP, FTP), questa astrazione permette a dispositivi di produttori diversi di comunicare tra loro senza problemi.\n\nCuriosità: Anche se oggi usiamo il modello TCP/IP, il modello ISO/OSI rimane il riferimento teorico fondamentale per ogni esperto di reti.",
-        image: "https://community.fs.com/images/community/wp-content/uploads/2018/10/osi-model-7-layers.png"
+        image: "/img/isoosi.png"
       },
       {
         name: "Cisco Packet Tracer",
         topic: "Network Simulation",
         desc: "Packet Tracer è uno strumento di simulazione potente che permette di progettare e testare reti complesse senza bisogno di hardware fisico. Si possono configurare router, switch e server, simulando attacchi o ottimizzando il traffico di un'intera città o azienda.\n\nCuriosità: Molte certificazioni professionali Cisco vengono preparate interamente su simulatori come questo prima di toccare un vero router.",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
+        image: "/img/cisco.png"
       }
     ]
   },
@@ -275,19 +275,19 @@ const PROFESSIONAL_SECTIONS = {
         name: "Reti Neurali e CNN",
         topic: "Deep Learning",
         desc: "Le Reti Neurali si ispirano al funzionamento del cervello umano. Le CNN (Convolutional Neural Networks) sono specializzate nell'elaborazione di immagini e video, permettendo ai computer di 'vedere' e riconoscere oggetti, volti e segnali stradali con una precisione superiore a quella umana.\n\nCuriosità: Le CNN sono la tecnologia che permette alle auto a guida autonoma di distinguere un pedone da un palo della luce.",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+        image: "/img/neural.png"
       },
       {
         name: "Algoritmo di Backpropagation",
         topic: "Machine Learning Math",
         desc: "La Backpropagation è il 'motore' dell'apprendimento delle reti neurali. È un processo matematico che permette alla rete di correggere i propri errori, ricalcolando i pesi delle connessioni tra i neuroni per migliorare le prestazioni a ogni ciclo di addestramento.\n\nCuriosità: Senza questo algoritmo, scoperto negli anni '80 ma diventato potente solo oggi grazie alle moderne GPU, l'AI moderna non esisterebbe.",
-        image: "https://images.unsplash.com/photo-1509228468518-180dd4805a5f?auto=format&fit=crop&q=80&w=800"
+        image: "/img/ai.jpg"
       },
       {
         name: "AI Generativa e Futuro",
         topic: "Technological Evolution",
         desc: "L'AI generativa rappresenta l'ultima frontiera, capace di creare testi, immagini e codice partendo da semplici indicazioni. Lo studio si concentra sull'etica dell'AI, sulla gestione dei dataset e sulle potenzialità di queste tecnologie per potenziare la creatività umana.\n\nCuriosità: I modelli linguistici moderni sono stati addestrati su quasi tutta la conoscenza umana scritta disponibile su internet.",
-        image: "https://images.unsplash.com/photo-1676299081847-824916ff030a?auto=format&fit=crop&q=80&w=800"
+        image: "/img/ai.jpg"
       }
     ]
   }
