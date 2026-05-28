@@ -684,7 +684,36 @@ export default function App() {
                   })}
                 </div>
 
-
+                <div className="grid grid-cols-1 gap-8">
+                  {PROFESSIONAL_SECTIONS[activeProfSubSection].items.map((item: any, index: number) => (
+                    <div 
+                      key={index} 
+                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-[#E0D8D0]/25 transition-all group duration-300"
+                    >
+                      <div className="w-full md:w-1/3 lg:w-1/4 h-64 md:h-auto shrink-0 overflow-hidden bg-[#050505]">
+                        <img 
+                          src={item.image} 
+                          alt={item.name} 
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                          }}
+                        />
+                      </div>
+                      <div className="flex-1 p-6 md:p-8 flex flex-col justify-between gap-6">
+                        <div className="space-y-4">
+                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E0D8D0]/5 pb-4">
+                            <div>
+                              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E0D8D0]/40 block mb-1 uppercase">{item.topic}</span>
+                              <h4 className="text-xl font-bold text-[#E0D8D0]">{item.name}</h4>
+                            </div>
+                          </div>
+                          <div className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">{item.desc}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 <div className="pt-8 border-t border-[#E0D8D0]/10">
                   <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans mb-6">Progetti Professionali Realizzati</h3>
