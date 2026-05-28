@@ -200,7 +200,7 @@ const PROFESSIONAL_SECTIONS = {
         name: "La Busta Paga",
         topic: "HR & Finance",
         desc: "Comprendere la busta paga significa saper leggere le voci che compongono la retribuzione: dal lordo al netto, passando per contributi previdenziali (INPS) e ritenute fiscali (IRPEF). È un documento fondamentale che regola il rapporto tra lavoratore e azienda, garantendo trasparenza e diritti.\n\nCuriosità: Il sistema contributivo italiano si basa sulla solidarietà generazionale: i lavoratori di oggi pagano le pensioni di chi è già a riposo.",
-        image: "/img/bustapaga.png"
+        image: "/img/busta.png"
       },
       {
         name: "Costi e Ricavi",
@@ -275,7 +275,7 @@ const PROFESSIONAL_SECTIONS = {
         name: "Reti Neurali e CNN",
         topic: "Deep Learning",
         desc: "Le Reti Neurali si ispirano al funzionamento del cervello umano. Le CNN (Convolutional Neural Networks) sono specializzate nell'elaborazione di immagini e video, permettendo ai computer di 'vedere' e riconoscere oggetti, volti e segnali stradali con una precisione superiore a quella umana.\n\nCuriosità: Le CNN sono la tecnologia che permette alle auto a guida autonoma di distinguere un pedone da un palo della luce.",
-        image: "/img/neural.png"
+        image: "/img/neurali.png"
       },
       {
         name: "Algoritmo di Backpropagation",
@@ -483,8 +483,7 @@ export default function App() {
               { id: "fsl", label: "FSL" },
               { id: "civica", label: "Educazione Civica" },
               { id: "umanistica", label: "Area Umanistica" },
-              { id: "professionale", label: "Area Professionale" },
-              { id: "contatti", label: "Contatti" }
+              { id: "professionale", label: "Area Professionale" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -719,60 +718,7 @@ export default function App() {
               </div>
             )}
 
-            {activeSection === "contatti" && (
-              <div className="space-y-8 animate-fade-in text-xs font-light">
-                <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-3 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
-                  <div className="flex items-center gap-2 text-[#E0D8D0]">
-                    <Send className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">HUB DI COMUNICAZIONE</span>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
-                    Mettiti in Contatto
-                  </h2>
-                </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-5 space-y-6">
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-6">
-                      <div className="space-y-4">
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E0D8D0]/40">Canali Diretti</h3>
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5">
-                            <div className="flex items-center gap-3">
-                              <Mail className="w-4 h-4 text-[#E0D8D0]/40" />
-                              <span className="text-[11px] text-[#E0D8D0] font-medium">{portfolio.email}</span>
-                            </div>
-                            <button onClick={() => { navigator.clipboard.writeText(portfolio.email); setCopiedEmail(true); setTimeout(() => setCopiedEmail(false), 2000); }}>
-                              {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5 text-[#E0D8D0]/40" />}
-                            </button>
-                          </div>
-                          <div className="grid grid-cols-3 gap-2">
-                            <a href={portfolio.github} target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Github className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Github</span></a>
-                            <a href={portfolio.linkedin} target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Linkedin className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Linkedin</span></a>
-                            <a href="#" target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Instagram className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Instagram</span></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-7">
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden p-6">
-                      <form onSubmit={handleContactSubmit} className="space-y-4">
-                        <div className="grid grid-cols-2 gap-4">
-                          <input type="text" required value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nome" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
-                          <input type="email" required value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Email" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
-                        </div>
-                        <input type="text" value={contactSubject} onChange={(e) => setContactSubject(e.target.value)} placeholder="Oggetto" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
-                        <textarea required value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} placeholder="Messaggio..." className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0] h-32 resize-none" />
-                        <button type="submit" className="w-full py-3 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-[0.2em]">{contactLoading ? "Invio..." : "Invia Messaggio"}</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </main>
