@@ -56,111 +56,104 @@ const CONTACT_TEMPLATES = [
 
 const HUMANITIES_SECTIONS = {
   italiano: {
-    title: "Lettura e Interpretazione Lirica (Italiano)",
+    title: "Letteratura e Interpretazione Critica (Italiano)",
     icon: "BookOpen",
-    desc: "Studio e analisi critica dei testi della letteratura moderna, concentrandosi sui temi dell'io, della maschera sociale e dell'inettitudine d'inizio secolo.",
+    desc: "Analisi approfondita dei maestri del Novecento italiano. Dalla rivoluzione poetica dell'ermetismo alla scomposizione dell'identità pirandelliana, fino all'estetismo decadente.",
     items: [
       {
-        name: "Giacomo Leopardi",
-        period: "1798 – 1837",
-        work: "I Canti & Operette Morali",
-        desc: "Genio romantico e filosofo del pessimismo. Analizza con lucida poesia la tensione verso l'infinito, l'illusorietà delle speranze e la necessità di una fratellanza contro la natura matrigna.",
-        quote: "« E il naufragar m'è dolce in questo mare. »",
-        source: "L'Infinito"
+        name: "Gabriele D'Annunzio",
+        period: "1863 – 1938",
+        work: "Il Piacere & Alcyone",
+        desc: "L'esteta per eccellenza, colui che voleva fare della propria vita un'opera d'arte. La sua poetica è intrisa di panismo, ovvero la fusione totale dell'uomo con la natura, espressa attraverso un linguaggio prezioso e sensoriale.\n\nCuriosità: Fu un pioniere del marketing moderno, inventando nomi per brand famosi come 'La Rinascente' e 'Saiwa'.",
+        quote: "« Taci. Su le soglie del bosco non odo parole che dici umane; ma odo parole più nuove che parlano gocciole e foglie lontane. »",
+        source: "La pioggia nel pineto",
+        image: "https://biografieonline.it/img/bio/g/Gabriele_D_Annunzio.jpg"
+      },
+      {
+        name: "Giuseppe Ungaretti",
+        period: "1888 – 1970",
+        work: "L'Allegria & Sentimento del Tempo",
+        desc: "Il padre dell'Ermetismo. La sua poesia nasce dal dolore della trincea durante la Grande Guerra. Distrugge la metrica tradizionale per isolare la parola 'pura', capace di illuminare l'abisso dell'esistenza umana.\n\nCuriosità: Le sue poesie più famose furono scritte su pezzi di carta di fortuna, cartoline e margini di giornali mentre si trovava al fronte.",
+        quote: "« Si sta come d'autunno sugli alberi le foglie. »",
+        source: "Soldati",
+        image: "https://biografieonline.it/img/bio/g/Giuseppe_Ungaretti.jpg"
       },
       {
         name: "Luigi Pirandello",
         period: "1867 – 1936",
-        work: "Il fu Mattia Pascal",
-        desc: "Premio Nobel per la Letteratura. Scompone le certezze dell'individuo moderno narrando la scomposizione dell'identità personale, l'uso delle maschere sociali e la verità relativa dell'esistenza.",
+        work: "Il fu Mattia Pascal & Uno, nessuno e centomila",
+        desc: "Il genio che ha svelato la crisi dell'io moderno. Attraverso il concetto di 'maschera', Pirandello analizza come l'individuo sia frammentato e prigioniero delle convenzioni sociali, incapace di trovare una verità univoca.\n\nCuriosità: Il suo concetto di 'umorismo' (il sentimento del contrario) è oggi più attuale che mai per analizzare le identità digitali sui social network.",
         quote: "« Imparerai a tue spese che nel lungo tragitto della vita incontrerai tante maschere e pochi volti. »",
-        source: "Uno, nessuno e centomila"
-      },
-      {
-        name: "Italo Svevo",
-        period: "1861 – 1928",
-        work: "La Coscienza di Zeno",
-        desc: "Pioniere della coscienza psicanalitica sul suolo italico. Svela la figura dell'inetto, uomo moderno incapace di darsi una direzione fissa nel vortice delle abitudini borghesi.",
-        quote: "« La salute non analizza se stessa e neppure si guarda nello specchio. »",
-        source: "La Coscienza di Zeno"
+        source: "Uno, nessuno e centomila",
+        image: "https://biografieonline.it/img/bio/l/Luigi_Pirandello.jpg"
       }
     ]
   },
   storia: {
     title: "Eredità Storica e Sistemi Democratici (Storia)",
     icon: "History",
-    desc: "Analisi critica dei movimenti socio-politici e delle rivoluzioni del ventesimo secolo, esaminando la nascita del costituzionalismo moderno.",
+    desc: "Un viaggio critico attraverso le fratture del XX secolo, analizzando come le guerre e le rivoluzioni abbiano plasmato la nostra attuale società tecnologica e democratica.",
     items: [
       {
-        name: "Prima Guerra Mondiale",
+        name: "La Grande Guerra",
         period: "1914 – 1918",
-        work: "Il Primo Conflitto Globale",
-        desc: "La prima guerra di massa e di trincea, caratterizzata dall'industrializzazione bellica, dal crollo degli imperi centrali e dalla ridefinizione geopolitica dell'Europa.",
-        quote: "« La guerra è una follia da cui l'umanità deve guarire. »",
-        source: "Pensiero storico comune"
+        work: "Il Tramonto del Vecchio Mondo",
+        desc: "Non solo un conflitto, ma il primo scontro industriale di massa. Segna la fine degli imperi millenari e l'introduzione di tecnologie belliche devastanti: gas, carri armati e aerei.\n\nCuriosità: La guerra accelerò enormemente lo sviluppo delle telecomunicazioni radio, ponendo le basi per la futura rete globale.",
+        quote: "« La guerra è una lezione della storia che i popoli dimenticano troppo in fretta. »",
+        source: "Riflessione storica",
+        image: "https://www.storicang.it/medio/2020/06/18/soldati-italiani-in-trincea-durante-la-prima-guerra-mondiale_74075f78_1280x853.jpg"
       },
       {
-        name: "Seconda Guerra Mondiale",
-        period: "1939 – 1945",
-        work: "Il Secondo Conflitto Globale",
-        desc: "La lotta globale contro il totalitarismo nazifascista, segnata dalla Shoah, dal coinvolgimento totale delle popolazioni civili e dall'uso d'innovazioni scientifiche devastanti.",
+        name: "Totalitarismi e Shoah",
+        period: "1922 – 1945",
+        work: "L'eclissi della ragione",
+        desc: "L'ascesa dei regimi fascista e nazista ha mostrato come la propaganda e la tecnologia possano essere usate per il controllo totale e lo sterminio sistematico. La Shoah rimane la ferita più profonda del secolo.\n\nCuriosità: I regimi usarono i primi computer rudimentali per catalogare le popolazioni, dimostrando il lato oscuro della gestione dei dati.",
         quote: "« Coloro che non ricordano il passato sono condannati a ripeterlo. »",
-        source: "George Santayana"
+        source: "George Santayana",
+        image: "https://www.focus.it/site_stored/imgs/0001/045/auschwitz.jpg"
       },
       {
-        name: "Nascita della Repubblica Italiana",
+        name: "La Costituzione Italiana",
         period: "1946 – 1948",
-        work: "La Costituzione Italiana",
-        desc: "Esame del passaggio dalla monarchia alla repubblica tramite il referendum istituzionale e la stesura dei principi fondamentali della carta costituzionale italiana.",
+        work: "La Nascita della Democrazia",
+        desc: "Dalle macerie della guerra nasce la Repubblica. La nostra Costituzione è il risultato di un compromesso altissimo tra forze diverse, unite dal rifiuto del fascismo e dalla tutela della dignità umana.\n\nCuriosità: Fu scritta da 75 'Padri e Madri Costituenti' in un clima di straordinaria collaborazione intellettuale.",
         quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. »",
-        source: "Articolo 1 della Costituzione Italiana"
-      },
-      {
-        name: "La Guerra Fredda & Corsa Tecnologica",
-        period: "1947 – 1991",
-        work: "L'era dei blocchi contrapposti",
-        desc: "La polarizzazione ideologica mondiale tra USA e URSS, la nascita dei blocchi contrapposti e le innovazioni della corsa allo spazio e della prima cyber-sicurezza militare (ARPANET).",
-        quote: "« Un'ombra è scesa sulla scena fino a poco fa illuminata dalla vittoria alleata. »",
-        source: "Winston Churchill, Discorso sulla Cortina di Ferro"
-      },
-      {
-        name: "Crisi del 1929 & Il New Deal",
-        period: "1929 – 1939",
-        work: "Riforma Keynesiana e Roosevelt",
-        desc: "Il grande crollo di Wall Street, la prolungata depressione globale e la risposta strategica del governo americano con politiche di sviluppo pubblico e di protezione del welfare economico.",
-        quote: "« L'unica cosa di cui dobbiamo avere paura è la paura stessa. »",
-        source: "Franklin D. Roosevelt, Discorso di Insediamento"
+        source: "Articolo 1 della Costituzione",
+        image: "https://www.senato.it/application/xmanager/projects/leg18/file/Costituzione_copertina.jpg"
       }
     ]
   },
   inglese: {
     title: "Language, Society and Science (Inglese)",
     icon: "Globe",
-    desc: "Focus on literary dystopias, the sociological changes of industrial eras and the acquisition of technical communication for computing.",
+    desc: "Exploring the intersection of English literature, technological evolution, and the global language of the digital era.",
     items: [
       {
-        name: "George Orwell & Modern Dystopia",
+        name: "George Orwell",
         period: "1903 – 1950",
         work: "Nineteen Eighty-Four",
-        desc: "Study of Nineteen Eighty-Four, focusing on totalitarianism, language control, newspeak, systematic surveillance, and the manipulation of individual identity.",
-        quote: "« War is peace. Freedom is slavery. Ignorance is strength. »",
-        source: "Nineteen Eighty-Four"
+        desc: "The ultimate warning against totalitarianism and mass surveillance. Orwell predicted concepts like 'Big Brother' and 'Newspeak' that resonate today in the era of data privacy and social media algorithms.\n\nFact: The term 'Orwellian' is now used globally to describe policies that threaten personal freedom and privacy.",
+        quote: "« Big Brother is Watching You. »",
+        source: "Nineteen Eighty-Four",
+        image: "https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5NjkwNjY1/george_orwell_getty_images_3298830.jpg"
       },
       {
-        name: "The Industrial Revolution & Victorian Era",
-        period: "1760 – 1901",
+        name: "The Industrial Revolution",
+        period: "18th – 19th Century",
         work: "Hard Times by Charles Dickens",
-        desc: "The massive transition to manufacturing, machine systems, and the harsh rise of factories paired with Dickensian social critique of cold utilitarian principles.",
-        quote: "« Now, what I want is, Facts. Teach these boys and girls nothing but Facts. »",
-        source: "Charles Dickens, Hard Times"
+        desc: "The transition from rural life to the factory system. Dickens criticized the dehumanizing effects of utilitarianism, where people were treated as mere 'hands' or statistics.\n\nFact: The first programmable computer concept by Charles Babbage was born during this era of mechanical innovation.",
+        quote: "« Facts alone are wanted in life. Plant nothing else, and root out everything else. »",
+        source: "Hard Times",
+        image: "https://www.storicang.it/medio/2020/07/07/una-fabbrica-tessile-durante-la-rivoluzione-industriale_2731518b_1280x853.jpg"
       },
       {
-        name: "Technical English & Global ICT Protocols",
-        period: "21st Century",
-        work: "Scientific Technical Language",
-        desc: "The study of standard syntax, engineering specifications, communication models, protocol documentations and global terminology used across tech projects.",
+        name: "Technical English & ICT",
+        period: "Modern Era",
+        work: "The Global Tech Language",
+        desc: "English is the undisputed language of computing. From coding syntax to network protocols (TCP/IP), mastering technical English is essential for any IT professional in the global market.\n\nFact: Over 90% of the world's most popular programming languages use English-based keywords and documentation.",
         quote: "« The single biggest problem in communication is the illusion that it has taken place. »",
-        source: "George Bernard Shaw on Communication"
+        source: "George Bernard Shaw",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
       }
     ]
   }
@@ -327,7 +320,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#E0D8D0] bg-grid-minimal flex flex-col antialiased relative overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-[#E0D8D0] font-sans selection:bg-[#E0D8D0] selection:text-[#050505] flex flex-col relative overflow-x-hidden bg-grid-minimal">
       
       {/* Background Accent (Subtle Warm Glow) */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1a1410] rounded-full blur-[120px] opacity-40 -mr-48 -mt-48 pointer-events-none"></div>
@@ -525,41 +518,56 @@ export default function App() {
                 </div>
 
                 {/* Study Items Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {HUMANITIES_SECTIONS[activeHumSubSection].items.map((author, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                  {HUMANITIES_SECTIONS[activeHumSubSection].items.map((author: any, index: number) => (
                     <div 
                       key={index} 
-                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 flex flex-col justify-between gap-4 hover:border-[#E0D8D0]/25 transition-all group duration-300"
+                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 flex flex-col md:flex-row gap-6 hover:border-[#E0D8D0]/25 transition-all group duration-300"
                     >
-                      <div className="space-y-3">
-                        <div className="flex items-start justify-between gap-2 border-b border-[#E0D8D0]/5 pb-3">
-                          <div>
-                            <span className="text-[9px] font-mono tracking-widest text-[#E0D8D0]/40 block mb-0.5">
-                              {author.period}
-                            </span>
-                            <h4 className="text-sm font-bold text-[#E0D8D0] group-hover:text-white transition-colors">
-                              {author.name}
-                            </h4>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <span className="text-[9px] tracking-[0.05em] uppercase px-2 py-0.5 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded text-[#E0D8D0]/80 font-mono" title={author.work}>
-                            {author.work}
-                          </span>
-                        </div>
-                        
-                        <p className="text-xs text-[#BDB5AD] leading-relaxed font-light">
-                          {author.desc}
-                        </p>
+                      {/* Image side */}
+                      <div className="w-full md:w-48 h-48 shrink-0 rounded-xl overflow-hidden border border-[#E0D8D0]/10">
+                        <img 
+                          src={author.image} 
+                          alt={author.name} 
+                          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
                       </div>
 
-                      <div className="pt-3 border-t border-[#E0D8D0]/5 space-y-1">
-                        <p className="text-[11px] text-[#E0D8D0]/90 italic font-serif leading-relaxed">
-                          {author.quote}
-                        </p>
-                        <span className="text-[8px] font-mono tracking-wider text-[#E0D8D0]/30 block text-right">
-                          — {author.source}
-                        </span>
+                      {/* Content side */}
+                      <div className="flex-1 flex flex-col justify-between gap-4">
+                        <div className="space-y-3">
+                          <div className="flex items-start justify-between gap-2 border-b border-[#E0D8D0]/5 pb-3">
+                            <div>
+                              <span className="text-[9px] font-mono tracking-widest text-[#E0D8D0]/40 block mb-0.5">
+                                {author.period}
+                              </span>
+                              <h4 className="text-lg font-bold text-[#E0D8D0] group-hover:text-white transition-colors">
+                                {author.name}
+                              </h4>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[9px] tracking-[0.05em] uppercase px-2 py-0.5 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded text-[#E0D8D0]/80 font-mono">
+                                {author.work}
+                              </span>
+                            </div>
+                          </div>
+                          
+                          <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">
+                            {author.desc}
+                          </p>
+                        </div>
+
+                        <div className="pt-3 border-t border-[#E0D8D0]/5 space-y-1">
+                          <p className="text-[11px] md:text-xs text-[#E0D8D0]/90 italic font-serif leading-relaxed">
+                            {author.quote}
+                          </p>
+                          <span className="text-[8px] font-mono tracking-wider text-[#E0D8D0]/30 block text-right">
+                            — {author.source}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -609,287 +617,222 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                  {/* Left block (3 columns equivalent representation on grid) */}
-                  <div className="lg:col-span-2 space-y-6">
-                    <h3 className="text-[10px] font-bold tracking-[0.15em] text-[#E0D8D0]/60 uppercase font-sans px-1">
-                      Canali di Contatto Diretti
-                    </h3>
-
-                    {/* Email Card */}
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-5 space-y-3 hover:border-[#E0D8D0]/20 transition-all duration-300">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 flex items-center justify-center text-[#E0D8D0]">
-                            <Mail className="w-4 h-4" />
+                {/* Main Contact Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Left Side: Contact Info & Links */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-6">
+                      <div className="space-y-4">
+                        <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E0D8D0]/40">Canali Diretti</h3>
+                        
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between p-3 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5 group hover:border-[#E0D8D0]/20 transition-all">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 flex items-center justify-center text-[#E0D8D0]">
+                                <Mail className="w-4 h-4" />
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-[9px] uppercase tracking-tighter text-[#E0D8D0]/30 font-bold">Email Istituzionale</span>
+                                <span className="text-[11px] text-[#E0D8D0] font-medium">{portfolio.email}</span>
+                              </div>
+                            </div>
+                            <button 
+                              onClick={() => {
+                                navigator.clipboard.writeText(portfolio.email);
+                                setCopiedEmail(true);
+                                setTimeout(() => setCopiedEmail(false), 2000);
+                              }}
+                              className="p-2 hover:bg-[#E0D8D0]/10 rounded-lg text-[#E0D8D0]/40 hover:text-[#E0D8D0] transition-all"
+                            >
+                              {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
+                            </button>
                           </div>
-                          <div>
-                            <span className="text-[9px] uppercase tracking-wider text-[#E0D8D0]/40 font-semibold block leading-none mb-1">E-mail Didattica</span>
-                            <span className="text-xs font-semibold text-[#E0D8D0] font-mono select-all">st11349@iismarconipieralisi.it</span>
+
+                          <div className="grid grid-cols-3 gap-2">
+                            {[
+                              { icon: <Github className="w-4 h-4" />, label: "Github", link: portfolio.github },
+                              { icon: <Linkedin className="w-4 h-4" />, label: "Linkedin", link: portfolio.linkedin },
+                              { icon: <Instagram className="w-4 h-4" />, label: "Instagram", link: "#" }
+                            ].map((social, sidx) => (
+                              <a 
+                                key={sidx}
+                                href={social.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5 hover:border-[#E0D8D0]/20 hover:bg-[#E0D8D0]/5 transition-all group"
+                              >
+                                <div className="text-[#E0D8D0]/40 group-hover:text-[#E0D8D0] transition-colors">
+                                  {social.icon}
+                                </div>
+                                <span className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/30 group-hover:text-[#E0D8D0]/60">{social.label}</span>
+                              </a>
+                            ))}
                           </div>
                         </div>
                       </div>
-                      <p className="text-[11px] text-[#BDB5AD] leading-relaxed">
-                        Canale ufficiale e primario per comunicazioni con docenti, collaborazioni d'istituto, stage formativi ed esami.
-                      </p>
-                      <div className="pt-2 flex gap-2">
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText("st11349@iismarconipieralisi.it");
-                            setCopiedEmail(true);
-                            setTimeout(() => setCopiedEmail(false), 2000);
-                          }}
-                          className="flex-1 py-2 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 active:scale-95 border border-[#E0D8D0]/15 hover:border-[#E0D8D0]/35 text-[#E0D8D0] rounded-xl font-semibold flex items-center justify-center gap-1.5 transition-all text-[11px] cursor-pointer"
-                        >
-                          {copiedEmail ? (
-                            <>
-                              <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" />
-                              Indirizzo Copiato!
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="w-3.5 h-3.5" />
-                              Copia Indirizzo
-                            </>
-                          )}
-                        </button>
-                        <a
-                          href="mailto:st11349@iismarconipieralisi.it"
-                          className="flex-1 py-2 bg-[#E0D8D0] hover:bg-[#c9bfae] active:scale-95 text-[#050505] rounded-xl font-semibold flex items-center justify-center gap-1.5 transition-all text-[11px] text-center"
-                        >
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                          Scrivi Email
-                        </a>
-                      </div>
-                    </div>
 
-                    {/* GitHub Card */}
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-5 space-y-3 hover:border-[#E0D8D0]/20 transition-all duration-300">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 flex items-center justify-center text-[#E0D8D0]">
-                          <Github className="w-4 h-4" />
+                      <div className="pt-4 border-t border-[#E0D8D0]/5 space-y-4">
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-3.5 h-3.5 text-[#E0D8D0]/40" />
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#E0D8D0]/40">Disponibilità Attuale</span>
                         </div>
-                        <div>
-                          <span className="text-[9px] uppercase tracking-wider text-[#E0D8D0]/40 font-semibold block leading-none mb-1">Revisione Codice</span>
-                          <span className="text-xs font-semibold text-[#E0D8D0] font-sans">GitHub Repositories</span>
+                        <div className="p-4 rounded-xl bg-[#E0D8D0]/5 border border-[#E0D8D0]/10">
+                          <p className="text-[#E0D8D0] font-medium mb-1 italic">"{portfolio.availability}"</p>
+                          <p className="text-[10px] text-[#BDB5AD]">Risposta media entro 24-48 ore lavorative.</p>
                         </div>
-                      </div>
-                      <p className="text-[11px] text-[#BDB5AD] leading-relaxed">
-                        Sorgenti delle esercitazioni pratiche di Sistemi, Informatica e Telecomunicazioni svolte in laboratorio.
-                      </p>
-                      <a
-                        href="https://github.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 active:scale-95 border border-[#E0D8D0]/15 text-[#E0D8D0] rounded-xl font-semibold flex items-center justify-center gap-1.5 transition-all text-[11px] text-center"
-                      >
-                        Esplora Repository GitHub
-                        <ArrowUpRight className="w-3 h-3 opacity-60" />
-                      </a>
-                    </div>
-
-                    {/* LinkedIn Card */}
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-5 space-y-3 hover:border-[#E0D8D0]/20 transition-all duration-300">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 flex items-center justify-center text-[#E0D8D0]">
-                          <Linkedin className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[9px] uppercase tracking-wider text-[#E0D8D0]/40 font-semibold block leading-none mb-1">Rete Scolastica & PCTO</span>
-                          <span className="text-xs font-semibold text-[#E0D8D0] font-sans">Profilo LinkedIn</span>
-                        </div>
-                      </div>
-                      <p className="text-[11px] text-[#BDB5AD] leading-relaxed">
-                        Connessioni con tutor aziendali delle imprese locali nelle Marche e monitoraggio della crescita didattica complessiva.
-                      </p>
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 active:scale-95 border border-[#E0D8D0]/15 text-[#E0D8D0] rounded-xl font-semibold flex items-center justify-center gap-1.5 transition-all text-[11px] text-center"
-                      >
-                        Collegati su LinkedIn
-                        <ArrowUpRight className="w-3 h-3 opacity-60" />
-                      </a>
-                    </div>
-
-                    {/* Instagram Card */}
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-5 space-y-3 hover:border-[#E0D8D0]/20 transition-all duration-300">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 flex items-center justify-center text-[#E0D8D0]">
-                          <Instagram className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[9px] uppercase tracking-wider text-[#E0D8D0]/40 font-semibold block leading-none mb-1">Studente & Attività</span>
-                          <span className="text-xs font-semibold text-[#E0D8D0] font-sans">Instagram Social</span>
-                        </div>
-                      </div>
-                      <p className="text-[11px] text-[#BDB5AD] leading-relaxed">
-                        Dietro le quinte dello studio scolastico ed informale, con aggiornamenti quotidiani sui laboratori di robotica ed elettronica dell'istituto.
-                      </p>
-                      <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 active:scale-95 border border-[#E0D8D0]/15 text-[#E0D8D0] rounded-xl font-semibold flex items-center justify-center gap-1.5 transition-all text-[11px] text-center"
-                      >
-                        Segui su Instagram
-                        <ArrowUpRight className="w-3 h-3 opacity-60" />
-                      </a>
-                    </div>
-
-                    {/* Info Card Geography */}
-                    <div className="p-4 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-2xl flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/10 border border-[#E0D8D0]/15 flex items-center justify-center text-[#E0D8D0]">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                      <div className="space-y-0.5">
-                        <span className="text-[10px] text-[#E0D8D0]/50 font-bold uppercase tracking-wider">Sede Geografica</span>
-                        <p className="text-[#E0D8D0] text-[11px]">Jesi, Ancona, Italia — IIS Marconi Pieralisi</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Right block (3 columns equivalent of representation on grid for interactive tool) */}
-                  <div className="lg:col-span-3 space-y-6">
-                    <div className="flex items-center justify-between px-1">
-                      <h3 className="text-[10px] font-bold tracking-[0.15em] text-[#E0D8D0]/60 uppercase font-sans">
-                        Assistente Autocomposizione Proposte
-                      </h3>
-                      <div className="flex items-center gap-1.5 text-[9px] text-[#E0D8D0]/50 font-mono">
-                        <Sparkles className="w-3 h-3 text-[#E0D8D0]/70" />
-                        1-Click Template
+                  {/* Right Side: Interactive Form / Template Generator */}
+                  <div className="lg:col-span-7 space-y-6">
+                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col h-full">
+                      {/* Tabs for Template selection */}
+                      <div className="flex border-b border-[#E0D8D0]/5 bg-[#050505]/30">
+                        {CONTACT_TEMPLATES.map((tmp) => (
+                          <button
+                            key={tmp.id}
+                            onClick={() => {
+                              setActiveTemplate(tmp.id);
+                              setContactSubject(tmp.subject);
+                              setContactMessage(tmp.body);
+                            }}
+                            className={`flex-1 px-4 py-4 text-[10px] font-bold uppercase tracking-wider transition-all border-b-2 ${
+                              activeTemplate === tmp.id 
+                                ? "bg-[#E0D8D0]/5 border-[#E0D8D0] text-[#E0D8D0]" 
+                                : "border-transparent text-[#E0D8D0]/30 hover:text-[#E0D8D0]/60"
+                            }`}
+                          >
+                            {tmp.id}
+                          </button>
+                        ))}
                       </div>
-                    </div>
 
-                    {/* Interactive Template Selector Widget */}
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-6">
-                      <div className="space-y-2">
-                        <p className="text-xs text-[#BDB5AD]">
-                          Seleziona una categoria per caricare un messaggio accademico o lavorativo mirato. Potrai modificarlo o copiarlo al volo:
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {CONTACT_TEMPLATES.map((tpl) => {
-                            const isSelected = activeTemplate === tpl.id;
-                            return (
-                              <button
-                                key={tpl.id}
-                                onClick={() => {
-                                  setActiveTemplate(tpl.id);
-                                  setCopiedTemplate(false);
-                                }}
-                                className={`px-4 py-2 border rounded-xl text-xs transition-all duration-200 cursor-pointer ${
-                                  isSelected
-                                    ? "bg-[#E0D8D0] text-[#050505] border-[#E0D8D0] font-semibold"
-                                    : "bg-[#050505]/40 text-[#E0D8D0]/70 border-[#E0D8D0]/10 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5"
-                                }`}
-                              >
-                                {tpl.label}
-                              </button>
-                            );
-                          })}
+                      <div className="p-6 flex-1 flex flex-col space-y-6">
+                        <div className="space-y-1">
+                          <h4 className="text-sm font-semibold text-[#E0D8D0]">{CONTACT_TEMPLATES.find(t => t.id === activeTemplate)?.label}</h4>
+                          <p className="text-[11px] text-[#BDB5AD]">{CONTACT_TEMPLATES.find(t => t.id === activeTemplate)?.description}</p>
                         </div>
-                      </div>
 
-                      {/* Loaded template detailed status card */}
-                      {(() => {
-                        const currentTpl = CONTACT_TEMPLATES.find(t => t.id === activeTemplate) || CONTACT_TEMPLATES[0];
-                        const mailtoUrl = `mailto:st11349@iismarconipieralisi.it?subject=${encodeURIComponent(currentTpl.subject)}&body=${encodeURIComponent(currentTpl.body)}`;
-                        
-                        return (
-                          <div className="space-y-4 animate-scale-up">
-                            <div className="p-3 bg-[#050505]/30 border border-[#E0D8D0]/5 rounded-xl">
-                              <span className="text-[9px] font-bold text-[#E0D8D0]/40 uppercase tracking-widest block mb-0.5">Focus d'Impiego</span>
-                              <p className="text-xs text-[#E0D8D0]">{currentTpl.description}</p>
+                        {contactSuccess ? (
+                          <div className="flex-1 flex flex-col items-center justify-center space-y-4 animate-fade-in py-12">
+                            <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500">
+                              <Check className="w-8 h-8" />
+                            </div>
+                            <div className="text-center space-y-1">
+                              <h4 className="text-sm font-bold text-[#E0D8D0]">Messaggio Inviato!</h4>
+                              <p className="text-[11px] text-[#BDB5AD]">Grazie per avermi contattato. Ti risponderò al più presto.</p>
+                            </div>
+                            <button 
+                              onClick={resetContactForm}
+                              className="mt-4 px-6 py-2 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
+                            >
+                              Invia un altro messaggio
+                            </button>
+                          </div>
+                        ) : (
+                          <form onSubmit={handleContactSubmit} className="space-y-4 flex-1">
+                            <div className="grid grid-cols-2 gap-4">
+                              <div className="space-y-1.5">
+                                <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Nome</label>
+                                <input 
+                                  type="text" 
+                                  required
+                                  value={contactName}
+                                  onChange={(e) => setContactName(e.target.value)}
+                                  placeholder="Il tuo nome"
+                                  className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
+                                />
+                              </div>
+                              <div className="space-y-1.5">
+                                <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Email</label>
+                                <input 
+                                  type="email" 
+                                  required
+                                  value={contactEmail}
+                                  onChange={(e) => setContactEmail(e.target.value)}
+                                  placeholder="la-tua@email.com"
+                                  className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
+                                />
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-1.5">
+                              <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Oggetto</label>
+                              <input 
+                                type="text" 
+                                value={contactSubject}
+                                onChange={(e) => setContactSubject(e.target.value)}
+                                placeholder="Oggetto del messaggio"
+                                className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
+                              />
                             </div>
 
-                            <div className="space-y-3">
-                              <div className="space-y-1">
-                                <span className="text-[9px] font-bold text-[#E0D8D0]/40 uppercase tracking-widest block">Oggetto Configurato:</span>
-                                <div className="p-2.5 bg-[#050505] border border-[#E0D8D0]/10 rounded-lg text-xs font-mono text-[#E0D8D0] truncate">
-                                  {currentTpl.subject}
-                                </div>
-                              </div>
-
-                              <div className="space-y-1">
-                                <span className="text-[9px] font-bold text-[#E0D8D0]/40 uppercase tracking-widest block">Corpo del Messaggio Generato:</span>
-                                <div className="p-4 bg-[#050505] border border-[#E0D8D0]/10 rounded-lg text-xs font-mono text-[#E0D8D0]/80 whitespace-pre-wrap leading-relaxed max-h-56 overflow-y-auto min-h-[140px] select-all">
-                                  {currentTpl.body}
-                                </div>
-                              </div>
+                            <div className="space-y-1.5 flex-1 flex flex-col">
+                              <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Messaggio</label>
+                              <textarea 
+                                required
+                                value={contactMessage}
+                                onChange={(e) => setContactMessage(e.target.value)}
+                                placeholder="Scrivi qui il tuo messaggio..."
+                                className="w-full flex-1 bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0] resize-none min-h-[150px]"
+                              />
                             </div>
 
-                            {/* Dual actionable helper buttons */}
-                            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                              <button
+                            <div className="pt-2 flex items-center justify-between">
+                              <button 
+                                type="button"
                                 onClick={() => {
-                                  const textToCopy = `Oggetto: ${currentTpl.subject}\n\n${currentTpl.body}`;
-                                  navigator.clipboard.writeText(textToCopy);
+                                  navigator.clipboard.writeText(contactMessage);
                                   setCopiedTemplate(true);
                                   setTimeout(() => setCopiedTemplate(false), 2000);
                                 }}
-                                className="flex-1 py-3 bg-[#E0D8D0]/5 hover:bg-[#E0D8D0]/10 border border-[#E0D8D0]/15 hover:border-[#E0D8D0]/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 text-[#E0D8D0] transition-colors cursor-pointer"
+                                className="flex items-center gap-2 px-4 py-2 rounded-xl text-[#E0D8D0]/40 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5 transition-all"
                               >
-                                {copiedTemplate ? (
-                                  <>
-                                    <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                                    Testo Copiato con Oggetto!
-                                  </>
-                                ) : (
-                                  <>
-                                    <Copy className="w-4 h-4 text-[#E0D8D0]/80" />
-                                    Copia Messaggio Completo
-                                  </>
-                                )}
+                                {copiedTemplate ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
+                                <span className="text-[9px] font-bold uppercase tracking-widest">Copia Bozza</span>
                               </button>
 
-                              <a
-                                href={mailtoUrl}
-                                className="flex-1 py-3 bg-[#E0D8D0] hover:bg-[#c9bfae] text-[#050505] rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors text-center"
+                              <button 
+                                type="submit"
+                                disabled={contactLoading}
+                                className="flex items-center gap-2 px-8 py-3 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-white transition-all disabled:opacity-50"
                               >
-                                <MessageSquare className="w-4 h-4 text-[#050505]" />
-                                Apri Dritta in Gmail/Client
-                              </a>
+                                {contactLoading ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
+                                Invia Messaggio
+                              </button>
                             </div>
-                          </div>
-                        );
-                      })()}
-                    </div>
-
-                    {/* Custom operational metadata indicators */}
-                    <div className="p-5 border border-[#E0D8D0]/10 bg-[#121212]/50 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-[#E0D8D0]/60 shrink-0" />
-                        <div>
-                          <span className="text-[#E0D8D0] block text-[11px] leading-tight">Orario Ricezione Consigliato</span>
-                          <span className="text-[#BDB5AD] text-[10px]">Lun - Sab: 08:30 – 19:30 (Ora Italiana)</span>
-                        </div>
+                          </form>
+                        )}
                       </div>
-                      <span className="font-mono text-[9px] tracking-wider uppercase text-[#E0D8D0] bg-[#E0D8D0]/10 px-3 py-1.5 border border-[#E0D8D0]/15 rounded-lg shrink-0">
-                        ⚡ Risposta media: &lt; 24 Ore
-                      </span>
                     </div>
-
                   </div>
                 </div>
-
               </div>
             )}
-
           </div>
-
         </div>
-
       </main>
 
-      {/* Footer copyright */}
-      <footer className="py-8 border-t border-[#E0D8D0]/10 mt-20 select-none z-10">
-        <div className="max-w-7xl mx-auto px-4 text-center text-xs text-[#E0D8D0]/50 space-y-1.5 font-sans">
-          <p>© {new Date().getFullYear()} {portfolio.name} — Portfolio Interattivo a Competenze Integrate.</p>
-          <p className="flex items-center justify-center gap-1 text-[10px] text-[#E0D8D0]/30 font-mono uppercase tracking-wider">
-            <span>Sviluppato con React, Node.js + Express ed il modello server-side Gemini AI.</span>
-          </p>
+      {/* 3. PREMIUM FOOTER SECTION */}
+      <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full border-t border-[#E0D8D0]/5">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-[#E0D8D0]/10 text-[#E0D8D0] rounded-lg flex items-center justify-center font-bold text-[10px]">T.</div>
+              <span className="text-xs font-bold tracking-widest uppercase text-[#E0D8D0]/80">Tommaso Copparoni</span>
+            </div>
+            <p className="text-[10px] text-[#E0D8D0]/30 font-mono">© 2026 • JESI, ITALIA • STUDENT PORTFOLIO</p>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#E0D8D0]/40">System Online</span>
+            </div>
+            <div className="h-4 w-[1px] bg-[#E0D8D0]/10"></div>
+            <p className="text-[10px] text-[#E0D8D0]/40 font-light">Built with <span className="text-[#E0D8D0]/60">React & Tailwind</span></p>
+          </div>
         </div>
       </footer>
 
