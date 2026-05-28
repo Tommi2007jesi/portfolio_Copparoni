@@ -28,7 +28,12 @@ import {
   MessageSquare,
   Clock,
   MapPin,
-  RefreshCw
+  RefreshCw,
+  Cpu,
+  Database,
+  Network,
+  Briefcase,
+  BrainCircuit
 } from "lucide-react";
 
 const CONTACT_TEMPLATES = [
@@ -59,13 +64,13 @@ const HUMANITIES_SECTIONS = {
   italiano: {
     title: "Letteratura e Interpretazione Critica (Italiano)",
     icon: "BookOpen",
-    desc: "Un'analisi enciclopedica dei giganti del Novecento. Esploriamo la frammentazione dell'io in Pirandello, la rivoluzione della parola pura in Ungaretti e l'estetismo superomistico di D'Annunzio, analizzando come queste correnti abbiano influenzato la modernità.",
+    desc: "Un'analisi enciclopedica dei giganti del Novecento. Esploriamo la frammentazione dell'io in Pirandello, la rivoluzione della parola pura in Ungaretti e l'estetismo superomistico di D'Annunzio.",
     items: [
       {
         name: "Gabriele D'Annunzio",
         period: "1863 – 1938",
         work: "L'Esteta e il Vate",
-        desc: "Gabriele D'Annunzio rappresenta la figura più eccentrica e influente del Decadentismo italiano. La sua filosofia di vita, il 'Vivere Inimitabile', lo portò a trasformare ogni sua azione in un evento mediatico. La sua poetica si fonda sull'estetismo (l'arte sopra ogni cosa) e sul Panismo, una concezione quasi mistica in cui l'uomo si fonde con gli elementi naturali, perdendo la propria individualità per diventare parte del cosmo. Nel romanzo 'Il Piacere', attraverso il protagonista Andrea Sperelli, D'Annunzio esplora la decadenza morale e la ricerca ossessiva del bello in una Roma barocca e sensuale.\n\nCuriosità Storica: D'Annunzio fu un genio della comunicazione e del branding ante litteram. Oltre alle sue imprese militari, come il Volo su Vienna, collaborò attivamente con il mondo dell'industria. Inventò nomi diventati iconici come 'La Rinascente' per i grandi magazzini di Milano, il nome del liquore 'Aurum' e persino il termine 'tramezzino', sostituendo l'inglese 'sandwich' in un'ottica di purismo linguistico.",
+        desc: "Gabriele D'Annunzio rappresenta la figura più eccentrica e influente del Decadentismo italiano. La sua filosofia di vita, il 'Vivere Inimitabile', lo portò a trasformare ogni sua azione in un evento mediatico. La sua poetica si fonda sull'estetismo (l'arte sopra ogni cosa) e sul Panismo, una concezione quasi mistica in cui l'uomo si fonde con gli elementi naturali, perdendo la propria individualità per diventare parte del cosmo.\n\nCuriosità Storica: D'Annunzio fu un genio della comunicazione e del branding ante litteram. Inventò nomi diventati iconici come 'La Rinascente' e 'tramezzino'.",
         quote: "« Taci. Su le soglie del bosco non odo parole che dici umane; ma odo parole più nuove che parlano gocciole e foglie lontane. »",
         source: "La pioggia nel pineto",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Gabriele_D%27Annunzio_1922.jpg/800px-Gabriele_D%27Annunzio_1922.jpg"
@@ -74,16 +79,16 @@ const HUMANITIES_SECTIONS = {
         name: "Giuseppe Ungaretti",
         period: "1888 – 1970",
         work: "L'Allegria dei Naufragi",
-        desc: "Giuseppe Ungaretti rivoluziona la poesia italiana del Novecento attraverso l'esperienza traumatica della Prima Guerra Mondiale. Soldato nelle trincee del Carso, Ungaretti scopre la fragilità estrema dell'uomo e la necessità di una parola 'nuda', essenziale, capace di illuminare l'oscurità del dolore. La sua raccolta 'L'Allegria' rompe con la metrica tradizionale: i versi si frantumano, sparisce la punteggiatura, e la parola singola, isolata nel bianco della pagina, acquista un valore quasi sacro, un'illuminazione improvvisa (folgorazione). La sua è una 'poesia pura' che cerca di recuperare l'innocenza perduta dell'uomo di fronte all'abisso della morte.\n\nCuriosità e Genesi: Molte delle sue liriche più famose furono scritte su pezzi di carta di fortuna: margini di vecchi giornali, cartoline militari, pacchetti di sigarette. Questi 'reperti' venivano poi conservati nello zaino e rielaborati anni dopo, a testimonianza di come l'arte possa fiorire anche nel fango e nella disperazione più assoluta della guerra.",
+        desc: "Giuseppe Ungaretti rivoluziona la poesia italiana del Novecento attraverso l'esperienza traumatica della Prima Guerra Mondiale. Soldato nelle trincee del Carso, Ungaretti scopre la fragilità estrema dell'uomo e la necessità di una parola 'nuda', essenziale, capace di illuminare l'oscurità del dolore.\n\nCuriosità: Molte delle sue liriche più famose furono scritte su pezzi di carta di fortuna: margini di vecchi giornali, cartoline militari, pacchetti di sigarette.",
         quote: "« Si sta come d'autunno sugli alberi le foglie. »",
-        source: "Soldati (Bosco di Courton, luglio 1918)",
+        source: "Soldati",
         image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Giuseppe_Ungaretti_1952.jpg"
       },
       {
         name: "Luigi Pirandello",
         period: "1867 – 1936",
         work: "La Crisi dell'Io",
-        desc: "Premio Nobel nel 1934, Pirandello è il narratore della scomposizione dell'uomo moderno. La sua intuizione centrale è che l'individuo non sia 'uno', ma una moltitudine di frammenti in perenne mutamento. Ogni persona indossa delle 'maschere' imposte dalla società, dalla famiglia e da se stessa, finendo per diventare 'nessuno' o 'centomila' a seconda dello sguardo altrui. Questa visione porta alla 'trappola' delle convenzioni sociali, da cui si può uscire solo attraverso la follia o l'umorismo. L'umorismo, per Pirandello, non è semplice comicità, ma il 'sentimento del contrario': la capacità di vedere oltre l'apparenza ridicola per scorgere la sofferenza sottostante.\n\nCuriosità e Attualità: Il pensiero pirandelliano è incredibilmente profetico rispetto all'era dei Social Network. Oggi, la nostra identità digitale è una costruzione continua di maschere e profili, dove la ricerca di approvazione esterna (i like) frammenta ulteriormente la nostra percezione di noi stessi, rendendo il tema dell'incomunicabilità più attuale che mai.",
+        desc: "Premio Nobel nel 1934, Pirandello è il narratore della scomposizione dell'uomo moderno. La sua intuizione centrale è che l'individuo non sia 'uno', ma una moltitudine di frammenti in perenne mutamento. Ogni persona indossa delle 'maschere' imposte dalla società, finendo per diventare 'nessuno' o 'centomila'.\n\nCuriosità: Il pensiero pirandelliano è incredibilmente profetico rispetto all'era dei Social Network, dove la nostra identità digitale è una costruzione continua di maschere.",
         quote: "« Imparerai a tue spese che nel lungo tragitto della vita incontrerai tante maschere e pochi volti. »",
         source: "Uno, nessuno e centomila",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Luigi_Pirandello.jpg/800px-Luigi_Pirandello.jpg"
@@ -93,33 +98,33 @@ const HUMANITIES_SECTIONS = {
   storia: {
     title: "Eredità Storica e Sistemi Democratici (Storia)",
     icon: "History",
-    desc: "Un'analisi profonda dei conflitti e delle trasformazioni politiche che hanno ridefinito il mondo contemporaneo. Dalle trincee della Grande Guerra alla nascita della Repubblica Italiana, esaminiamo le radici della nostra libertà.",
+    desc: "Un'analisi profonda dei conflitti e delle trasformazioni politiche che hanno ridefinito il mondo contemporaneo.",
     items: [
       {
         name: "La Grande Guerra (1914-1918)",
         period: "L'Inizio del Secolo Breve",
         work: "La Guerra Totale",
-        desc: "La Prima Guerra Mondiale non fu solo un conflitto militare, ma una 'catastrofe originaria' che distrusse l'ordine europeo ottocentesco. Fu la prima guerra totale, dove l'intera società (donne nelle fabbriche, economia di guerra) fu mobilitata. Si passò dalla guerra di movimento alla logorante guerra di trincea, dove milioni di uomini vissero nel fango per anni. Fu anche il primo grande laboratorio tecnologico: apparvero i gas tossici, i carri armati, gli aerei da combattimento e i sottomarini. La fine della guerra portò al crollo di quattro grandi imperi (Tedesco, Austro-Ungarico, Ottomano e Russo) e seminò i germi dei futuri totalitarismi.\n\nCuriosità Tecnologica: La Grande Guerra accelerò in modo incredibile lo sviluppo della Radio e della crittografia. I primi sistemi di intercettazione e i codici segreti (come il celebre Telegramma Zimmermann) cambiarono per sempre il modo di intendere l'intelligence e la comunicazione a distanza, ponendo le basi per la moderna guerra elettronica.",
-        quote: "« La guerra è una follia da cui l'umanità deve guarire, o ne rimarrà annientata. »",
-        source: "Analisi storica contemporanea",
+        desc: "La Prima Guerra Mondiale fu la prima guerra totale, dove l'intera società fu mobilitata. Si passò dalla guerra di movimento alla logorante guerra di trincea. Fu anche il primo grande laboratorio tecnologico: apparvero i gas tossici, i carri armati e gli aerei.\n\nCuriosità: La Grande Guerra accelerò in modo incredibile lo sviluppo della Radio e della crittografia, ponendo le basi per la moderna guerra elettronica.",
+        quote: "« La guerra è una follia da cui l'umanità deve guarire. »",
+        source: "Analisi storica",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Cheshire_Regiment_trench_Somme_1916.jpg/1024px-Cheshire_Regiment_trench_Somme_1916.jpg"
       },
       {
-        name: "Totalitarismi e Seconda Guerra Mondiale",
+        name: "Totalitarismi e Shoah",
         period: "1922 – 1945",
         work: "L'Età dei Dittatori",
-        desc: "Il dopoguerra vide l'ascesa di regimi che cercarono il controllo totale sulla vita dei cittadini. Il Fascismo in Italia, il Nazismo in Germania e lo Stalinismo in URSS usarono la propaganda, il terrore e la tecnologia per sopprimere ogni libertà. Il culmine di questa deriva fu la Seconda Guerra Mondiale, il conflitto più sanguinoso della storia umana, segnato dall'orrore della Shoah (lo sterminio sistematico di 6 milioni di ebrei) e dall'uso della bomba atomica su Hiroshima e Nagasaki. Questa guerra non fu solo per il territorio, ma per la sopravvivenza stessa della civiltà democratica contro la barbarie totalitaria.\n\nCuriosità e Scienza: Durante il conflitto, la necessità di decifrare i codici segreti nazisti portò Alan Turing a costruire 'Enigma', considerato il primo antenato del computer moderno. Paradossalmente, il periodo più buio dell'umanità ha dato i natali alla tecnologia che oggi usiamo per comunicare e lavorare.",
+        desc: "Il dopoguerra vide l'ascesa di regimi che cercarono il controllo totale. Il culmine fu la Seconda Guerra Mondiale, segnata dall'orrore della Shoah e dall'uso della bomba atomica.\n\nCuriosità: La necessità di decifrare i codici nazisti portò Alan Turing a costruire 'Enigma', l'antenato del computer moderno.",
         quote: "« Coloro che non ricordano il passato sono condannati a ripeterlo. »",
-        source: "George Santayana, La vita della ragione",
+        source: "George Santayana",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Auschwitz_I_entrance.jpg/1024px-Auschwitz_I_entrance.jpg"
       },
       {
-        name: "La Nascita della Repubblica Italiana",
+        name: "La Costituzione Italiana",
         period: "1946 – 1948",
-        work: "La Costituzione",
-        desc: "Dopo la caduta del fascismo e la fine della guerra, l'Italia dovette ricostruirsi dalle fondamenta. Il 2 giugno 1946, attraverso un referendum a suffragio universale (per la prima volta votarono anche le donne), gli italiani scelsero la Repubblica. L'Assemblea Costituente lavorò per due anni per redigere la Carta Costituzionale, che entrò in vigore il 1° gennaio 1948. La nostra Costituzione è definita 'rigida' e si fonda sul lavoro, sulla libertà individuale e sulla giustizia sociale. È il frutto di un 'compromesso nobile' tra le diverse anime politiche (cattolica, socialista, liberale) unite dal valore supremo dell'antifascismo.\n\nCuriosità Istituzionale: L'Articolo 11 della Costituzione ('L'Italia ripudia la guerra come strumento di offesa alla libertà degli altri popoli') è uno dei più avanzati al mondo e riflette il trauma collettivo vissuto dal paese, ponendo l'Italia come nazione votata alla pace e alla cooperazione internazionale.",
-        quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. La sovranità appartiene al popolo. »",
-        source: "Articolo 1, Costituzione della Repubblica Italiana",
+        work: "La Nascita della Democrazia",
+        desc: "Il 2 giugno 1946 gli italiani scelsero la Repubblica. L'Assemblea Costituente redasse la Carta Costituzionale, fondata sul lavoro e sulla libertà individuale.\n\nCuriosità: L'Articolo 11 ripudia la guerra, ponendo l'Italia come nazione votata alla pace.",
+        quote: "« L'Italia è una Repubblica democratica, fondata sul lavoro. »",
+        source: "Articolo 1, Costituzione",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Costituzione_della_Repubblica_Italiana.jpg/800px-Costituzione_della_Repubblica_Italiana.jpg"
       }
     ]
@@ -127,13 +132,13 @@ const HUMANITIES_SECTIONS = {
   inglese: {
     title: "Language, Society and Science (Inglese)",
     icon: "Globe",
-    desc: "A comprehensive exploration of English as a vehicle for social critique and technological progress. From Orwell's dystopian warnings to the industrial revolution and the global language of ICT.",
+    desc: "English as a vehicle for social critique and technological progress.",
     items: [
       {
         name: "George Orwell",
         period: "1903 – 1950",
         work: "Dystopia and Truth",
-        desc: "George Orwell is perhaps the most significant political writer of the 20th century. In his masterpiece '1984', he introduced the world to 'Big Brother', a symbol of omnipresent government surveillance. His work is a profound critique of totalitarianism and the manipulation of language ('Newspeak') to control thought. Orwell understood that if the government can control what you say and how you say it, they can control what you think. His vision of a world where 'War is Peace' and 'Freedom is Slavery' serves as a timeless warning about the fragility of objective truth and the dangers of absolute power.\n\nModern Relevance: Today, Orwell's concepts are more relevant than ever. We live in an age of 'Big Data', where our every move is tracked by algorithms, and 'Fake News' challenges our perception of reality. The term 'Orwellian' is frequently used to describe modern surveillance states and the erosion of privacy in the digital age.",
+        desc: "In '1984', Orwell introduced 'Big Brother', a symbol of surveillance. His work critique totalitarianism and the manipulation of language ('Newspeak').\n\nModern Relevance: We live in an age of 'Big Data' and 'Fake News', making Orwell's vision more relevant than ever.",
         quote: "« Big Brother is Watching You. »",
         source: "Nineteen Eighty-Four",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/800px-George_Orwell_press_photo.jpg"
@@ -141,20 +146,148 @@ const HUMANITIES_SECTIONS = {
       {
         name: "The Industrial Revolution",
         period: "18th – 19th Century",
-        work: "Hard Times by Charles Dickens",
-        desc: "The Industrial Revolution transformed Britain from an agricultural society into the world's first industrial superpower. While it brought unprecedented economic growth and technological innovation, it also caused immense social suffering. Charles Dickens, in his novel 'Hard Times', vividly portrayed the grim reality of factory life in fictional Coketown. He attacked the philosophy of Utilitarianism, which valued people only for their productivity and treated children like machines. The revolution led to the rise of the working class, urbanization, and the environmental challenges we still face today.\n\nTechnological Link: The same spirit of innovation that created the steam engine also led to the birth of computing. Ada Lovelace and Charles Babbage developed the first concepts for a programmable computer during this era, proving that the roots of our digital world are deeply embedded in the industrial age.",
-        quote: "« Now, what I want is, Facts. Teach these boys and girls nothing but Facts. Facts alone are wanted in life. »",
+        work: "Hard Times",
+        desc: "The transition from rural life to factories. Dickens portrayed the grim reality of factory life and attacked Utilitarianism.\n\nTechnological Link: The spirit of innovation that created the steam engine also led to the birth of computing with Babbage and Lovelace.",
+        quote: "« Now, what I want is, Facts. »",
         source: "Charles Dickens, Hard Times",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Powerloom_weaving_in_a_cotton_mill.jpg/1024px-Powerloom_weaving_in_a_cotton_mill.jpg"
       },
       {
         name: "Technical English & ICT",
-        period: "The Digital Era",
+        period: "Modern Era",
         work: "The Global Code",
-        desc: "In the 21st century, English has become the 'lingua franca' of the globalized world, especially in the fields of Information and Communication Technology (ICT). Every major programming language, from Python to JavaScript, is based on English syntax. Technical documentation, research papers, and international protocols (like TCP/IP) are written in English to ensure global interoperability. For a developer or a network engineer, proficiency in English is not just a soft skill; it is a fundamental technical requirement to access the latest innovations and collaborate with teams across the globe.\n\nCultural Fact: The Internet was born in English-speaking laboratories (ARPANET), which is why the majority of web terminology—words like 'browser', 'database', 'cloud', and 'kernel'—are English terms used without translation in almost every language on Earth.",
+        desc: "English is the 'lingua franca' of ICT. Every major programming language and international protocol is based on English.\n\nFact: Web terminology like 'browser', 'cloud', and 'kernel' are English terms used globally without translation.",
         quote: "« The single biggest problem in communication is the illusion that it has taken place. »",
-        source: "George Bernard Shaw on Global Communication",
+        source: "George Bernard Shaw",
         image: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  }
+};
+
+const PROFESSIONAL_SECTIONS = {
+  informatica: {
+    title: "Informatica & Software Development",
+    icon: "Code",
+    desc: "Sviluppo di applicazioni web, gestione di database complessi e programmazione lato server.",
+    items: [
+      {
+        name: "Sviluppo Web con PHP",
+        topic: "Server-Side Programming",
+        desc: "PHP è il motore di oltre il 75% dei siti web mondiali. Lo studio si concentra sulla gestione delle sessioni, l'interazione con i database e la creazione di pagine dinamiche. È un linguaggio fondamentale per capire come funziona il web 'sotto il cofano', permettendo di gestire la logica di business e la sicurezza delle applicazioni.\n\nCuriosità: Nonostante l'ascesa di nuovi linguaggi, PHP continua a dominare grazie a piattaforme come WordPress e framework moderni come Laravel.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/800px-PHP-logo.svg.png"
+      },
+      {
+        name: "Progettazione e Sviluppo DB",
+        topic: "Data Architecture",
+        desc: "I database sono il cuore di ogni sistema informativo. Lo studio copre la modellazione E-R (Entità-Relazione), la normalizzazione dei dati per evitare ridondanze e l'uso del linguaggio SQL per interrogazioni complesse. Progettare un DB efficiente significa garantire l'integrità e la velocità di accesso alle informazioni.\n\nCuriosità: Sapevi che un database non ottimizzato può rallentare un'applicazione di oltre il 90%? La corretta indicizzazione è un'arte.",
+        image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Frontend: HTML5 & JavaScript",
+        topic: "User Interface & Logic",
+        desc: "HTML5 fornisce la struttura, mentre JavaScript porta l'interattività. Lo studio di JS moderno (ES6+) permette di manipolare il DOM, gestire chiamate asincrone (API) e creare interfacce utente reattive e coinvolgenti. È il linguaggio che ha trasformato il web da documenti statici ad applicazioni software complete.\n\nCuriosità: JavaScript è stato creato in soli 10 giorni nel 1995, ma oggi è il linguaggio più usato al mondo.",
+        image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+  gpoi: {
+    title: "GPOI (Gestione Progetto e Organizzazione d'Impresa)",
+    icon: "Briefcase",
+    desc: "Analisi dei costi, gestione delle risorse umane e organizzazione aziendale nel settore IT.",
+    items: [
+      {
+        name: "La Busta Paga",
+        topic: "HR & Finance",
+        desc: "Comprendere la busta paga significa saper leggere le voci che compongono la retribuzione: dal lordo al netto, passando per contributi previdenziali (INPS) e ritenute fiscali (IRPEF). È un documento fondamentale che regola il rapporto tra lavoratore e azienda, garantendo trasparenza e diritti.\n\nCuriosità: Il sistema contributivo italiano si basa sulla solidarietà generazionale: i lavoratori di oggi pagano le pensioni di chi è già a riposo.",
+        image: "https://www.informazionefiscale.it/IMG/rtf/come-leggere-la-busta-paga.jpg"
+      },
+      {
+        name: "Costi e Ricavi",
+        topic: "Business Economics",
+        desc: "L'analisi economica di un'impresa si basa sull'equilibrio tra costi (fissi e variabili) e ricavi. Lo studio del Break-Even Point permette di capire quando un progetto inizia a generare profitto. Per un informatico, saper stimare i costi di sviluppo e infrastruttura è cruciale per il successo di un prodotto.\n\nCuriosità: Nel software, il costo marginale (produrre una copia in più) è quasi zero, rendendo le aziende tech estremamente scalabili.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Tipologie di Aziende",
+        topic: "Corporate Structures",
+        desc: "Dalle ditte individuali alle S.p.A., ogni forma giuridica ha responsabilità e vantaggi diversi. Lo studio delle organizzazioni aziendali analizza come le gerarchie e i flussi di lavoro si adattano al mercato, con un focus particolare sulle startup innovative e sulle aziende agili del settore tecnologico.\n\nCuriosità: Molte delle aziende tech più grandi del mondo (Apple, Google, Amazon) sono nate come piccolissime realtà in un garage.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+  tpsit: {
+    title: "TPSIT (Tecnologie e Progettazione di Sistemi Informatici e di Telecomunicazioni)",
+    icon: "Terminal",
+    desc: "Architettura dei sistemi operativi, programmazione concorrente e sviluppo mobile.",
+    items: [
+      {
+        name: "Concorrenza e Processi",
+        topic: "Operating Systems",
+        desc: "La gestione della concorrenza permette a un computer di eseguire più compiti 'simultaneamente'. Lo studio dei processi, dei thread e delle sezioni critiche è fondamentale per evitare conflitti (deadlock) e ottimizzare le prestazioni delle CPU multi-core moderne.\n\nCuriosità: Senza la gestione della concorrenza, il tuo computer si bloccherebbe ogni volta che provi ad aprire una seconda scheda nel browser.",
+        image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Sistemi Operativi",
+        topic: "System Architecture",
+        desc: "Il Sistema Operativo è l'intermediario tra hardware e utente. Lo studio approfondisce la gestione della memoria, lo scheduling della CPU e il file system. Capire come Linux o Windows gestiscono le risorse è essenziale per scrivere software efficiente e sicuro.\n\nCuriosità: Il kernel Linux, che fa girare quasi tutto il web e Android, è nato come un progetto hobbistico di uno studente universitario.",
+        image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Sviluppo con Android Studio",
+        topic: "Mobile Development",
+        desc: "Android Studio è l'IDE standard per creare app per il sistema operativo mobile più diffuso al mondo. Lo studio copre il ciclo di vita delle Activity, la gestione dei layout XML e l'integrazione con i sensori dello smartphone, permettendo di trasformare un'idea in un'applicazione portatile.\n\nCuriosità: Esistono oltre 3 miliardi di dispositivi Android attivi nel mondo, rendendo lo sviluppo mobile una delle carriere più richieste.",
+        image: "https://developer.android.com/static/studio/images/hero_image_studio.png"
+      }
+    ]
+  },
+  sistemi: {
+    title: "Sistemi e Reti",
+    icon: "Network",
+    desc: "Infrastrutture di rete, sicurezza dei dati e simulazione di sistemi complessi.",
+    items: [
+      {
+        name: "Crittografia e Sicurezza",
+        topic: "Data Protection",
+        desc: "La crittografia protegge l'informazione rendendola incomprensibile a chi non possiede la chiave. Dalla crittografia simmetrica (AES) a quella asimmetrica (RSA/ECC), questi algoritmi sono la base di ogni transazione sicura su internet, dalle banche ai messaggi WhatsApp.\n\nCuriosità: La crittografia asimmetrica permette a due persone che non si sono mai viste di scambiarsi messaggi segreti in modo totalmente sicuro.",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Modello ISO/OSI",
+        topic: "Network Protocols",
+        desc: "Il modello ISO/OSI è lo standard che descrive come i dati viaggiano in rete attraverso 7 livelli. Dal livello Fisico (cavi e segnali) fino al livello Applicazione (HTTP, FTP), questa astrazione permette a dispositivi di produttori diversi di comunicare tra loro senza problemi.\n\nCuriosità: Anche se oggi usiamo il modello TCP/IP, il modello ISO/OSI rimane il riferimento teorico fondamentale per ogni esperto di reti.",
+        image: "https://community.fs.com/images/community/wp-content/uploads/2018/10/osi-model-7-layers.png"
+      },
+      {
+        name: "Cisco Packet Tracer",
+        topic: "Network Simulation",
+        desc: "Packet Tracer è uno strumento di simulazione potente che permette di progettare e testare reti complesse senza bisogno di hardware fisico. Si possono configurare router, switch e server, simulando attacchi o ottimizzando il traffico di un'intera città o azienda.\n\nCuriosità: Molte certificazioni professionali Cisco vengono preparate interamente su simulatori come questo prima di toccare un vero router.",
+        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+  ia: {
+    title: "Intelligenza Artificiale",
+    icon: "BrainCircuit",
+    desc: "Reti neurali, deep learning e l'evoluzione dell'apprendimento automatico.",
+    items: [
+      {
+        name: "Reti Neurali e CNN",
+        topic: "Deep Learning",
+        desc: "Le Reti Neurali si ispirano al funzionamento del cervello umano. Le CNN (Convolutional Neural Networks) sono specializzate nell'elaborazione di immagini e video, permettendo ai computer di 'vedere' e riconoscere oggetti, volti e segnali stradali con una precisione superiore a quella umana.\n\nCuriosità: Le CNN sono la tecnologia che permette alle auto a guida autonoma di distinguere un pedone da un palo della luce.",
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "Algoritmo di Backpropagation",
+        topic: "Machine Learning Math",
+        desc: "La Backpropagation è il 'motore' dell'apprendimento delle reti neurali. È un processo matematico che permette alla rete di correggere i propri errori, ricalcolando i pesi delle connessioni tra i neuroni per migliorare le prestazioni a ogni ciclo di addestramento.\n\nCuriosità: Senza questo algoritmo, scoperto negli anni '80 ma diventato potente solo oggi grazie alle moderne GPU, l'AI moderna non esisterebbe.",
+        image: "https://images.unsplash.com/photo-1509228468518-180dd4805a5f?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        name: "AI Generativa e Futuro",
+        topic: "Technological Evolution",
+        desc: "L'AI generativa rappresenta l'ultima frontiera, capace di creare testi, immagini e codice partendo da semplici indicazioni. Lo studio si concentra sull'etica dell'AI, sulla gestione dei dataset e sulle potenzialità di queste tecnologie per potenziare la creatività umana.\n\nCuriosità: I modelli linguistici moderni sono stati addestrati su quasi tutta la conoscenza umana scritta disponibile su internet.",
+        image: "https://images.unsplash.com/photo-1676299081847-824916ff030a?auto=format&fit=crop&q=80&w=800"
       }
     ]
   }
@@ -169,6 +302,9 @@ export default function App() {
 
   // Active Area Umanistica Sub-Section State
   const [activeHumSubSection, setActiveHumSubSection] = useState<"italiano" | "storia" | "inglese">("italiano");
+  
+  // Active Area Professionale Sub-Section State
+  const [activeProfSubSection, setActiveProfSubSection] = useState<"informatica" | "gpoi" | "tpsit" | "sistemi" | "ia">("informatica");
 
   // Contact Panel & Templates State
   const [activeTemplate, setActiveTemplate] = useState("progetto");
@@ -228,7 +364,6 @@ export default function App() {
         return cat === "area umanistica" || cat.includes("umanistic") || cat.includes("filosofia") || cat.includes("letteratur") || cat.includes("storia");
       }
       if (categoryType === "professionale") {
-        // Fallback catchall for development projects
         return cat === "area professionale" || cat.includes("professione") || cat.includes("saas") || cat.includes("fintech") || cat.includes("e-commerce") || cat.includes("developer") || cat.includes("tech") || cat.includes("ai");
       }
       return false;
@@ -238,7 +373,6 @@ export default function App() {
   const fslProjects = filterProjects("fsl");
   const civicaProjects = filterProjects("civica");
   const umanisticaProjects = filterProjects("umanistica");
-  const professionaleProjects = filterProjects("professionale");
 
   // Custom visual project card for educational sections
   const renderEduProjectCard = (proj: Project) => {
@@ -342,7 +476,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Centered Navigation Menu Bar (Responsive Layout) */}
+          {/* Centered Navigation Menu Bar */}
           <nav className="flex items-center justify-start overflow-x-auto no-scrollbar w-full md:w-auto gap-1 text-[10px] sm:text-xs uppercase tracking-wider font-semibold py-1">
             {[
               { id: "home", label: "Home" },
@@ -372,28 +506,20 @@ export default function App() {
       {/* 2. CORE WORKSPACE AREA */}
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full z-10">
 
-        {/* Multi-Column Layout Grid */}
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           
-          {/* Sidebar Left side */}
           {activeSection === "home" && <Sidebar data={portfolio} />}
 
-          {/* Core Content Area Right side */}
           <div className="flex-1 w-full min-h-[500px]">
             
-            {/* RENDER THE ACCORDING SECTION VIEW BASED ON TOP MENU */}
-
-            {/* A. HOME VIEW */}
             {activeSection === "home" && (
               <div className="animate-fade-in space-y-6">
                 <AboutSection data={portfolio} />
               </div>
             )}
 
-            {/* B. FSL (LINGUA FRANCESE & COMPETENZE STORICO-LINGUISTICHE) */}
             {activeSection === "fsl" && (
               <div className="space-y-8 animate-fade-in">
-                {/* Custom Educational Jumbotron */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
                   <div className="flex items-center gap-2 text-[#E0D8D0]">
@@ -404,20 +530,19 @@ export default function App() {
                     Langue Française & Parcours Culturel
                   </h2>
                   <p className="text-[#BDB5AD] leading-relaxed text-xs md:text-sm font-light">
-                    Questa sezione raccoglie le competenze e gli elaborati prodotti nell'ambito linguistico e letterario francofono, consolidando la padronanza della lingua come veicolo culturale e analitico.
+                    Competenze e elaborati prodotti nell'ambito linguistico e letterario francofono.
                   </p>
                 </div>
 
-                {/* Interactive Language proficiency display */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-4">
                   <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans">
-                    Livelli di Competenza Quadrieuropeo (QCER)
+                    Livelli di Competenza (QCER)
                   </h3>
                   <div className="space-y-4 pt-1">
                     {[
-                      { lang: "Italiano (Madrelingua / Lingua scolastica)", level: "C2 - Padronanza Accademica", pct: 100 },
-                      { lang: "Francese (FSL / Certificazione DELF)", level: "B2 - Livello Intermedio Superiore", pct: 85 },
-                      { lang: "Inglese (Comprensione & Produzione)", level: "B2 - Livello Autonomo", pct: 75 }
+                      { lang: "Italiano (Madrelingua)", level: "C2", pct: 100 },
+                      { lang: "Francese (FSL / DELF)", level: "B2", pct: 85 },
+                      { lang: "Inglese (Comprensione)", level: "B2", pct: 75 }
                     ].map((item, idx) => (
                       <div key={idx} className="space-y-1.5">
                         <div className="flex items-center justify-between text-xs font-light">
@@ -435,7 +560,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Filtered FSL Projects */}
                 <div className="space-y-4">
                   <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans px-1">
                     Elaborati e Risorse in Francese
@@ -446,22 +570,19 @@ export default function App() {
                     </div>
                   ) : (
                     <div className="text-center p-8 bg-[#121212] border border-[#E0D8D0]/10 rounded-xl text-xs text-[#E0D8D0]/40 font-light italic">
-                      Nessun progetto o elaborato registrato sotto FSL. Clicca su Modifica Dati per aggiungerlo.
+                      Nessun progetto registrato.
                     </div>
                   )}
                 </div>
               </div>
             )}
 
-            {/* C. EDUCAZIONE CIVICA VIEW */}
             {activeSection === "civica" && (
               <CivicaSection />
             )}
 
-            {/* D. AREA UMANISTICA VIEW */}
             {activeSection === "umanistica" && (
               <div className="space-y-8 animate-fade-in">
-                {/* Editorial Jumbotron */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
                   <div className="flex items-center gap-2 text-[#E0D8D0]">
@@ -471,342 +592,185 @@ export default function App() {
                   <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
                     Lettere, Filosofia ed Espressione del Lavoro
                   </h2>
-                  <p className="text-[#BDB5AD] leading-relaxed text-xs md:text-sm font-light">
-                    Sondare l'eredità storica ed i dilemmi filosofici dell'agire umano. L'indagine umanistica è lente indispensabile per guidare i profondi cambiamenti tecnologici della civiltà industriale ed elettronica.
-                  </p>
                 </div>
 
-                {/* Micro Sub-Tabs navigation in Area Umanistica */}
                 <div className="flex border-b border-[#E0D8D0]/10 pb-[10px] gap-2 overflow-x-auto no-scrollbar">
                   {(["italiano", "storia", "inglese"] as const).map((subKey) => {
-                    const sec = HUMANITIES_SECTIONS[subKey];
                     const isActive = activeHumSubSection === subKey;
-                    
-                    const getIcon = () => {
-                      switch (sec.icon) {
-                        case "BookOpen": return <BookOpen className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />;
-                        case "History": return <History className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />;
-                        case "Globe": return <Globe className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />;
-                        default: return null;
-                      }
-                    };
-
                     return (
                       <button
                         key={subKey}
                         onClick={() => setActiveHumSubSection(subKey)}
-                        className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer group whitespace-nowrap ${
+                        className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                           isActive 
-                            ? "bg-[#E0D8D0] text-[#050505] shadow-xs" 
+                            ? "bg-[#E0D8D0] text-[#050505]" 
                             : "text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5"
                         }`}
                       >
-                        {getIcon()}
                         {subKey}
                       </button>
                     );
                   })}
                 </div>
 
-                {/* Sub-Section Jumbotron details */}
-                <div className="p-5 border border-[#E0D8D0]/10 bg-[#121212]/45 rounded-2xl">
-                  <h3 className="text-sm font-semibold text-[#E0D8D0] tracking-wider uppercase mb-1">
-                    {HUMANITIES_SECTIONS[activeHumSubSection].title}
-                  </h3>
-                  <p className="text-xs text-[#BDB5AD] font-light leading-relaxed">
-                    {HUMANITIES_SECTIONS[activeHumSubSection].desc}
-                  </p>
-                </div>
-
-                {/* Study Items Grid */}
                 <div className="grid grid-cols-1 gap-8">
                   {HUMANITIES_SECTIONS[activeHumSubSection].items.map((author: any, index: number) => (
                     <div 
                       key={index} 
                       className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-[#E0D8D0]/25 transition-all group duration-300"
                     >
-                      {/* Image side - Larger and more prominent */}
                       <div className="w-full md:w-1/3 lg:w-1/4 h-64 md:h-auto shrink-0 overflow-hidden bg-[#050505]">
                         <img 
                           src={author.image} 
                           alt={author.name} 
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                           onError={(e) => {
                             e.currentTarget.src = "https://images.unsplash.com/photo-1457369804590-52c65a7f027f?auto=format&fit=crop&q=80&w=800";
                           }}
                         />
                       </div>
-
-                      {/* Content side */}
                       <div className="flex-1 p-6 md:p-8 flex flex-col justify-between gap-6">
                         <div className="space-y-4">
                           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E0D8D0]/5 pb-4">
                             <div>
-                              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E0D8D0]/40 block mb-1 uppercase">
-                                {author.period}
-                              </span>
-                              <h4 className="text-xl md:text-2xl font-bold text-[#E0D8D0] group-hover:text-white transition-colors">
-                                {author.name}
-                              </h4>
+                              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E0D8D0]/40 block mb-1 uppercase">{author.period}</span>
+                              <h4 className="text-xl font-bold text-[#E0D8D0]">{author.name}</h4>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-full text-[#E0D8D0]/80 font-mono">
-                                {author.work}
-                              </span>
-                            </div>
+                            <span className="text-[10px] px-3 py-1 bg-[#E0D8D0]/5 border border-[#E0D8D0]/10 rounded-full text-[#E0D8D0]/80 font-mono">{author.work}</span>
                           </div>
-                          
-                          <div className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">
-                            {author.desc}
-                          </div>
+                          <div className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">{author.desc}</div>
                         </div>
-
                         <div className="pt-4 border-t border-[#E0D8D0]/5 space-y-2">
-                          <p className="text-xs md:text-sm text-[#E0D8D0]/90 italic font-serif leading-relaxed relative pl-4">
-                            <span className="absolute left-0 top-0 text-2xl text-[#E0D8D0]/20 font-serif leading-none">“</span>
-                            {author.quote}
-                          </p>
-                          <span className="text-[9px] font-mono tracking-wider text-[#E0D8D0]/30 block text-right">
-                            — {author.source}
-                          </span>
+                          <p className="text-xs italic font-serif leading-relaxed text-[#E0D8D0]/90">"{author.quote}"</p>
+                          <span className="text-[9px] font-mono text-[#E0D8D0]/30 block text-right">— {author.source}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* AREA PROFESSIONALE RE-DESIGNED */}
+            {activeSection === "professionale" && (
+              <div className="space-y-8 animate-fade-in">
+                <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
+                  <div className="flex items-center gap-2 text-[#E0D8D0]">
+                    <Terminal className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">Area Professionale & Indirizzo</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
+                    Competenze Tecniche e Scientifiche
+                  </h2>
+                </div>
+
+                <div className="flex border-b border-[#E0D8D0]/10 pb-[10px] gap-2 overflow-x-auto no-scrollbar">
+                  {(Object.keys(PROFESSIONAL_SECTIONS) as Array<keyof typeof PROFESSIONAL_SECTIONS>).map((subKey) => {
+                    const isActive = activeProfSubSection === subKey;
+                    return (
+                      <button
+                        key={subKey}
+                        onClick={() => setActiveProfSubSection(subKey)}
+                        className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                          isActive 
+                            ? "bg-[#E0D8D0] text-[#050505]" 
+                            : "text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5"
+                        }`}
+                      >
+                        {subKey}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="grid grid-cols-1 gap-8">
+                  {PROFESSIONAL_SECTIONS[activeProfSubSection].items.map((item: any, index: number) => (
+                    <div 
+                      key={index} 
+                      className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-[#E0D8D0]/25 transition-all group duration-300"
+                    >
+                      <div className="w-full md:w-1/3 lg:w-1/4 h-64 md:h-auto shrink-0 overflow-hidden bg-[#050505]">
+                        <img 
+                          src={item.image} 
+                          alt={item.name} 
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800";
+                          }}
+                        />
+                      </div>
+                      <div className="flex-1 p-6 md:p-8 flex flex-col justify-between gap-6">
+                        <div className="space-y-4">
+                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E0D8D0]/5 pb-4">
+                            <div>
+                              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E0D8D0]/40 block mb-1 uppercase">{item.topic}</span>
+                              <h4 className="text-xl font-bold text-[#E0D8D0]">{item.name}</h4>
+                            </div>
+                          </div>
+                          <div className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light whitespace-pre-wrap">{item.desc}</div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Filtered humanities projects */}
-                <div className="space-y-4 pt-8">
-                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans px-1">
-                    Scolastica & Ricerche Letterarie
-                  </h3>
-                  {umanisticaProjects.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {umanisticaProjects.map(proj => renderEduProjectCard(proj))}
-                    </div>
-                  ) : (
-                    <div className="text-center p-8 bg-[#121212] border border-[#E0D8D0]/10 rounded-xl text-xs text-[#E0D8D0]/40 font-light italic">
-                      Nessun saggio o elaborato d'area umanistica caricato.
-                    </div>
-                  )}
+                <div className="pt-8 border-t border-[#E0D8D0]/10">
+                  <h3 className="text-xs font-semibold tracking-[0.2em] text-[#E0D8D0]/70 uppercase font-sans mb-6">Progetti Professionali Realizzati</h3>
+                  <ProjectsSection data={portfolio} />
                 </div>
               </div>
             )}
 
-            {/* E. AREA PROFESSIONALE VIEW */}
-            {activeSection === "professionale" && (
-              <div className="space-y-6">
-                {/* Render the standard ProjectsSection with current projects */}
-                <ProjectsSection data={portfolio} />
-              </div>
-            )}
-
-            {/* F. CONTATTI VIEW */}
             {activeSection === "contatti" && (
               <div className="space-y-8 animate-fade-in text-xs font-light">
-                {/* Header card info */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-3 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#1a1410]/50 rounded-full blur-2xl pointer-events-none"></div>
                   <div className="flex items-center gap-2 text-[#E0D8D0]">
                     <Send className="w-4 h-4 text-[#E0D8D0] animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">HUB DI COMUNICAZIONE INTERATTIVA</span>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] font-sans opacity-70">HUB DI COMUNICAZIONE</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-light italic text-[#E0D8D0] tracking-tight leading-tight font-serif">
                     Mettiti in Contatto
                   </h2>
-                  <p className="text-xs text-[#BDB5AD] max-w-xl leading-relaxed">
-                    Scegli il canale che preferisci di seguito o utilizza l'autocompositore interattivo per generare e inviare istantaneamente messaggi scolastici o proposte di PCTO prefabbricate.
-                  </p>
                 </div>
 
-                {/* Main Contact Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  {/* Left Side: Contact Info & Links */}
                   <div className="lg:col-span-5 space-y-6">
                     <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 space-y-6">
                       <div className="space-y-4">
                         <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E0D8D0]/40">Canali Diretti</h3>
-                        
                         <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5 group hover:border-[#E0D8D0]/20 transition-all">
+                          <div className="flex items-center justify-between p-3 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-lg bg-[#E0D8D0]/5 flex items-center justify-center text-[#E0D8D0]">
-                                <Mail className="w-4 h-4" />
-                              </div>
-                              <div className="flex flex-col">
-                                <span className="text-[9px] uppercase tracking-tighter text-[#E0D8D0]/30 font-bold">Email Istituzionale</span>
-                                <span className="text-[11px] text-[#E0D8D0] font-medium">{portfolio.email}</span>
-                              </div>
+                              <Mail className="w-4 h-4 text-[#E0D8D0]/40" />
+                              <span className="text-[11px] text-[#E0D8D0] font-medium">{portfolio.email}</span>
                             </div>
-                            <button 
-                              onClick={() => {
-                                navigator.clipboard.writeText(portfolio.email);
-                                setCopiedEmail(true);
-                                setTimeout(() => setCopiedEmail(false), 2000);
-                              }}
-                              className="p-2 hover:bg-[#E0D8D0]/10 rounded-lg text-[#E0D8D0]/40 hover:text-[#E0D8D0] transition-all"
-                            >
-                              {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
+                            <button onClick={() => { navigator.clipboard.writeText(portfolio.email); setCopiedEmail(true); setTimeout(() => setCopiedEmail(false), 2000); }}>
+                              {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5 text-[#E0D8D0]/40" />}
                             </button>
                           </div>
-
                           <div className="grid grid-cols-3 gap-2">
-                            {[
-                              { icon: <Github className="w-4 h-4" />, label: "Github", link: portfolio.github },
-                              { icon: <Linkedin className="w-4 h-4" />, label: "Linkedin", link: portfolio.linkedin },
-                              { icon: <Instagram className="w-4 h-4" />, label: "Instagram", link: "#" }
-                            ].map((social, sidx) => (
-                              <a 
-                                key={sidx}
-                                href={social.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5 hover:border-[#E0D8D0]/20 hover:bg-[#E0D8D0]/5 transition-all group"
-                              >
-                                <div className="text-[#E0D8D0]/40 group-hover:text-[#E0D8D0] transition-colors">
-                                  {social.icon}
-                                </div>
-                                <span className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/30 group-hover:text-[#E0D8D0]/60">{social.label}</span>
-                              </a>
-                            ))}
+                            <a href={portfolio.github} target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Github className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Github</span></a>
+                            <a href={portfolio.linkedin} target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Linkedin className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Linkedin</span></a>
+                            <a href="#" target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-xl bg-[#050505]/50 border border-[#E0D8D0]/5"><Instagram className="w-4 h-4 text-[#E0D8D0]/40" /><span className="text-[9px] mt-2">Instagram</span></a>
                           </div>
-                        </div>
-                      </div>
-
-                      <div className="pt-4 border-t border-[#E0D8D0]/5 space-y-4">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-3.5 h-3.5 text-[#E0D8D0]/40" />
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#E0D8D0]/40">Disponibilità Attuale</span>
-                        </div>
-                        <div className="p-4 rounded-xl bg-[#E0D8D0]/5 border border-[#E0D8D0]/10">
-                          <p className="text-[#E0D8D0] font-medium mb-1 italic">"{portfolio.availability}"</p>
-                          <p className="text-[10px] text-[#BDB5AD]">Risposta media entro 24-48 ore lavorative.</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Right Side: Interactive Form / Template Generator */}
-                  <div className="lg:col-span-7 space-y-6">
-                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden flex flex-col h-full">
-                      {/* Tabs for Template selection */}
-                      <div className="flex border-b border-[#E0D8D0]/5 bg-[#050505]/30">
-                        {CONTACT_TEMPLATES.map((tmp) => (
-                          <button
-                            key={tmp.id}
-                            onClick={() => {
-                              setActiveTemplate(tmp.id);
-                              setContactSubject(tmp.subject);
-                              setContactMessage(tmp.body);
-                            }}
-                            className={`flex-1 px-4 py-4 text-[10px] font-bold uppercase tracking-wider transition-all border-b-2 ${
-                              activeTemplate === tmp.id 
-                                ? "bg-[#E0D8D0]/5 border-[#E0D8D0] text-[#E0D8D0]" 
-                                : "border-transparent text-[#E0D8D0]/30 hover:text-[#E0D8D0]/60"
-                            }`}
-                          >
-                            {tmp.id}
-                          </button>
-                        ))}
-                      </div>
-
-                      <div className="p-6 flex-1 flex flex-col space-y-6">
-                        <div className="space-y-1">
-                          <h4 className="text-sm font-semibold text-[#E0D8D0]">{CONTACT_TEMPLATES.find(t => t.id === activeTemplate)?.label}</h4>
-                          <p className="text-[11px] text-[#BDB5AD]">{CONTACT_TEMPLATES.find(t => t.id === activeTemplate)?.description}</p>
+                  <div className="lg:col-span-7">
+                    <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden p-6">
+                      <form onSubmit={handleContactSubmit} className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          <input type="text" required value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nome" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
+                          <input type="email" required value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Email" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
                         </div>
-
-                        {contactSuccess ? (
-                          <div className="flex-1 flex flex-col items-center justify-center space-y-4 animate-fade-in py-12">
-                            <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500">
-                              <Check className="w-8 h-8" />
-                            </div>
-                            <div className="text-center space-y-1">
-                              <h4 className="text-sm font-bold text-[#E0D8D0]">Messaggio Inviato!</h4>
-                              <p className="text-[11px] text-[#BDB5AD]">Grazie per avermi contattato. Ti risponderò al più presto.</p>
-                            </div>
-                            <button 
-                              onClick={resetContactForm}
-                              className="mt-4 px-6 py-2 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-widest hover:bg-white transition-all"
-                            >
-                              Invia un altro messaggio
-                            </button>
-                          </div>
-                        ) : (
-                          <form onSubmit={handleContactSubmit} className="space-y-4 flex-1">
-                            <div className="grid grid-cols-2 gap-4">
-                              <div className="space-y-1.5">
-                                <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Nome</label>
-                                <input 
-                                  type="text" 
-                                  required
-                                  value={contactName}
-                                  onChange={(e) => setContactName(e.target.value)}
-                                  placeholder="Il tuo nome"
-                                  className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
-                                />
-                              </div>
-                              <div className="space-y-1.5">
-                                <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Email</label>
-                                <input 
-                                  type="email" 
-                                  required
-                                  value={contactEmail}
-                                  onChange={(e) => setContactEmail(e.target.value)}
-                                  placeholder="la-tua@email.com"
-                                  className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
-                                />
-                              </div>
-                            </div>
-                            
-                            <div className="space-y-1.5">
-                              <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Oggetto</label>
-                              <input 
-                                type="text" 
-                                value={contactSubject}
-                                onChange={(e) => setContactSubject(e.target.value)}
-                                placeholder="Oggetto del messaggio"
-                                className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0]"
-                              />
-                            </div>
-
-                            <div className="space-y-1.5 flex-1 flex flex-col">
-                              <label className="text-[9px] font-bold uppercase tracking-widest text-[#E0D8D0]/40 ml-1">Messaggio</label>
-                              <textarea 
-                                required
-                                value={contactMessage}
-                                onChange={(e) => setContactMessage(e.target.value)}
-                                placeholder="Scrivi qui il tuo messaggio..."
-                                className="w-full flex-1 bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#E0D8D0]/30 transition-all text-[#E0D8D0] resize-none min-h-[150px]"
-                              />
-                            </div>
-
-                            <div className="pt-2 flex items-center justify-between">
-                              <button 
-                                type="button"
-                                onClick={() => {
-                                  navigator.clipboard.writeText(contactMessage);
-                                  setCopiedTemplate(true);
-                                  setTimeout(() => setCopiedTemplate(false), 2000);
-                                }}
-                                className="flex items-center gap-2 px-4 py-2 rounded-xl text-[#E0D8D0]/40 hover:text-[#E0D8D0] hover:bg-[#E0D8D0]/5 transition-all"
-                              >
-                                {copiedTemplate ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
-                                <span className="text-[9px] font-bold uppercase tracking-widest">Copia Bozza</span>
-                              </button>
-
-                              <button 
-                                type="submit"
-                                disabled={contactLoading}
-                                className="flex items-center gap-2 px-8 py-3 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-white transition-all disabled:opacity-50"
-                              >
-                                {contactLoading ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
-                                Invia Messaggio
-                              </button>
-                            </div>
-                          </form>
-                        )}
-                      </div>
+                        <input type="text" value={contactSubject} onChange={(e) => setContactSubject(e.target.value)} placeholder="Oggetto" className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0]" />
+                        <textarea required value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} placeholder="Messaggio..." className="w-full bg-[#050505]/50 border border-[#E0D8D0]/10 rounded-xl px-4 py-3 text-xs text-[#E0D8D0] h-32 resize-none" />
+                        <button type="submit" className="w-full py-3 rounded-xl bg-[#E0D8D0] text-[#050505] font-bold text-[10px] uppercase tracking-[0.2em]">{contactLoading ? "Invio..." : "Invia Messaggio"}</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -816,7 +780,6 @@ export default function App() {
         </div>
       </main>
 
-      {/* 3. PREMIUM FOOTER SECTION */}
       <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full border-t border-[#E0D8D0]/5">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center md:items-start gap-1">
@@ -825,15 +788,6 @@ export default function App() {
               <span className="text-xs font-bold tracking-widest uppercase text-[#E0D8D0]/80">Tommaso Copparoni</span>
             </div>
             <p className="text-[10px] text-[#E0D8D0]/30 font-mono">© 2026 • JESI, ITALIA • STUDENT PORTFOLIO</p>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#E0D8D0]/40">System Online</span>
-            </div>
-            <div className="h-4 w-[1px] bg-[#E0D8D0]/10"></div>
-            <p className="text-[10px] text-[#E0D8D0]/40 font-light">Built with <span className="text-[#E0D8D0]/60">React & Tailwind</span></p>
           </div>
         </div>
       </footer>
