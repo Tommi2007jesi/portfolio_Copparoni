@@ -365,14 +365,27 @@ export default function App() {
 
                 {/* Introduzione */}
                 <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl p-6 md:p-8 space-y-4">
-                  <h3 className="text-sm font-semibold tracking-[0.1em] text-[#E0D8D0] uppercase">La Mia Esperienza</h3>
+                  <div className="flex flex-col md:flex-row gap-6 items-start">
+                    <div className="w-full md:w-1/3 shrink-0 rounded-xl overflow-hidden border border-[#E0D8D0]/10 bg-[#050505]">
+                      <img 
+                        src="/img/prisma.png" 
+                        alt="Prisma Store" 
+                        className="w-full h-auto object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800";
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1 space-y-4">
+                      <h3 className="text-sm font-semibold tracking-[0.1em] text-[#E0D8D0] uppercase">La Mia Esperienza</h3>
                   <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
                     Ho avuto l'opportunità di lavorare presso Prisma, un negozio specializzato nella manutenzione di computer e nella vendita di oggetti elettronici. Durante questo periodo, ho sviluppato competenze pratiche fondamentali nel settore IT, imparando a smontare e riparare componenti hardware, diagnosticare problemi tecnici e fornire un servizio clienti professionale e attento.
                   </p>
-                  <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
-                    L'esperienza mi ha permesso di comprendere il ciclo completo di un'attività commerciale: dalla gestione dell'inventario, alla consulenza tecnica ai clienti, fino alla risoluzione pratica di problemi hardware. Ogni giorno ho potuto applicare le conoscenze teoriche acquisite a scuola in un contesto reale, scoprendo quanto sia importante la combinazione tra competenza tecnica e capacità comunicativa.
-                  </p>
-                </div>
+                      <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
+                        L'esperienza mi ha permesso di comprendere il ciclo completo di un'attività commerciale: dalla gestione dell'inventario, alla consulenza tecnica ai clienti, fino alla risoluzione pratica di problemi hardware. Ogni giorno ho potuto applicare le conoscenze teoriche acquisite a scuola in un contesto reale, scoprendo quanto sia importante la combinazione tra competenza tecnica e capacità comunicativa.
+                      </p>
+                    </div>
+                  </div>
 
                 {/* Layout: Mappa a sinistra + Commento a destra */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -380,7 +393,7 @@ export default function App() {
                   <div className="bg-[#121212] border border-[#E0D8D0]/10 rounded-2xl overflow-hidden">
                     <div className="h-80 bg-[#050505] relative flex items-center justify-center">
                       <img 
-                        src="/img/prisma-map.png" 
+                        src="/img/maps.png" 
                         alt="Prisma Jesi Location" 
                         className="w-full h-full object-cover"
                         onError={(e) => {
