@@ -378,14 +378,15 @@ export default function App() {
                     </div>
                     <div className="flex-1 space-y-4">
                       <h3 className="text-sm font-semibold tracking-[0.1em] text-[#E0D8D0] uppercase">La Mia Esperienza</h3>
-                  <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
-                    Ho avuto l'opportunità di lavorare presso Prisma, un negozio specializzato nella manutenzione di computer e nella vendita di oggetti elettronici. Durante questo periodo, ho sviluppato competenze pratiche fondamentali nel settore IT, imparando a smontare e riparare componenti hardware, diagnosticare problemi tecnici e fornire un servizio clienti professionale e attento.
-                  </p>
+                      <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
+                        Ho avuto l'opportunità di lavorare presso Prisma, un negozio specializzato nella manutenzione di computer e nella vendita di oggetti elettronici. Durante questo periodo, ho sviluppato competenze pratiche fondamentali nel settore IT, imparando a smontare e riparare componenti hardware, diagnosticare problemi tecnici e fornire un servizio clienti professionale e attento.
+                      </p>
                       <p className="text-xs md:text-sm text-[#BDB5AD] leading-relaxed font-light">
                         L'esperienza mi ha permesso di comprendere il ciclo completo di un'attività commerciale: dalla gestione dell'inventario, alla consulenza tecnica ai clienti, fino alla risoluzione pratica di problemi hardware. Ogni giorno ho potuto applicare le conoscenze teoriche acquisite a scuola in un contesto reale, scoprendo quanto sia importante la combinazione tra competenza tecnica e capacità comunicativa.
                       </p>
                     </div>
                   </div>
+                </div>
 
                 {/* Layout: Mappa a sinistra + Commento a destra */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
