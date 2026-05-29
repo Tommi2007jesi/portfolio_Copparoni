@@ -14,7 +14,7 @@ export const defaultPortfolioData: PortfolioData = {
   skills: [
     {
       category: "Competenze Tecniche",
-      items: ["Creazione DB", "Problem Solving", "Team Working", "Gestione del Tempo", "Progettazione Reti LAN", "Linguaggi Client-Server"]
+      items: ["Creazione DB", "Problem Solving", "Team Working", "Gestione del Tempo", "Progettazione Reti LAN", "Linguaggi C# e PHP"]
     }
   ],
   activities: [
