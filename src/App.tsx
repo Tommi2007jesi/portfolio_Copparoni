@@ -160,7 +160,7 @@ export default function App() {
           desc: "Luigi Pirandello è il maestro della crisi dell'identità moderna. La sua opera 'Uno, nessuno e centomila' rappresenta il capolavoro della riflessione sulla molteplicità dell'io. Pirandello ci mostra come ogni persona è contemporaneamente una per se stessa e mille per gli altri, a seconda di come viene percepita. Questo tema è straordinariamente attuale nell'era dei social media, dove ciascuno di noi costruisce molteplici identità digitali.",
           quote: "Uno, nessuno e centomila",
           source: "Luigi Pirandello",
-          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+          image: "/img/pirandello.jpg"
         },
         {
           name: "Gabriele D'Annunzio",
@@ -169,7 +169,7 @@ export default function App() {
           desc: "Gabriele D'Annunzio è il poeta dell'estetismo e del panismo, cioè della fusione dell'uomo con la natura. 'La pioggia nel pineto' è una celebrazione sensoriale della natura, dove il poeta e la donna si dissolvono nel ritmo della pioggia e nel sussurro dei pini. D'Annunzio ha rivoluzionato la letteratura italiana con il suo stile ricercato e la sua visione di una bellezza assoluta come fine supremo dell'arte.",
           quote: "La pioggia nel pineto",
           source: "Gabriele D'Annunzio",
-          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+          image: "/img/dannunzio.jpg"
         },
         {
           name: "Giuseppe Ungaretti",
@@ -178,7 +178,7 @@ export default function App() {
           desc: "Giuseppe Ungaretti è il poeta della trincea, della brevità e dell'essenzialità. La sua poesia 'Soldati' è una delle più toccanti della letteratura italiana: in poche parole, cattura l'angoscia e la fragilità della vita umana durante la Grande Guerra. Ungaretti ha rivoluzionato la poesia italiana con l'Ermetismo, uno stile che privilegia la profondità emotiva e la ricerca del significato nascosto.",
           quote: "Soldati",
           source: "Giuseppe Ungaretti",
-          image: "https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=800"
+          image: "/img/ungaretti.jpg"
         }
       ]
     },
