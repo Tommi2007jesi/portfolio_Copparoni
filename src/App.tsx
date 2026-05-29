@@ -346,7 +346,7 @@ export default function App() {
           <div className="flex-1 min-w-0">
 
             {/* HOME SECTION */}
-            {activeSection === "home" && <AboutSection />}
+            {activeSection === "home" && <AboutSection data={portfolio} />}
 
             {/* FSL SECTION */}
             {activeSection === "fsl" && (
