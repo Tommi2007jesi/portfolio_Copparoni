@@ -15,10 +15,10 @@ export default function Sidebar({ data }: SidebarProps) {
           <div className="w-full rounded-2xl bg-gradient-to-tr from-[#E0D8D0]/50 via-[#E0D8D0]/10 to-[#E0D8D0]/45 p-[2px] shadow-lg transition-transform duration-500 group-hover:scale-105 overflow-hidden">
             <div className="w-full bg-[#121212] rounded-[13px] flex items-center justify-center overflow-hidden">
               <img 
-                src="/img/miafoto.png" 
+                src="/img/profilo.jpeg" 
                 alt="Tommaso Copparoni Portrait"
                 referrerPolicy="no-referrer"
-                className="w-full h-auto object-contain" 
+                className="w-full h-auto object-cover aspect-[3/4]" 
               />
             </div>
           </div>
